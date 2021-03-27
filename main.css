@@ -1,0 +1,13 @@
+body{
+    min-width: 300px;
+    min-height: 500px;
+}
+
+.home{
+    width: 25px;
+    margin-left: 5px;
+}
+
+.books{
+    width: 100px;
+}
