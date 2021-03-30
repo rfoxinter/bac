@@ -11,3 +11,19 @@
 .books:hover {
     transform: scale(1.75);
 }
+
+.fake_a {
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.poem {
+    margin-top: 0;
+    margin-bottom: 0;
+    white-space: pre;
+}
+
+.epigraph {
+	font-style: italic;
+	margin-left: 20px;
+}
