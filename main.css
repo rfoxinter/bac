@@ -8,9 +8,12 @@
     transition: transform .2s;
 }
 
-.books:hover {
-    transform: scale(1.75);
+@media (hover: hover) {
+    .books:hover {
+        transform: scale(1.75);
+    }
 }
+
 
 .fake_a {
     cursor: pointer;
