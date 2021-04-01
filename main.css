@@ -23,6 +23,10 @@
     white-space: pre;
 }
 
+#poems {
+    margin-bottom: 0;
+}
+
 .epigraph {
 	font-style: italic;
 	margin-left: 20px;
