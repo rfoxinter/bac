@@ -18,11 +18,14 @@
         <h1 id="author">Oscar Wilde</h1>
      </header>
      <main class="main-content">
-        <a href="https://rfoxinter.github.io/ebooks/bibi/?book=https://padlet-uploads.storage.googleapis.com/517454805/ca8dd5d84a13a5c254cca631d0c9505c/The_Importance_of_Being_Earnest.epub" target="blank">Book</a>
-        </br>
-        <a class="fake_a" onclick="pdf(this)" target="blank">PDF</a>
-        </br>
-        <a href="https://quizlet.com/_9lfo98?x=1jqt&i=3hrg84" target="blank">Quotes</a>
+        <p><a class="fake_a" onclick="online(this)" target="blank">Online book</a></p>
+        <p><a class="fake_a" onclick="pdf(this)" target="blank">PDF</a></p>
+        <p style="margin-top: 0; margin-bottom: 0;"><a onclick="ebooks()" class="fake_a">Other formats</a></p>
+        <ul style="display: none; margin-top: 0; margin-bottom: 0;" id="ebooks">
+            <li><a class="fake_a" onclick="ebook(this,'epub')" target="blank">EPUB (for e-readers)</a></li>
+            <li><a class="fake_a" onclick="ebook(this,'mobi')" target="blank">Mobi (for Kindke)</a></li>
+        </ul>
+        <p><a class="fake_a" onclick="quotes(this,'tiobe')" target="blank">Quotes</a></p>
     </main>
     <footer class="site-footer">
         <a href="../bac.html"><img src="../home.png" class="home"></a>
