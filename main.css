@@ -1,4 +1,9 @@
-.home{
+p, ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.home {
     width: 25px;
     margin-left: 5px;
 }
@@ -13,7 +18,6 @@
         transform: scale(1.75);
     }
 }
-
 
 .fake_a {
     cursor: pointer;
