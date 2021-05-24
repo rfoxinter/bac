@@ -1,4 +1,10 @@
-
+function book_id(str) {
+	str = str.substring(0,str.length-5);
+	while (str.indexOf("/") != -1) {
+		str = str.substring(str.indexOf("/")+1,str.length);
+	}
+	return str
+}
 
 function online(a) {
 	var title = document.getElementById("title").textContent;
@@ -25,13 +31,6 @@ function character_map(a) {
 }
 
 function quotes(a) {
-	function book_id(str) {
-		str = str.substring(0,str.length-5);
-		while (str.indexOf("/") != -1) {
-			str = str.substring(str.indexOf("/")+1,str.length);
-		}
-		return str
-	}
 	var quizlet = {tiobe : "https://quizlet.com/_9lfo98?x=1jqt&i=3hrg84"};
 	var url = window.location.href;
 	url = book_id(url)
