@@ -18,13 +18,15 @@
         <h1 id="author">Lynn Nottage</h1>
      </header>
      <main class="main-content">
-        <a href="http://docs.google.com/viewer?url=https://padlet-uploads.storage.googleapis.com/517454805/0ace2ec1656f04b523ccaf9c2bee2822/Intimate_Apparel___Fabulation.pdf&embedded=true" target="blank">Book</a>
-        </br>
-        <a href="https://padlet-uploads.storage.googleapis.com/517454805/0ace2ec1656f04b523ccaf9c2bee2822/Intimate_Apparel___Fabulation.pdf" target="blank">PDF</a>
-        </br>
-        <a class="fake_a" onclick="character_map(this)" target="blank">Character map</a>
-        </br>
-        <a href="https://quizlet.com/_9kcegz?x=1jqt&i=3hrg84" target="blank">Quotes</a>
+        <p><a class="fake_a" onclick="online(this)" target="blank"><del>Online book</del></a></p>
+        <p><a class="fake_a" onclick="pdf(this)" target="blank">PDF</a></p>
+        <p><a onclick="ebooks()" class="fake_a"><del>Other formats</del></a></p>
+        <ul style="display: none;" id="ebooks">
+            <li><a class="fake_a" onclick="ebook(this,'epub')" target="blank"><del>EPUB (for e-readers)</del></a></li>
+            <li><a class="fake_a" onclick="ebook(this,'mobi')" target="blank"><del>Mobi (for Kindke)</del></a></li>
+        </ul>
+        <p><a class="fake_a" onclick="character_map(this)" target="blank">Character map</a></p>
+        <p><a class="fake_a" onclick="quotes(this)" target="blank">Quotes</a></p>
     </main>
     <footer class="site-footer">
         <a href="../bac.html"><img src="../home.png" class="home"></a>
