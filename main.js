@@ -1,40 +1,43 @@
+const quizlet = {ia : "https://quizlet.com/_9kcegz?x=1jqt&i=3hrg84", iom : "https://quizlet.com/_9w625w?x=1jqt&i=3hrg84", noans : "https://quizlet.com/_9w9akc?x=1jqt&i=3hrg84", tiobe : "https://quizlet.com/_9lfo98?x=1jqt&i=3hrg84", tpos : "https://quizlet.com/_9vertz?x=1jqt&i=3hrg84", wp : "https://quizlet.com/_9w64y0?x=1jqt&i=3hrg84"};
+
 function book_id(str) {
-	str = str.substring(0,str.length-5);
-	while (str.indexOf("/") != -1) {
-		str = str.substring(str.indexOf("/")+1,str.length);
-	}
-	return str
+    str = str.substring(0,str.length-5);
+    while (str.indexOf("/") != -1) {
+        str = str.substring(str.indexOf("/")+1,str.length);
+    }
+    return str
 }
 
 function online(a) {
-	var title = document.getElementById("title").textContent;
-	var author = document.getElementById("author").textContent;
-	a.setAttribute("href","https://rfoxinter.github.io/ebooks/bibi/?book="+title+" - "+author+".epub");
+    const title = document.getElementById("title").textContent;
+    const author = document.getElementById("author").textContent;
+    a.setAttribute("href","https://rfoxinter.github.io/ebooks/bibi/?book="+title+" - "+author+".epub");
 }
 
 function pdf(a) {
-	var title = document.getElementById("title").textContent;
-	var author = document.getElementById("author").textContent;
-	a.setAttribute("href","../pdfs/"+title+" - "+author+".pdf");
+    const title = document.getElementById("title").textContent;
+    const author = document.getElementById("author").textContent;
+    a.setAttribute("href","../pdfs/"+title+" - "+author+".pdf");
 }
 
 function ebook(a,format) {
-	var title = document.getElementById("title").textContent;
-	var author = document.getElementById("author").textContent;
-	a.setAttribute("href","../ebooks/"+title+" - "+author+"."+format);
+    const title = document.getElementById("title").textContent;
+    const author = document.getElementById("author").textContent;
+    a.setAttribute("href","../ebooks/"+title+" - "+author+"."+format);
 }
 
 function character_map(a) {
-	var title = document.getElementById("title").textContent;
-	var author = document.getElementById("author").textContent;
-	a.setAttribute("href","../character_maps/"+title+" - "+author+".pdf");
+    const title = document.getElementById("title").textContent;
+    const author = document.getElementById("author").textContent;
+    var url = window.location.href;
+    url = book_id(url);
+    a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+url);
 }
 
 function quotes(a) {
-	var quizlet = {tiobe : "https://quizlet.com/_9lfo98?x=1jqt&i=3hrg84"};
-	var url = window.location.href;
-	url = book_id(url)
-	a.setAttribute("href",quizlet[url]);
+    var url = window.location.href;
+    url = book_id(url)
+    a.setAttribute("href",quizlet[url]);
 }
 
 function ebooks() {
