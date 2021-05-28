@@ -14,21 +14,31 @@
 </head>
 <body>
     <header class="page-header">
-        <h1>Women poets</h1>
+        <h1 id="title">Women poets</h1>
+        <h1 id="author" style="display: none;">Women poets</h1>
      </header>
      <main class="main-content">
-        <p onclick="poems()" class="fake_a"><a>Poems</a></p>
-        <ul style="display: none;" id="poems">
-            <li><a href="../poems/wnwn.html"><i>Wild Nights—Wild Nights!</i> – Emily Dickinson</a></li>
-            <li><a href="../poems/iwivft.html"><i>I’m “wife”—I’ve finished that—</i> – Emily Dickinson</a></li>
-            <li><a href="../poems/a.html"><i>Ariel</i> – Sylvia Plath</a></li>
-            <li><a href="../poems/ll.html"><i>Lady Lazarus</i> – Sylvia Plath</a></li>
-            <li><a href="../poems/m.html"><i>Mirror</i> – Sylvia Plath</a></li>
-            <li><a href="../poems/oa.html"><i>One Art</i> – Elizabeh Bishop</a></li>
-            <li><a href="../poems/s.html"><i>Sestina</i> – Elizabeth Bishop</a></li>
-            <li><a href="../poems/p.html"><i>Planetarium</i> – Adrienne Rich</a></li>
+        <p>
+            <p onclick="poems()" class="fake_a"><a>Online poems</a></p>
+            <ul style="display: none;" id="poems">
+                <li><a href="../poems/oa.html"><i>One Art</i> – Elizabeh Bishop</a></li>
+                <li><a href="../poems/s.html"><i>Sestina</i> – Elizabeth Bishop</a></li>
+                <li><a href="../poems/wnwn.html"><i>Wild Nights—Wild Nights!</i> – Emily Dickinson</a></li>
+                <li><a href="../poems/iwivft.html"><i>I’m “wife”—I’ve finished that—</i> – Emily Dickinson</a></li>
+                <li><a href="../poems/a.html"><i>Ariel</i> – Sylvia Plath</a></li>
+                <li><a href="../poems/ll.html"><i>Lady Lazarus</i> – Sylvia Plath</a></li>
+                <li><a href="../poems/m.html"><i>Mirror</i> – Sylvia Plath</a></li>
+                <li><a href="../poems/p.html"><i>Planetarium</i> – Adrienne Rich</a></li>
+            </ul>
+        </p>
+        <p><a class="fake_a" onclick="online(this)" target="blank">Online book</a></p>
+        <p><a class="fake_a" onclick="pdf(this)" target="blank">PDF</a></p>
+        <p><a onclick="ebooks()" class="fake_a">Other formats</a></p>
+        <ul style="display: none;" id="ebooks">
+            <li><a class="fake_a" onclick="ebook(this,'epub')" target="blank">EPUB (for e-readers)</a></li>
+            <li><a class="fake_a" onclick="ebook(this,'mobi')" target="blank">Mobi (for Kindke)</a></li>
         </ul>
-        <a class="fake_a" target="blank">Quotes</a>
+        <p><a class="fake_a" onclick="quotes(this)" target="blank">Quotes</a></p>
     </main>
     <footer class="site-footer">
         <a href="../bac.html"><img src="../home.png" class="home"></a>
