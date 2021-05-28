@@ -18,11 +18,14 @@
         <h1 id="author">James Baldwin</h1>
      </header>
      <main class="main-content">
-        <a href="https://rfoxinter.github.io/ebooks/bibi/?book=https://padlet-uploads.storage.googleapis.com/517454805/851976624ff2b083f92c750a43477c9e/Notes_of_a_Native_Son.epub" target="blank">Book</a>
-        </br>
-        <a class="fake_a" onclick="pdf(this)" target="blank">PDF</a>
-        </br>
-        <a class="fake_a" target="blank">Quotes</a>
+        <p><a class="fake_a" onclick="online(this)" target="blank">Online book</a></p>
+        <p><a class="fake_a" onclick="pdf(this)" target="blank">PDF</a></p>
+        <p><a onclick="ebooks()" class="fake_a">Other formats</a></p>
+        <ul style="display: none;" id="ebooks">
+            <li><a class="fake_a" onclick="ebook(this,'epub')" target="blank">EPUB (for e-readers)</a></li>
+            <li><a class="fake_a" onclick="ebook(this,'mobi')" target="blank">Mobi (for Kindke)</a></li>
+        </ul>
+        <p><a class="fake_a" onclick="quotes(this)" target="blank">Quotes</a></p>
     </main>
     <footer class="site-footer">
         <a href="../bac.html"><img src="../home.png" class="home"></a>
