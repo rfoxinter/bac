@@ -29,9 +29,10 @@ function ebook(a,format) {
 function character_map(a) {
     const title = document.getElementById("title").textContent;
     const author = document.getElementById("author").textContent;
+    const type = "character_maps";
     var url = window.location.href;
     url = book_id(url);
-    a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+url);
+    a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+url+"&type="+type);
 }
 
 function quotes(a) {
