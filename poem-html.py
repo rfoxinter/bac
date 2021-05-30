@@ -1,7 +1,7 @@
 #Créer un fichier poem.txt avec le texte du poème
 
 def main():
-    lire=open('poem.txt','r')
+    lire=open('poem.txt','r',encoding='utf-8')
     lignes=lire.readlines()
     for i in range(len(lignes)):
         ligne=lignes[i]
