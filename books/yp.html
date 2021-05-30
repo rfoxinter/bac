@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="../icon_128.png" />
+    <title>Bac</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script type="text/javascript" src="../main.js"></script>
+</head>
+<body>
+    <header class="page-header">
+        <h1 id="title">Young poets</h1>
+        <h1 id="author" style="display: none;">Young poets</h1>
+    </header>
+    <main class="main-content">
+        <p>
+            <p onclick="poems()" class="fake_a"><a>Online poems</a></p>
+            <ul style="display: none;" id="poems">
+                <li><a href="../poems/a2.html"><i>america</i> – Fatimah Asghar</a></li>
+                <li><a href="../poems/oc.html"><i>Old Country</i> – Fatimah Asghar</a></li>
+                <li><a href="../poems/wtoc.html"><i>When the Orders Came!</i> – Fatimah Asghar</a></li>
+                <li><a href="../poems/diaotbfml.html"><i>Devotion (“I Am on the Battlefield for My Lord”)</i> – Cortney Lamar Charleston</a></li>
+                <li><a href="../poems/hdyrabc.html"><i>How Do You Raise a Black Child?</i> – Cortney Lamar Charleston</a></li>
+                <li><a href="../poems/bt.html"><i>Bell Theory</i> – Emily Jungmin Yoon</a></li>
+                <li><a href="../poems/tpks.html"><i>Testimonies – Pak Kyung-soon</i> – Emily Jungmin Yoon</a></li>
+            </ul>
+        </p>
+        <p><a class="fake_a" onclick="online(this)" target="blank">Online book</a></p>
+        <p><a class="fake_a" onclick="pdf(this)" target="blank">PDF</a></p>
+        <p><a onclick="ebooks()" class="fake_a">Other formats</a></p>
+        <ul style="display: none;" id="ebooks">
+            <li><a class="fake_a" onclick="ebook(this,'epub')" target="blank">EPUB (for e-readers)</a></li>
+            <li><a class="fake_a" onclick="ebook(this,'mobi')" target="blank">Mobi (for Kindke)</a></li>
+        </ul>
+        <p><a class="fake_a" onclick="quotes(this)" target="blank">Quotes</a></p>
+    </main>
+    <footer class="site-footer">
+        <a href="../bac.html"><img src="../home.png" class="home"></a>
+    </footer>
+</body>
+</html>
