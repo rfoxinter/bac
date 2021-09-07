@@ -4,7 +4,7 @@ function checkPass() {
     const title = params.get("title");
     const author = params.get("author");
     const type = params.get("type");
-    const pwd = id + "2022";
+    const pwd = id.toUpperCase() + "2022";
 
     if (document.f_pass.pass.value == pwd) {
         window.open("./" + type + "/" + title + " - " + author + ".pdf", target="_self");
