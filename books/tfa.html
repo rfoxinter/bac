@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="../icon_128.png" />
+    <title>Bac</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script type="text/javascript" src="../main.js"></script>
+</head>
+<body>
+    <header class="page-header">
+        <h1 id="title"><i>Things Fall Apart</i></h1>
+        <h1 id="author">Chinua Achebe</h1>
+    </header>
+    <main class="main-content">
+        <p><a class="fake_a" onclick="online(this)" target="blank">Online book</a></p>
+        <p><a class="fake_a" onclick="pdf(this)" target="blank">PDF</a></p>
+        <p><a onclick="ebooks()" class="fake_a">Other formats</a></p>
+        <ul style="display: none;" id="ebooks">
+            <li><a class="fake_a" onclick="ebook(this,'epub')" target="blank">EPUB (for e-readers)</a></li>
+            <li><a class="fake_a" onclick="ebook(this,'mobi')" target="blank">Mobi (for Kindle)</a></li>
+        </ul>
+    </main>
+    <footer class="site-footer">
+        <a href="../"><img src="../home.png" class="home"></a>
+    </footer>
+</body>
+</html>
