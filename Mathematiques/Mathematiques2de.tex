@@ -1,0 +1,735 @@
+\documentclass[a4paper,titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{tabularx}
+\usepackage{tkz-tab, tikz}
+\usepackage{environ}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\setlength{\parindent}{0cm}
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+\tikzset{arrow style/.style={->=latex,shorten >=2pt, shorten <=2pt}}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\makeatletter
+\newsavebox{\measure@tikzpicture}
+\NewEnviron{scaletikzpicturetowidth}[1]{
+    \def\tikz@width{#1}
+    \def\tikzscale{1}\begin{lrbox}{\measure@tikzpicture}
+    \BODY
+    \end{lrbox}
+    \pgfmathparse{#1/\wd\measure@tikzpicture}
+    \edef\tikzscale{\pgfmathresult}
+    \BODY
+}
+\makeatother
+\hypersetup{hidelinks,linktoc=all}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\title{Mathématiques 2\textsuperscript{de}}
+\author{}
+\date{}
+\begin{document}
+\setlength{\abovedisplayskip}{0cm}
+\setlength{\belowdisplayskip}{0cm}
+\setlength{\abovedisplayshortskip}{0cm}
+\setlength{\belowdisplayshortskip}{0cm}
+\setlength{\jot}{0cm}
+\pagenumbering{gobble}
+\maketitle
+\null\newpage
+\null\newpage
+\tableofcontents
+\null\newpage
+\null\newpage
+\null\newpage
+\pagenumbering{arabic}
+\section{Les triangles}
+    \subsection{Médianes}
+        \textbf{Théorème :} Une médiane d’un triangle étant issue d’un sommet passant par le milieu du côté opposé, les trois médianes sont concourantes en un point appelé le centre de gravité du triangle et situé au $ \frac{2}{3} $ de chacune des médianes.
+    \subsection{Médiatrices}
+        \textbf{Théorème :} Une médiatrice d’un triangle étant la droite issue du milieu d’un côté, perpendiculaire à ce même côté, les trois médiatrices sont concourantes en un point qui est le centre du cercle circonscrit au triangle.
+    \subsection{Hauteurs}
+        \textbf{Théorème :} Une hauteur d’un triangle étant la droite issue d’un sommer perpendiculaire au côté opposé, les trois hauteurs sont concourantes en un point nommé orthocentre du triangle.
+    \subsection{Bissectrices}
+        \textbf{Théorème :} Une bissectrice d’un triangle étant la droite issue d’un sommet et divisant l’angle à ce sommet en deux angles égaux, les trois bissectrices sont concourantes en un point qui est le centre du cercle inscrit du triangle.
+    \subsection{Le triangle rectangle}
+        \textbf{Théorème de Pythagore :} $ABC$ est un triangle rectangle en $A$ si $BC^{2}=BA^{2}+CA^{2}$.
+        \\
+        \textbf{Théorème :} $ABC$ est un triangle rectangle en $A$ si $A$ se situe sur le cercle de diamètre $\left[BC\right]$.
+    \subsection{Théorème de Thalès}
+        \textbf{Théorème de Thalès :} Si les droites $\left(MN\right)$ et $\left(BC\right)$ sont parallèles alors $\frac{AM}{AB}=\frac{AN}{AC}=\frac{MN}{BC}$.
+        \\
+        \textbf{Théorème de Thalès :} Si $\frac{AM}{AB}=\frac{AN}{AC}$ alors les droites $\left(MN\right)$ et $\left(BC\right)$ sont parallèles.
+\section{Les quadrilatères}
+    \subsection{Propriétés caractéristiques}
+        \textbf{Propriété :} Un quadrilatère est un parallélogramme si ses diagonales ont le même milieu.
+        \\
+        \textbf{Propriété :} Un quadrilatère est un rectangle si ses diagonales ont le même milieu et sont de même longueur.
+        \\
+        \textbf{Propriété :} Un quadrilatère est un losange si ses diagonales ont le même milieu et sont perpendiculaires.
+        \\
+        \textbf{Propriété :} Un quadrilatère est un carré si ses diagonales ont le même milieu, sont de même longueur et perpendiculaires.
+    \subsection{Symétries}
+        \textbf{Propriété :} Un parallélogramme admet pour centre de symétrie le point d’intersection de ses diagonales.
+        \\
+        \textbf{Propriété :} Un rectangle admet pour axes de symétries les deux médiatrices de ses côtés et pour centre de symétrie le point d’intersection de ses diagonales.
+        \\
+        \textbf{Propriété :} Un losange admet pour axes de symétries ses deux diagonales et pour centre de symétrie le point d’intersection de ses diagonales.
+        \\
+        \textbf{Propriété :} Un carré admet pour axes de symétries les deux médiatrices de ses côtés ainsi que ses deux diagonales et pour centre de symétrie le point d’intersection de ses diagonales.
+\section{Relations trigonométriques}
+    \textbf{Cosinus :} $\cos\left(\widehat{ABC}\right)=\frac{AB}{AB}$.
+    \\
+    \textbf{Sinus :} $\sin\left(\widehat{ABC}\right)=\frac{AC}{BC}$.
+    \\
+    \textbf{Tangente :} $\tan\left(\widehat{ABC}\right)=\frac{\sin\left(\widehat{ABC}\right)}{\cos\left(\widehat{ABC}\right)}=\frac{AC}{AB}$.
+    \\
+    \textbf{Relation fondamentale :} $\cos^{2}\left(\widehat{ABC}\right)+\sin^{2}\left(\widehat{ABC}\right)=1$
+\section{Projection orthogonale}
+    \textbf{Définition :} Le projeté du point $A$ sur la droite $\left(d\right)$ est le point $H$ de la droite $\left(d\right)$ tel que $\left(AH\right)\perp\left(d\right)$.
+    \\
+    \textbf{Propriété :} Le projeté orthogonal de point $A$ sur la droite $\left(d\right)$ est le point de la droite $\left(d\right)$ le plus proche de $A$.
+\section{Les vecteurs}
+    \subsection{Notation et norme d’un vecteur}
+        \textbf{Définition :} Le vecteur $\overrightarrow{AB}$ est défini par sa direction (direction de la droite $\left(AB\right)$), sa longueur (la distance $AB$) et son sens de $A$ vers $B$.
+        \\
+        \textbf{Propriété} : $\overrightarrow{AB}=\overrightarrow{CD}$ et $\overrightarrow{AC}=\overrightarrow{BD}$ si $ABCD$ est un parallélogramme.
+        \\
+        \textbf{Remarque :} Nous noterons $\overrightarrow{AB}=\overrightarrow{CD}=\vec{u}$ et $\overrightarrow{AC}=\overrightarrow{BD}=\vec{v}$.
+        \\
+        \textbf{Remarque :} $\overrightarrow{AA}=\overrightarrow{0}$.
+        \\
+        \textbf{Définition :} La longueur d’un vecteur $\vec{u}$ et appelé la norme de $\vec{u}$, noté $\left\|\vec{u}\right\|$. Ainsi $\left\|\overrightarrow{AB}\right\|=AB$.
+        \\
+        \textbf{Définition :} Les vecteurs $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont dits orthogonaux lorsque $\left(AB\right)$ et $\left(CD\right)$ sont perpendiculaires.
+    \subsection{Addition de vecteurs}
+        \textbf{Relation de Chasles :} $\overrightarrow{AB}+\overrightarrow{BC}=\overrightarrow{AC}$.
+        \\
+        \textbf{Propriété :} $\vec{u}+\vec{v}=\vec{v}+\vec{u}$.
+        \\
+        \textbf{Propriété :} $\vec{u}+\overrightarrow{0}=\vec{u}$.
+    \subsection{Soustraction de vecteurs}
+        \textbf{Définition :} L’opposé du vecteur $\vec{u}$ noté $-\vec{u}$ qui est de même longueur et direction que $\vec{u}$ et de sens opposé.
+        \\
+        \textbf{Définition :} $\vec{u}-\vec{v}=\vec{u}+\left(-\vec{v}\right)$.
+        \\
+        \textbf{Remarque :} $\overrightarrow{AB}=-\overrightarrow{BA}$.
+    \subsection{Produit par un nombre réel}
+        \textbf{Définition :} Soit $\vec{u}$ un vecteur non nul et $k$ un réel fixé, si $k=0$, $k\vec{u}=\overrightarrow{0}$.
+        \\
+        \textbf{Définition :} Soit $\vec{u}$ un vecteur non nul et $k$ un réel fixé, si $k>0$, $k\vec{u}$ est de même direction et sens que $\vec{u}$ et de longueur $k$ fois la longueur de $\vec{u}$.
+        \\
+        \textbf{Définition :} Soit $\vec{u}$ un vecteur non nul et $k$ un réel fixé, si $k<0$, $k\vec{u}$ est de même direction, de sens opposé à $\vec{u}$ et de longueur $-k$ fois la longueur de $\vec{u}$.
+        \\
+        \textbf{Propriété :} $0\times\vec{u}=\overrightarrow{0}$.
+        \\
+        \textbf{Propriété :} $a\left(b\vec{u}\right)=ab\vec{u}$.
+        \\
+        \textbf{Propriété :} $\left(a+b\right)\vec{u}=a\vec{u}+b\vec{u}$.
+    \subsection{Les vecteurs colinéaires}
+        \textbf{Définition :} $\vec{u}$ et $\vec{v}$ sont dits colinéaires s’il existe un nombre réel $k$ tel que $\vec{u}=k\vec{v}$.
+        \\
+        \textbf{Remarque :} $\overrightarrow{0}$ est colinéaire à tous les vecteurs.
+        \\
+        \textbf{Remarque :} $\vec{u}$ et $\vec{v}$ sont colinéaires s’ils ont la même direction.
+        \\
+        \textbf{Propriété :} Les points $A$, $B$ et $C$ sont alignés si $\overrightarrow{AB}$ et $\overrightarrow{AC}$ sont colinéaires.
+        \\
+        \textbf{Définition :} Soit $A$ et $B$ deux points, $\overrightarrow{AB}$ est dit directeur de la droite $\left(AB\right)$.
+        \\
+        \textbf{Remarque :} $\left(AB\right)\parallel\left(CD\right)$ si $\overrightarrow{AB}$ et $\overrightarrow{CD}$ sont colinéaires.
+    \subsection{Propriétés géométriques}
+        \textbf{Propriété :} $ABCD$ est un parallélogramme si $\overrightarrow{AB}=\overrightarrow{DC}$.
+        \\
+        \textbf{Propriété :} $I$ est le milieu de $\left[AB\right]$ si $\overrightarrow{AI}=\overrightarrow{IB}$ ou si $\overrightarrow{AI}=\frac{1}{2}\overrightarrow{AB}$.
+        \\
+        \textbf{Propriété :} $G$ est le centre de gravité du triangle $ABC$ si $\overrightarrow{GA}+\overrightarrow{GB}+\overrightarrow{GC}=\overrightarrow{0}$ et $\overrightarrow{AG}=\frac{2}{3}\overrightarrow{AA^{\prime}}$ où $A^{\prime}$ est le milieu de $\left[BC\right]$.
+\section{Coordonnées cartésiennes}
+    \subsection{Repères du plan}
+        \textbf{Définition :} Soient un point $O$, $\vec{\imath}$ et $\vec{\jmath}$ deux vecteurs non colinéaires.
+        \\
+        \textbf{Définition :} Le couple $\vec{\imath},\vec{\jmath}$ est appelé une base du plan vectoriel.
+        \\
+        \textbf{Définition :} Le triplet $\left(O;\vec{\imath},\vec{\jmath}\right)$ est appelé un repère du plan.
+        \\
+        \textbf{Définition :} $O$ est l’origine du repère.
+        \\
+        \textbf{Théorème :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan. À tout vecteur $\vec{u}$ il correspond un unique couple de réels $\left(a;b\right)$ tel que $\vec{u}=a\vec{\imath}+b\vec{\jmath}$ et à tout point $M$ il correspond un unique couple de réels $\left(x;y\right)$ tel que $\overrightarrow{OM}=x\vec{\imath}+y\vec{\jmath}$.
+        \\
+        \textbf{Remarque :} $\left(a;b\right)$ sont les coordonnées de $\vec{u}$, notées $\vec{u}\left(a;b\right)$, où $a$ est l’abscisse et $b$ l’ordonnée.
+        \\
+        \textbf{Remarque :} $\left(x;y\right)$ sont les coordonnées de $M$, notées $M\left(x;y\right)$, où $x$ est l’abscisse et $y$ l’ordonnée.
+    \subsection{Propriétés}
+        \textbf{Théorème :} Soient $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan, $\vec{u}\left(\begin{smallmatrix}a\\b\end{smallmatrix}\right)$ et $\vec{v}\left(\begin{smallmatrix}a^{\prime}\\b^{\prime}\end{smallmatrix}\right)$ deux vecteurs, $\vec{u}=\vec{v}$ si $a=a^{\prime}$ et $b=b^{\prime}$.
+        \\
+        \textbf{Théorème :} Soient $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan, $\vec{u}\left(\begin{smallmatrix}a\\b\end{smallmatrix}\right)$ et $\vec{v}\left(\begin{smallmatrix}a^{\prime}\\b^{\prime}\end{smallmatrix}\right)$ deux vecteurs, $\vec{u}+\vec{v}=\left(\begin{smallmatrix}a+a^{\prime}\\b+b^{\prime}\end{smallmatrix}\right)$.
+        \\
+        \textbf{Théorème :} Soient $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan et $\vec{u}\left(\begin{smallmatrix}a\\b\end{smallmatrix}\right)$ un vecteur, soit $k$ un nombre réel alors\linebreak$k\vec{u}=k\left(\begin{smallmatrix}a\\b\end{smallmatrix}\right)=\left(\begin{smallmatrix}ka\\kb\end{smallmatrix}\right)$.
+        \\
+        \textbf{Théorème :} Soient $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan, $A\left(x_{A};y_{A}\right)$ et $B\left(x_{B};y_{B}\right)$ deux points : $\overrightarrow{AB}=\left(\begin{smallmatrix}x_{B}-x_{A}\\y_{B}-y_{A}\end{smallmatrix}\right)$, soit $I$ le milieu de $\left[AB\right]$, $I$ admet pour coordonnées $x_{I}=\frac{x_{A}+x_{B}}{2}$ et $y_{I}=\frac{y_{A}+y_{B}}{2}$.
+    \subsection{Repères orthonormés}
+        \textbf{Définition :} Le repère $\left(O;\vec{\imath},\vec{\jmath}\right)$ est dit orthonormé si $\vec{\imath}$ et $\vec{\jmath}$ sont orthogonaux avec $\left\|\vec{\imath}\right\|=\left\|\vec{\jmath}\right\|=1$.
+        \\
+        \textbf{Théorème :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère orthonormé et $\vec{u}\left(\begin{smallmatrix}a\\b\end{smallmatrix}\right)$ un vecteur, alors $\left\|\vec{u}\right\|=\sqrt{a^{2}+b^{2}}$.
+        \\
+        \textbf{Théorème :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère orthonormé, $A\left(x_{A};y_{A}\right)$ et $B\left(x_{B};y_{B}\right)$ deux points, on a\linebreak$\left\|\overrightarrow{AB}\right\|=\sqrt{(x_{B}-x_{A})^{2}+(y_{B}-y_{A})^{2}}$.
+    \subsection{Colinéarité}
+        \textbf{Théorème :} Soient $\vec{u}\left(\begin{smallmatrix}a\\b\end{smallmatrix}\right)$ et $\vec{v}\left(\begin{smallmatrix}a^{\prime}\\b^{\prime}\end{smallmatrix}\right)$ deux vecteurs dans un repère $\left(O;\vec{\imath},\vec{\jmath}\right)$ du plan : $\vec{u}$ et $\vec{v}$ sont colinéaires si $\det\left(\vec{u},\vec{v}\right)=\left|\begin{smallmatrix}a&a^{\prime}\\b&b^{\prime}\end{smallmatrix}\right|=ab^{\prime}-ba^{\prime}=0$.
+        \\
+        \textbf{Remarque :} $A$, $B$ et $C$ sont alignés si $\det\left(\overrightarrow{AB},\overrightarrow{AC}\right)=0$.
+\section{Calculs}
+    \subsection{Notations}
+        \textbf{Définition :} Soient $A$ et $B$ deux ensembles, la réunion des ensembles $A$ et $B$ est l’ensemble noté $A\cup B$ (A union B) et qui est l’ensemble des éléments appartenant à $A$ ou/et $B$. $A\cup B$ se lit « $A$ union $B$ ».
+        \\
+        \textbf{Définition :} Soient $A$ et $B$ deux ensembles, l’ensemble des éléments qui sont communs à $A$ et $B$ est l’ensemble noté $A\cap B$ ($A$ intersection $B$) et qui est l’ensemble des éléments appartenant à $A$ et $B$. $A\cap B$ se lit « $A$ inter $B$ ».
+        \\
+        \textbf{Définition :} Soient $A$ et $B$ deux ensembles, $A\subset B$ ($A$ est un sous ensemble de $B$) et $B\supset A$ ($B$ est un sur ensemble de $A$) signifient que $A$ est un sous ensemble de $B$. $A\subset B$ et $B\supset A$ se lisent « $A$ est inclus dans $B$ ».
+        \\
+        \textbf{Définition :} Soient $a$ un nombre et $A$ un ensemble, $a\in A$ ($a$ appartient à $A$) signifie que $a$ est un élément de $A$. $a\in A$ se lit « $a$ appartient à $A$ ».
+    \subsection{Ensembles de nombre}
+        \textbf{Définition :} $\mathbb{N}=\left\{\text{entiers naturels}\right\}=\left\{0;1;2;3;\ldots\right\}$.
+        \\
+        \textbf{Définition :} $\mathbb{Z}=\left\{\text{entiers relatifs}\right\}=\left\{0;1;-1;2;-2;\ldots\right\}$.
+        \\
+        \textbf{Définition :} $\mathbb{D}=\left\{\text{décimaux}\right\}=\left\{\frac{k}{10^{n}}\text{; }k\in\mathbb{Z}\text{ et }n\in\mathbb{N}\right\}$.
+        \\
+        \textbf{Définition :} $\mathbb{Q}=\left\{\text{rationnels}\right\}=\left\{\frac{k}{n}\text{; }k\in\mathbb{Z}\text{ et }n\in\mathbb{N}^{*}\right\}$.
+        \\
+        \textbf{Définition :} $\mathbb{R}=\left\{\text{réels}\right\}=\left\{\text{tous les nombres}\right\}$.
+        \\
+        \textbf{Remarque :} $\mathbb{N}\subset\mathbb{Z}\subset\mathbb{D}\subset\mathbb{Q}\subset\mathbb{R}$.
+        \\
+        \textbf{Notation :} Un ensemble de nombre privé de $0$ se note avec une étoile. $n\in\mathbb{N}$ et $n\neq 0$ se note $n\in\mathbb{N}^{*}$.
+        \\
+        \textbf{Remarque :} $\mathbb{R}$ peut être représenté par une droite.
+    \subsection{Puissances}
+        \textbf{Propriété :} $a\in\mathbb{R}$ et $n\in\mathbb{N}^{*}$, $a^{n}=a\times\ldots\times a$ ($n$ facteurs).
+        \\
+        \textbf{Propriété :} $a\in\mathbb{R}$, $a^{0}=1$.
+        \\
+        \textbf{Propriété :} $a\in\mathbb{R}$ et $n\in\mathbb{N}^{*}$, $a^{-n}=\frac{1}{a^{n}}$.
+        \\
+        \textbf{Propriété :} $a\in\mathbb{R}$, $n\in\mathbb{N}$ et $p\in\mathbb{N}$, $a^{n}\times a^{p}=a^{\left(n+p\right)}$.
+        \\
+        \textbf{Propriété :} $a\in\mathbb{R}$, $n\in\mathbb{N}$ et $p\in\mathbb{N}$, $\frac{a^{n}}{a^{p}}=a^{\left(n-p\right)}$.
+        \\
+        \textbf{Propriété :} $a\in\mathbb{R}$, $n\in\mathbb{N}$ et $b\in\mathbb{R}$, $\left(ab\right)^{n}=a^{n}\times b^{n}$.
+    \subsection{Racine carrée}
+        \textbf{Définition :} Soit $x\geqslant0$, $\sqrt{x}$ est le nombre réel positif dont le carré vaut $x$.
+        \\
+        \textbf{Propriété :} $a\in\mathbb{R}_{+}$ et $b\in\mathbb{R}_{+}$, $\sqrt{a}\times\sqrt{b}=\sqrt{ab}$.
+        \\
+        \textbf{Propriété :} $a\in\mathbb{R}_{+}$ et $b\in\mathbb{R}_{+}$, $\sqrt{a+b}\leqslant\sqrt{a}+\sqrt{b}$.
+        \\
+        \textbf{Propriété :} $a\in\mathbb{R}_{+}$ et $b\in\mathbb{R}^{*}_{+}$, $\sqrt{\frac{a}{b}}=\frac{\sqrt{a}}{\sqrt{b}}$.
+        \\
+        \textbf{Propriété :} $a\in\mathbb{R}_{+}$, $\left(\sqrt{a}\right)^\mathrm{2}=a$.
+        \\
+        \textbf{Propriété :} $a\in\mathbb{R}$, $\sqrt{a^{2}}=a$.
+        \\
+        \textbf{Remarque :} $a\in\mathbb{R}_\mathrm{+}$ et $x\in\mathbb{R}$, $x^{2}=a$ si $x=\sqrt{a}$ ou $x=-\sqrt{a}$.
+    \subsection{Arithmétique}
+        \subsubsection{Diviseurs}
+            \textbf{Définition :} Soient deux entiers $a$ et $b$, $a$ est un diviseur de $b$ s’il existe un entier tel que $b=ka$ ($b$ est un multiple de $a$).
+            \\
+            \textbf{Remarque :} $n$ est pair s’il existe $k\in\mathbb{Z}$ tel que $n=2k$.
+            \\
+            \textbf{Remarque :} $n$ est impair s’il existe $k\in\mathbb{Z}$ tel que $n=2k+1$.
+            \\
+            \textbf{Critère de divisibilité :} Un nombre est divisible par $2$ si son chiffre des unités l’est.
+            \\
+            \textbf{Critère de divisibilité :} Un nombre est divisible par $3$ si la somme de ses chiffres l’est.
+            \\
+            \textbf{Critère de divisibilité :} Un nombre est divisible par $5$ si son chiffre des unités l’est.
+            \\
+            \textbf{Critère de divisibilité :} Un nombre est divisible par $9$ si la somme de ses chiffres l’est.
+        \subsubsection{Nombres premiers}
+            \textbf{Définition :} Un entier naturel est dit premier s’il admet exactement deux diviseurs.
+            \\
+            \textbf{Théorème :} Tout entier naturel admet une unique décomposition de facteurs premiers.
+\section{Équations}
+    \subsection{Lorsque l’inconnue ne figure pas au dénominateur}
+        \textbf{Théorème :} Un produit de facteurs est nul si l’un au moins de ses facteurs est nul.
+        \\
+        \textbf{Remarque :} Ainsi pour résoudre une équation, on se ramènera à un produit de facteurs égal à 0, grâce à des factorisations.
+        \\
+        \textbf{Identité remarquable :} $\left(a+b\right)^{2}=a^{2}+{2}ab+b^{2}$.
+        \\
+        \textbf{Identité remarquable :} $\left(a-b\right)^{2}=a^{2}-{2}ab+b^{2}$.
+        \\
+        \textbf{Identité remarquable :} $\left(a+b\right)\left(a-b\right)=a^{2}-b^{2}$.
+    \subsection{Lorsque l’inconnue figure au dénominateur}
+        \textbf{Définition :} L’ensemble de définition est l’ensemble des valeurs pour lesquelles l’expression est définie.
+\section{Inéquations}
+    \subsection{Rappel sur les inégalités}
+        \textbf{Propriété :} Soient $a$, $b$ et $c$ trois réels, si $a\leqslant b$ alors $a+c\leqslant b+c$.
+        \\
+        \textbf{Propriété :} Soient $a$, $b$ et $c$ trois réels, si $a<b$ alors $a+c<b+c$.
+        \\
+        \textbf{Propriété :} Soient $a$, $b$ et $c$ trois réels, si $a\leqslant b$ et $c>0$ alors $ac\leqslant bc$.
+        \\
+        \textbf{Propriété :} Soient $a$, $b$ et $c$ trois réels, si $a\leqslant b$ et $c<0$ alors $ac\geqslant bc$.
+        \\
+        \textbf{Propriété :} Soient $a$, $b$ et $c$ trois réels, si $a<b$ et $c>0$ alors $ac<bc$.
+        \\
+        \textbf{Propriété :} Soient $a$, $b$ et $c$ trois réels, si $a<b$ et $c<0$ alors $ac>bc$.
+    \subsection{Intervalles}
+        \begin{tabularx}{\linewidth}{|Y|Y|Y|}
+            \hline
+            {\textbf{L’intervalle noté}} & \textbf{est appelé} & \textbf{est l’ensemble des réels tel que} \\
+            \hline
+            $\left[a;b\right]$ & intervalle fermée & $a\leqslant x\leqslant b$ \\
+            \hline
+            $\left]a;b\right[$ & intervalle ouverte & $a<x<b$ \\
+            \hline
+            $\left[a;b\right[$ & Intervalle semi-ouvert & $a\leqslant x<b$ \\
+            \hline
+            $\left]a;b\right]$ & Intervalle semi-ouvert & $a<x\leqslant b$ \\
+            \hline
+            $\left]-\infty;a\right]$ & Demi-droite fermée & $x\leqslant a$ \\
+            \hline
+            $\left[a;+\infty\right[$ & Demi-droite fermée & $x\geqslant a$ \\
+            \hline
+            $\left]-\infty;a\right[$ & Demi-droite ouverte & $x<a$ \\
+            \hline
+            $\left]a;+\infty\right[$ & Demi-droite ouverte & $x>a$ \\
+            \hline
+            $\left]-\infty;+\infty\right[$ & La droite des réels & $x\in\mathbb{R}$ \\
+            \hline
+        \end{tabularx}
+    \subsection{Signe de $ax+b$}
+        \begin{scaletikzpicturetowidth}{\textwidth}
+            \begin{tikzpicture}[scale=\tikzscale]
+                \tkzTabInit[]{$x$/1,$ax+b$/1}{$-\infty$,$-\frac{b}{a}$,$+\infty$}
+                \tkzTabLine{,$Signe de $-a,z,$Signe de $a,}
+            \end{tikzpicture}
+        \end{scaletikzpicturetowidth}
+\section{Fonctions – Généralités}
+    \subsection{Notion de fonction}
+        \textbf{Définition :} Définir une fonction sur un ensemble de réels $E$, c’est associer à chaque $x\in E$ un réel unique.
+        \\
+        \textbf{On note :} $f:E\rightarrow\mathbb{R}$.
+        \\
+        \textbf{On note :} $x\mapsto f\left(x\right)$.
+        \\
+        \textbf{Définition :} $E$ est l’ensemble de définition de la fonction $f$.
+        \\
+        \textbf{Définition :} $f\left(x\right)$ est l’image de $x$ par $f$. Si $y_{0}=f\left(x_{0}\right)$ alors $x_{0}$ est un antécédent de $y_{0}$.
+    \subsection{Courbe représentative}
+        \textbf{Définition :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère orthogonal du plan, la courbe re\-pré\-sen\-ta\-tive de la fonction $f$ est l’ensemble des points $M\left(x;f\left(x\right)\right)$ pour $x\in E_{f}$. $y=f\left(x\right)$ est l’équation cartésienne de la courbe.
+    \subsection{Fonctions affines}
+        \textbf{Définition :} Une fonction $f$ est affine si son expression est de la forme $f\left(x\right)=mx+p$ où $m$ et $p$ sont deux réels fixés. $m$ est le coefficient directeur. $p$ est l’ordonnée à l’origine.
+        \\
+        \textbf{Remarque :} Lorsque $p=0$, $f\left(x\right)=mx$, alors $f$ est dite linéaire.
+        \\
+        \textbf{Remarque :} Lorsque $m=0$, $f\left(x\right)=p$, alors $f$ est dite constante.
+        \\
+        \textbf{Propriété :} Une fonction $f$ est affine si la variation de $f\left(x\right)$ est proportionnelle à la variation de $x$. Le coefficient de proportionnalité est le coefficient directeur.
+\section{Propriétés des fonctions}
+    \subsection{Parité}
+        \textbf{Définition :} Un ensemble de nombres, $E$, est dit symétrique par rapport à zéro lorsque pout tout $x\in E$, $-x\in E$.
+    \subsubsection{Fonctions paires}
+        \textbf{Définition :} Une fonction $f$, définie sur $E_{f}$ est dite paire si $E_{f}$ est symétrique à $0$ pour tout $x\in E_{f}$, $f\left(-x\right)=f\left(x\right)$.
+        \\
+        \textbf{Propriété :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère orthogonal, une fonction est paire si sa courbe représentative est symétrique par rapport à $\left(O_{y}\right)$.
+    \subsubsection{Fonctions impaires}
+        \textbf{Définition :} Une fonction $f$, définie sur $E_{f}$ est dite impaire si $E_{f}$ est symétrique par rapport à $0$ pour tout $x\in E_{f}$, $f\left(-x\right)=-f\left(x\right)$.
+        \\
+        \textbf{Propriété :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère orthogonal, une fonction est impaire si sa courbe représentative est symétrique par rapport à l’origine.
+    \subsection{Sens de variation}
+        \textbf{Définition :} Soit $f$, une fonction définie sur $E$. $f$ est dite strictement croissante sur $E$ si pour tout nombres $a$ et $b$ de $E$, $a<b$ alors $f\left(a\right)<f\left(b\right)$.
+        \\
+        \textbf{Définition :} Soit $f$, une fonction définie sur $E$. $f$ est dite strictement dé\-crois\-sante sur $E$ si pour tout nombres $a$ et $b$ de $E$, $a<b$ alors $f\left(a\right)>f\left(b\right)$.
+        \\
+        \textbf{Définition :} Soit $f$, une fonction définie sur $E$. $f$ est dite croissante sur $E$ si pour tout nombres $a$ et $b$ de $E$, $a<b$ alors $f\left(a\right)\leqslant f\left(b\right)$.
+        \\
+        \textbf{Définition :} Soit $f$, une fonction définie sur $E$. $f$ est dite décroissante sur $E$ si pour tout nombres $a$ et $b$ de $E$, $a<b$ alors $f\left(a\right)\geqslant f\left(b\right)$.
+        \\
+        \textbf{Définition :} Soit $f$, une fonction définie sur $E$. Soit $f\left(x\right)=mx+p$, si $m>0$, alors $f$ est strictement croissante.
+        \\
+        \textbf{Définition :} Soit $f$, une fonction définie sur $E$. Soit $f\left(x\right)=mx+p$, si $m<0$, alors $f$ est strictement décroissante.
+    \subsection{Minimum, maximum}
+        \textbf{Définition :} Soit $f$ définie sur $E$, $f$ admet un maximum en $x_{0}$ si $f\left(x\right)\leqslant f\left(x_{0}\right)$ pour tout $x\in E$.
+        \\
+        \textbf{Définition :} Soit $f$ définie sur $E$, $f$ admet un minimum en $x_{0}$ si $f\left(x\right)\geqslant f\left(x_{0}\right)$ pour tout $x\in E$.
+        \\
+        \textbf{Définition :} Un extremum est un maximum ou un minimum.
+\section{Fonctions de référence}
+    \subsection{La fonction carrée}
+        \textbf{Définition :} La fonction carrée est définie sur $\mathbb{R}$, par $f\left(x\right)=x^{2}$.
+        \\
+        \textbf{Propriété :} La fonction carrée est une fonction paire.
+        \\
+        \textbf{Tableau de variations :}
+        \\
+        \begin{scaletikzpicturetowidth}{\textwidth}
+            \begin{tikzpicture}[scale=\tikzscale]
+                \tkzTabInit[]{$x$/1,$x^{2}$/1}{$-\infty$,$0$,$+\infty$}
+                \tkzTabVar{+/,-/$0$,+/}
+            \end{tikzpicture}
+        \end{scaletikzpicturetowidth}
+        \\
+        \textbf{Courbe représentative :} Cette courbe est symétrique par rapport à $O_{y}$. C’est une parabole.
+        \\
+        \begin{center}
+            \begin{tikzpicture}
+                \draw[color=gray,opacity=0.2] (-3.2,-0.8) grid(3.2,9.2);
+                \draw[->] (-3.2, 0) -- (3.2, 0) node[above left]{$x$};
+                \draw[->] (0,-0.8) -- (0, 9.2) node[below right]{$y$};
+                \foreach \y in {1,...,9} \draw(0,\y) node[left]{\footnotesize$\y$};
+                \foreach \x in {-3,...,-1} \draw(\x,0) node[below]{\footnotesize$\x$};
+                \foreach \x in {1,...,3} \draw(\x,0) node[below]{\footnotesize$\x$};
+                \draw(0,0) node[below left]{\footnotesize$0$};
+                \draw[domain=-3.033:3.033, smooth, variable=\x, black] plot (\x, {\x*\x});
+                \node[above] at (current bounding box.north) {$y=x^{2}$};
+            \end{tikzpicture}
+        \end{center}
+    \clearpage
+    \subsection{La fonction racine carrée}
+        \textbf{Définition :} La fonction racine carrée est définie sur $\mathbb{R}_{+}$, par $f\left(x\right)=\sqrt{x}$.
+        \\
+        \textbf{Tableau de variations :}
+        \\
+        \begin{scaletikzpicturetowidth}{\textwidth}
+            \begin{tikzpicture}[scale=\tikzscale]
+                \tkzTabInit[]{$x$/1,$\sqrt{x}$/1}{$0$,,$+\infty$}
+                \tkzTabVar{-/$0$,R/,+/}
+            \end{tikzpicture}
+        \end{scaletikzpicturetowidth}
+        \\
+        \textbf{Courbe représentative :}
+        \begin{center}
+            \begin{tikzpicture}
+                \draw[color=gray,opacity=0.2] (-0.8,-0.8) grid(9.2,3.2);
+                \draw[->] (-0.8, 0) -- (9.2, 0) node[above left]{$x$};
+                \draw[->] (0,-0.8) -- (0, 3.2) node[below right]{$y$};
+                \foreach \y in {1,...,3} \draw(0,\y) node[left]{\footnotesize$\y$};
+                \foreach \x in {1,...,9} \draw(\x,0) node[below]{\footnotesize$\x$};
+                \draw(0,0) node[below left]{\footnotesize$0$};
+                \draw[domain=0:3.033, scale=1, smooth, variable=\x, black] plot (\x*\x,{\x});
+                \node[above] at (current bounding box.north) {$y=\sqrt{x}$};
+            \end{tikzpicture}
+        \end{center}
+    \clearpage
+    \subsection{La fonction cube}
+        \textbf{Définition :} La fonction cube est définie sur $\mathbb{R}$, par $f\left(x\right)=x^{3}$.
+        \\
+        \textbf{Propriété :} La fonction cube est une fonction impaire.
+        \\
+        \textbf{Tableau de variations :}
+        \\
+        \begin{scaletikzpicturetowidth}{\textwidth}
+            \begin{tikzpicture}[scale=\tikzscale]
+                \tkzTabInit[]{$x$/1,$x^{3}$/1}{$-\infty$,$0$,$+\infty$}
+                \tkzTabVar{-/,R/,+/}
+                \tkzTabIma{1}{3}{2}{$0$}
+            \end{tikzpicture}
+        \end{scaletikzpicturetowidth}
+        \\
+        \textbf{Courbe représentative :}
+        \begin{center}
+            \begin{tikzpicture}
+                \draw[color=gray,opacity=0.2] (-2.2,-5.2) grid(2.2,5.2);
+                \draw[->] (-2.2, 0) -- (2.2, 0) node[above left]{$x$};
+                \draw[->] (0,-5.2) -- (0, 5.2) node[below right]{$y$};
+                \foreach \y in {-5,...,-1} \draw(0,\y) node[left]{\footnotesize$\y$};
+                \foreach \y in {1,...,5} \draw(0,\y) node[left]{\footnotesize$\y$};
+                \foreach \x in {-2,-1} \draw(\x,0) node[below]{\footnotesize$\x$};
+                \foreach \x in {1,2} \draw(\x,0) node[below]{\footnotesize$\x$};
+                \draw(0,0) node[below left]{\footnotesize$0$};
+                \draw[domain=-1.732:1.732, scale=1, smooth, variable=\x, black] plot (\x,{\x*\x*\x});
+                \node[above] at (current bounding box.north) {$y=x^{3}$};
+            \end{tikzpicture}
+        \end{center}
+    \clearpage
+    \subsection{La fonction inverse}
+        \textbf{Définition :} La fonction inverse est définie sur $\mathbb{R}^{*}$, par $f\left(x\right)=\frac{1}{x}$.
+        \\
+        \textbf{Propriété :} La fonction inverse est une fonction impaire.
+        \\
+        \textbf{Tableau de variations :}
+        \\
+        \begin{scaletikzpicturetowidth}{\textwidth}
+            \begin{tikzpicture}[scale=\tikzscale]
+                \tkzTabInit[]{$x$/1,$\frac{1}{x}$/1}{$-\infty$,$0$,$+\infty$}
+                    \tkzTabVar{+/,-D+/,-/}
+            \end{tikzpicture}
+        \end{scaletikzpicturetowidth}
+        \\
+        \textbf{Remarque :} La fonction inverse est strictement décroissante sur $\mathbb{R}_{-}^{*}$ et sur $\mathbb{R}_{+}^{*}$ mais pas sur $\mathbb{R}^{*}$.
+        \\
+        \textbf{Courbe représentative :} Cette courbe est symétrique par rapport à $O$. C’est une hyperbole.
+        \begin{center}
+            \begin{tikzpicture}
+                \draw[color=gray,opacity=0.2] (-5.2,-5.2) grid(5.2,5.2);
+                \draw[->] (-5.2, 0) -- (5.2, 0) node[above left]{$x$};
+                \draw[->] (0,-5.2) -- (0, 5.2) node[below right]{$y$};
+                \foreach \y in {-5,...,-1} \draw(0,\y) node[right]{\footnotesize$\y$};
+                \foreach \y in {1,...,5} \draw(0,\y) node[left]{\footnotesize$\y$};
+                \foreach \x in {-5,...,-1} \draw(\x,0) node[above]{\footnotesize$\x$};
+                \foreach \x in {1,...,5} \draw(\x,0) node[below]{\footnotesize$\x$};
+                \draw(0,0) node[below left]{\footnotesize$0$};
+                \draw[domain=-5.2:-1/5.2, scale=1, smooth, variable=\x, black] plot (\x,{\x^-1});
+                \draw[domain=1/5.2:5.2, scale=1, smooth, variable=\x, black] plot (\x,{\x^-1});
+                \node[above] at (current bounding box.north) {$y=\frac{1}{x}$};
+            \end{tikzpicture}
+        \end{center}
+    \clearpage
+    \subsection{Propriétés}
+        \textbf{Propriété :} $0<x<1$ alors $0<x^{3}<x^{2}<x<\sqrt{x}<1$.
+        \\
+        \textbf{Propriété :} $x>1$ alors $1<\sqrt{x}<x<x^{2}<x^{3}$.
+        \\
+        \textbf{Propriété :} $0\leqslant a<x<b$ alors $a^{2}<x^{2}<b^{2}$.
+        \\
+        \textbf{Propriété :} $a<x<b\leqslant 0$ alors $a^{2}>x^{2}>b^{2}$.
+        \\
+        \textbf{Propriété :} $a<x<b$ avec $a<0$ et $b>0$ alors $0\leq x^{2}<\sup\left(a^{2};b^{2}\right)$.
+        \\
+        \textbf{Propriété :} $a<b$ alors $a^{3}<b^{3}$.
+        \\
+        \textbf{Propriété :} $0\leqslant a<b$ alors $\sqrt{a}<\sqrt{b}$.
+        \\
+        \textbf{Propriété :} $0<a<b$ alors $\frac{1}{a}>\frac{1}{b}>0$.
+        \\
+        \textbf{Propriété :} $a<b<0$ alors $0>\frac{1}{a}>\frac{1}{b}$.
+\section{Valeur absolue}
+    \subsection{Distance entre deux réels}
+        \textbf{Définition :} La distance entre les nombres réels $a$ et $b$ est notée $\left|b-a\right|$ et se lit « valeur absolue de $b-a$~». Ainsi, $d(a;b)=\left|b-a\right|=a-b$ si $a\geqslant b$ et $d(a;b)=\left|b-a\right|=b-a$ si $a\leqslant b$.
+        \\
+        \textbf{Remarque :} $\left|x\right|$ est la distance entre $x$ et $0$. Ainsi, $\left|x\right|=x$ si $x\geqslant 0$ et $\left|x\right|=-x$ si $x\leqslant 0$.
+    \subsection{Propriétés}
+        \textbf{Propriété :} $\left|x\right|\geqslant 0$.
+        \\
+        \textbf{Propriété :} $\left|x\right|=0$ si $x=0$.
+        \\
+        \textbf{Propriété :} $\left|-x\right|=\left|x\right|$ et $\left|x-y\right|=\left|y-x\right|$.
+        \\
+        \textbf{Propriété :} $\left|x-a\right|=0$ si $x=a$.
+        \\
+        \textbf{Propriété :} $\left|xy\right|=\left|x\right|\times\left|y\right|$.
+        \\
+        \textbf{Propriété :} $\left|\frac{x}{y}\right|=\frac{\left|x\right|}{\left|y\right|}$ pour $y\neq 0$.
+        \\
+        \textbf{Propriété :} $\left|x\right|=\left|y\right|$ si $x=y$ ou si $x=-y$.
+        \\
+        \textbf{Inégalité triangulaire :} $\left|x+y\right|\leqslant \left|x\right|+\left|y\right|$.
+    \subsection{Inéquations}
+        \textbf{Définition :} La distance entre un réel $x$ et un réel $a$ est $\left|x-a\right|$. Ainsi, pour $r>0$, $\left|x-a\right|<r$ signifie que la distance entre $x$ et $a$ est plus petite que $r$.
+        \\
+        \textbf{Remarque :} $\left|x-a\right|\leqslant r$ si $x\in\left[a-r;a+r\right]$.
+        \\
+        \textbf{Remarque :} $\left|x-a\right|<r$ si $x\in\left]a-r;a+r\right[$.
+        \\
+        \textbf{Remarque :} $\left|x-a\right|\geqslant r$ si $x\in\left]-\infty;a-r\right]\cup\left[a+r;+\infty\right[$.
+        \\
+        \textbf{Remarque :} $\left|x-a\right|>r$ si $x\in\left]-\infty;a-r\right[\cup\left]a+r;+\infty\right[$.
+    \subsection{Équations}
+        \textbf{Remarque :}\\
+        \begin{scaletikzpicturetowidth}{\textwidth}
+            \begin{tikzpicture}[scale=\tikzscale]
+                \tkzTabInit[]{$x$/1,Signe de $\left(x-a\right)$/1,$\left|x-a\right|$/1}{$-\infty$,$a$,$+\infty$}
+                \tkzTabLine{,-,z,+,}
+                \tkzTabLine{,\left(a-x\right),z,\left(x-a\right),}
+            \end{tikzpicture}
+        \end{scaletikzpicturetowidth}
+    \subsection{Encadrement d’un réel} 
+        \subsubsection{Définitions}
+            \textbf{Définition :} Encadrer un nombre réel $x$, c’est trouver deux nombres $a$ et $b$ tel que $a\leqslant x\leqslant b$. $\left(b-a\right)$ est l’amplitude de l’encadrement.
+        \subsubsection{Valeur approchée}
+            \textbf{Définition :} Soient $a$, $x$, $\varepsilon>0$, trois réel. $a$ est une valeur approchée de $x$ à $\varepsilon$ près si $\left|x-a\right|\leqslant\varepsilon$ ou si $a-\varepsilon\leqslant x\leqslant a+\varepsilon$.
+            \\
+            \textbf{Remarque :} $a$ est une valeur approchée par excès si $a-\varepsilon\leqslant x\leqslant a$.
+            \\
+            \textbf{Remarque :} $a$ est une valeur approchée par défaut si $a\leqslant x\leqslant a+\varepsilon$.
+        \subsubsection{Arrondi et troncature}
+            \textbf{Définition :} L’arrondi à $n$ décimales d’un réel $x$ est le nombre à $n$ décimales qui est le plus proche de $x$.
+            \\
+            \textbf{Définition :} La troncature à $n$ décimales d’un réel $x$ consiste à ne regarder que les $n$ premières décimales de $x$.
+\section{Équations de droite}
+    \subsection{Équations cartésiennes d’une droite}
+        \textbf{Théorème :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan. Toute droite admet une équation cartésienne, c’est-à-dire du type $ax+by+c=0$ où $a$, $b$ et $c$ sont trois réels quelconques avec $a$ et $b$ non simultanément nuls.
+        \\
+        \textbf{Définition :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan. Soient $A$ et $B$ deux points distincts d’une droite $\left(D\right)$. $\overrightarrow{AB}$ est un vecteur directeur de $\left(D\right)$.
+        \\
+        \textbf{Théorème :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan. Pour tous réels $a$, $b$ et $c$, avec $a$ et $b$ non simultanément nuls, $ax+by+c=0$ est l’équation cartésienne d’une droite de vecteur directeur $\vec{u}\left(\begin{smallmatrix}-b\\a\end{smallmatrix}\right)$.
+    \subsection{Équation réduite d'une droite}
+        \textbf{Remarque :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan. Toute droite admet une équation du type $ax+by+c=0$, avec $\vec{u}\left(\begin{smallmatrix}-b\\a\end{smallmatrix}\right)$ pour vecteur directeur, ainsi si $b\neq0$, c’est à dire si cette droite n’est pas verticale, alors cette droite admet pour équation $y=\frac{-a}{b}x-\frac{c}{b}$.
+        \\
+        \textbf{Remarque :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan. Toute droite admet une équation du type $ax+by+c=0$, avec $\vec{u}\left(\begin{smallmatrix}-b\\a\end{smallmatrix}\right)$ pour vecteur directeur, ainsi si $b=0$, c’est à dire si cette droite est verticale, alors cette droite admet pour équation $x=-\frac{c}{a}$.
+        \\
+        \textbf{Théorème :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan. Toute droite non verticale admet une unique équation dite réduite du type : $y=mx+p$, avec $m$ et $p$ deux réels fixés. $p$ est appelé l’ordonnée à l’origine, car la droite passe alors par le point $A\left(0;p\right)$, et $m$ est appelé le coefficient directeur. Les droites verticales admettent une équation du type $x=k$.
+        \\
+        \textbf{Remarque :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan. $y=mx+p$ si $mx-y+p=0$, ainsi le vecteur $\vec{u}\left(\begin{smallmatrix}1\\m\end{smallmatrix}\right)$ est un vecteur directeur de la droite d’équation $y=mx+p$. D’où, deux droites d’équations $y=mx+p$ et $y=m^{\prime}x+p^{\prime}$ sont parallèles si $m=m^{\prime}$, et ces deux droites sont sécantes si $m\neq m^{\prime}$.
+        \\
+        \textbf{Théorème :} Soient $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan et $\left(D\right)$ une droite d'équation réduite $y=mx+p$, $A\left(x_{A};y_{A}\right)$ et $B\left(x_{B};y_{B}\right)$ deux points distincts de $\left(D\right)$. On a $\text{coefficient directeur}=\frac{\text{différence des ordonnées}}{\text{différence des abscisses}}$, ou encore, $m=\frac{y_{B}-y_{A}}{x_{B}-x_{A}}=\frac{\varDelta y}{\varDelta x}$.
+        \\
+        \textbf{Remarque :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan. En se déplaçant sur une droite l’accroissement des ordonnées est proportionnel à l’accroissement des abscisses, le facteur de proportionnalité étant le coefficient directeur. Ainsi si l’on se déplace sur la droite en augmentant l’abscisse de $1$, l’ordonnée varie de $m$.
+    \subsection{Systèmes de deux équations linéaires à deux inconnues}
+        \subsubsection{Définitions}
+            \textbf{Définition :} Un système de deux équations linéaires à deux inconnues est un système qui peut se mettre sous la forme $\left\{\begin{smallmatrix*}[l]ax+by+c\\a^{\prime}x+b^{\prime}y+c^{\prime}\end{smallmatrix*}\right.$, avec $a$, $b$, $c$, $a^{\prime}$, $b^{\prime}$, $c^{\prime}$ des réels donnés.
+            \\
+            \textbf{Définition :} Un couple $(u;v)$ est solution du système s’il vérifie $\left\{\begin{smallmatrix*}[l]au+bv+c\\a^{\prime}u+b^{\prime}v+c^{\prime}\end{smallmatrix*}\right.$.
+            \\
+            \textbf{Définition :} Résoudre le système c’est trouver l’ensemble des couples solution de ce système.
+            \\
+            \textbf{Interprétation géométrique :} Soit $\left(D\right)$ la droite d’équation $ax+by+c=0$, et $\left(D^{\prime}\right)$ la droite d’équation $a^{\prime}x+b^{\prime}y+c^{\prime}=0$. Résoudre le système revient alors à trouver les coordonnées $\left(x;y\right)$ des points d’intersection de ces deux droites, et ainsi, trois cas sont possibles : $\left(D\right)$ et $\left(D^{\prime}\right)$ sont sécantes, il existe alors un unique couple de solution $(x_{0};y_{0})$, coordonnées de l’unique point d’intersection, $\left(D\right)$ et $\left(D^{\prime}\right)$ sont parallèles distinctes, il n’y a aucune solution ou $\left(D\right)$ et $\left(D^{\prime}\right)$ sont confondues, il y a alors une infinité de solution, $S=\left\{\left(x;y\right)\!/ax+by=c\right\}$, coordonnées des points de la droite $\left(D\right)$.
+            \\
+            \textbf{Remarque :} Or $\overrightarrow{V}\left(\begin{smallmatrix}-b\\a\end{smallmatrix}\right)$ et $\overrightarrow{V^{\prime}}\left(\begin{smallmatrix}-b^{\prime}\\a^{\prime}\end{smallmatrix}\right)$ sont des vecteurs directeurs respectifs des droites $\left(D\right)$ et $\left(D^{\prime}\right)$. Ainsi, $\left(D\right)$ et $\left(D^{\prime}\right)$ sont parallèles si $\det\left(\overrightarrow{V},\overrightarrow{V^{\prime}}\right)=\left|\begin{smallmatrix}-b&-b^{\prime}\\a&a^{\prime}\end{smallmatrix}\right|=0$, donc si $ab^{\prime}-a^{\prime}b=0$.
+        \subsubsection{Critère d’existence et d’unicité de la solution}
+            \textbf{Définition :} Le réel $\left(ab^{\prime}-a^{\prime}b\right)$ est appelé déterminant du système $\left\{\begin{smallmatrix*}[l]ax+by+c\\a^{\prime}x+b^{\prime}y+c^{\prime}\end{smallmatrix*}\right.$. On le note\linebreak$D=\left|\begin{smallmatrix}a&a^{\prime}\\b&b^{\prime}\end{smallmatrix}\right|=ab^{\prime}-a^{\prime}b$.
+            \\
+            \textbf{Théorème :} Soit le système $\left\{\begin{smallmatrix*}[l]ax+by+c\\a^{\prime}x+b^{\prime}y+c^{\prime}\end{smallmatrix*}\right.$. Si $ab^{\prime}-a^{\prime}b\neq0$, alors le système admet un unique couple de solutions. Si $ab^{\prime}-a^{\prime}b=0$, alors le système admet une infinité de solutions ou aucune.
+\section{Statistiques}
+    \subsection{Vocabulaire}
+        \textbf{Définition :} On appelle population tout ensemble soumis à une étude statistique et individu tout élément de cette population.
+        \\
+        \textbf{Définition :} Dans une étude statistique on étudie des caractères, les réponses à ces caractères sont appelées les modalités.
+        \\
+        \textbf{Définition :} La modalité possédant le plus grand effectif est appelée la classe modale.
+        \\
+        \textbf{Définition :}  Il existe deux types de caractères : les caractères qualitatifs, pour lesquels les réponses (ou modalités) ne sont pas un nombre et les caractères quantitatifs, pour lesquels les réponses (ou modalités) sont un nombre. Les caractères quantitatifs sont dits continu si les réponses peuvent être n’importe quelle valeur d’un intervalle. Les caractères quantitatifs sont dits discret si les réponses ne peuvent prendre que certaines valeurs.
+        \\
+        \textbf{Définition :} La fréquence d’une modalité est le quotient de l’effectif d’une modalité par l’effectif total. Les fréquences sont généralement exprimées en pourcentage.
+    \subsection{Représentations graphiques}
+        \subsubsection{Effectifs cumulés}
+            \textbf{Définition :} L’effectif cumulé croissant d’un caractère de valeur $k$ est la somme des effectifs associés aux valeurs du caractère qui sont inférieures ou égales à $k$.
+            \\
+            \textbf{Définition :} L’effectif cumulé décroissant d’un caractère de valeur $k$ est la somme des effectifs associés aux valeurs du caractère qui sont supérieures ou égales à $k$.
+            \\
+            \textbf{Définition :} La ligne brisée obtenue en joignant les sommets du graphe en bâtons des effectifs cumulés croissants (respectivement décroissants) est appelée polygone des effectifs cumulés croissants (respectivement décroissants).
+            \\
+            \textbf{Remarque :} On définit d’une façon similaire, en remplaçant les effectifs par les fréquences, les fréquences cumulées croissantes, décroissantes et les polygones des fréquences cumulées.
+        \subsubsection{Histogramme}
+            \textbf{Définition :} Un histogramme est un graphe où chaque modalité est représentée par un rectangle dont l’aire est proportionnelle à son effectif.
+            \\
+            \textbf{Remarque :} Attention à ne pas confondre histogramme et diagramme en bâtons. En effet, ceux-ci ne peuvent coïncider que lorsqu’il s’agit d’un regroupement par classes de même longueur.
+%    \clearpage
+    \subsection{Mesures de position centrale}
+        \subsubsection{Moyenne}
+            \paragraph{Pour un caractère quantitatif discret}\mbox{}\\
+                \textbf{Définition :} Soit une série statistique $\left(x_{1};n_{1}\right)$, $\left(x_{2};n_{2}\right)$, \ldots, $\left(x_{p};n_{p}\right)$, où $x_{i}$ sont les modalités et $n_{i}$ les effectifs correspondants. On appelle moyenne de cette série le nombre noté $\bar{x}$ défini par\linebreak$\bar{x}=\frac{n_{1}x_{1}+n_{2}x_{2}+\ldots+n_{p}x_{p}}{n_{1}+n_{2}+\ldots+n_{p}}=f_{1}x_{1}+f_{2}x_{2}+\ldots+f_{p}x_{p}$ ; où, $f_{1}$, $f_{2}$, \ldots, $f_{p}$ représentent les fréquences respectives des modalités $x_{1}$, $x_{2}$, \ldots, $x_{p}$.
+            \paragraph{Pour un caractère quantitatif continu}\mbox{}\\
+                \textbf{Définition :} On définit la moyenne de la même façon que précédemment en prenant pour valeur de la modalité le centre de l’intervalle.
+            \paragraph{Propriétés}\mbox{}\\
+                \textbf{Théorème :} Soit $\left(x_{1};n_{1}\right)$, $\left(x_{2};n_{2}\right)$, \ldots, $\left(x_{p};n_{p}\right)$ une série statistique de moyenne $\bar{x}$. La série $\left(kx_{1};n_{1}\right)$, $\left(kx_{2};n_{2}\right)$, \ldots, $\left(kx_{p};n_{p}\right)$, où $k$ est un réel fixé, admet pour moyenne $k\bar{x}$. Soit $X$ et $Y$ deux séries statistiques admettant respectivement $\overline{X}$, $\overline{Y}$ pour moyenne et $N_{X}$, $N_{Y}$ pour effectif total. La série obtenue en effectuant la réunion de ces deux séries admet pour moyenne : $\frac{N_{X}\times\overline{X}+N_{Y}\times\overline{Y}}{N_{X}+N_{Y}}$.
+        \subsubsection{Médiane}
+            \textbf{Définition :} La médiane d’un caractère quantitatif est le nombre $m$ tel qu’au moins $50\%$ de la population admette des valeurs inférieures ou égales à $m$ et qu’au moins $50\%$ de la population admette des valeurs supérieures ou égales à $m$.
+            \\
+            \textbf{Remarque :} Détermination pratique de la médiane pour un caractère quantitatif discret d’effectif total $N$. Si $N$ est impair, nous prendrons pour médiane la valeur centrale de cette série. Si $N$ est pair, nous prendrons la moyenne des deux valeurs centrales de cette série.
+            \\
+            \textbf{Remarque :} Détermination pratique de la médiane pour un caractère quantitatif continu graphiquement, la médiane est l’abscisse du point du polygone des effectifs cumulés croissants (ou décroissants) dont l’ordonnée représente $50\%$ de la population.
+            \\
+            \textbf{Remarque :} Détermination pratique de la médiane pour un caractère quantitatif continu par le calcul, posons $A\left(x_{A};y_{A}\right)$, $B\left(x_{B};y_{B}\right)$ et $M\left(x_{M};\frac{k}{2}\right)$. Les points $A$ et $B$ sont deux points du polygone des effectifs cumulés croissants. L’effectif total étant de $k$, la médiane est l’abscisse du point du polygone des effectifs cumulés croissants d’ordonnée $\frac{k}{2}$. Ce point se situe donc sur le segment $\left[AB\right]$ et la médiane est l’abscisse $x_{M}$ du point $M$.
+    \subsection{Mesures de dispersion}
+        \subsubsection{Étendue}
+            \textbf{Définition :} L’étendue d’un caractère quantitatif est la différence entre la plus grande et la plus petite valeur de ce caractère.
+        \subsubsection{Quartiles}
+            \textbf{Définition :} Le premier quartile d’un caractère quantitatif, noté $Q_{1}$, est la plus petite valeur de cette série telle qu’au moins $25\%$ de l’effectif total admette des valeurs inférieures ou égales à $Q_{1}$. Le troisième quartile quantitatif, noté $Q_{3}$, est la plus petite valeur de cette série telle qu’au moins $75\%$ de l’effectif total admette des valeurs inférieures ou égales à $Q_{3}$. On appelle écart interquartile le nombre $\left(Q_{3}-Q_{1}\right)$.
+            \\
+            \textbf{Remarque :} Dans le cas d’une série quantitative continue, c’est à dire dans le cas d’un regroupement par classes, nous utiliserons alors le graphe des effectifs cumulés croissants pour déterminer les quartiles. $Q_{1}$ étant l’abscisse du point dont l’ordonnée correspond à $25\%$ de l’effectif total. $Q_{3}$ étant l’abscisse du point dont l’ordonnée correspond à $75\%$ de l’effectif total.
+            \\
+            \textbf{Remarque :} L’écart interquartile est une autre mesure de la dispersion d’une série. En effet, l’intervalle $\left[Q_{1};Q_{3}\right]$ contient environ $50\%$ de l’effectif total, ainsi, plus il est petit, moins la série est dispersée.
+            \\
+            \textbf{Remarque :} La médiane et l’écart interquartile sont deux paramètres moins sensibles aux valeurs extrêmes de la série que ne le sont la moyenne et l’étendue.
+        \subsubsection{Déciles}
+            \textbf{Remarque :} On définit de la même façon que le quartiles les déciles $D_{1}$ et $D_{9}$, en remplaçant les pourcentages par respectivement $10\%$ et $90\%$, l’écart interdécile étant alors $\left(D_{9}-D_{1}\right)$.
+        \subsubsection{Écart-type et variance}
+            \textbf{Remarque :} Soit une série statistique $\left(x_{1};n_{1}\right)$, $\left(x_{2};n_{2}\right)$, \ldots, $\left(x_{p};n_{p}\right)$, où $x_{i}$ sont les modalités, $n_{i}$ les effectifs correspondants de la moyenne $\bar{x}$.
+            \\
+            \textbf{Définition :} La variance de la série est définie par
+            \begin{flalign*}
+                \textstyle V&\textstyle=\frac{n_{1}\left(x_{1}-\bar{x}\right)^{2}+n_{2}\left(x_{2}-\bar{x}\right)^{2}+\ldots+n_{p}\left(x_{p}-\bar{x}\right)^{2}}{n_{1}+n_{2}+\ldots+n_{p}}&\textstyle\\
+                \textstyle&\textstyle=\frac{1}{N}\left[n_{1}\left(x_{1}-\bar{x}\right)^{2}+n_{2}\left(x_{2}-\bar{x}\right)^{2}+\ldots+n_{p}\left(x_{p}-\bar{x}\right)^{2}\right]&\textstyle\\
+                \textstyle&\textstyle=f_{1}\left(x_{1}-\bar{x}\right)^{2}+f_{2}\left(x_{2}-\bar{x}\right)^{2}+\ldots+f_{p}\left(x_{p}-\bar{x}\right)^{2}&\textstyle
+            \end{flalign*}
+            \textbf{Définition :} L’écart-type de la série est le nombre noté $s$ défini par $s=\sqrt{V}$.
+            \\
+            \textbf{Remarque :} La variance représente la moyenne des carrés des écarts à la moyenne de la série et il est donc logique afin de mesurer la dispersion de la série d'en prendre la racine carrée.
+            \\
+            \textbf{Remarque :} Il aurait été naturel, afin de rendre ces écarts positifs, d'en prendre les valeurs absolues. On définit ainsi l'écart-moyen mais celui-ci, à cause des valeurs absolues, se révèle trop difficile à manier.
+\section{Probabilités}
+    \subsection{Vocabulaire}
+        \subsubsection{Expérience aléatoire}
+            \textbf{Définition :} Une expérience aléatoire est une expérience dont on connaît le déroulement mais dont on ne peut prévoir l’issue.
+        \subsubsection{Univers}
+            \textbf{Définition :} L’univers d’une expérience aléatoire, noté $\varOmega$, est l’ensemble des issues, ou résultats, possibles.
+        \subsubsection{Évènements}
+            \paragraph{Définitions}\mbox{}\\
+                \textbf{Définition :} Un évènement $A$ est une partie, ou sous ensemble, de l’univers $\varOmega$. $A$ est dit réalisé si le résultat de l’expérience aléatoire est un élément de $A$.
+            \paragraph{Évènements particuliers}\mbox{}\\
+                \textbf{Définition :} $\emptyset$ est un évènement qui n’est jamais réalisé, c’est l’évènement impossible.
+                \\
+                \textbf{Définition :} $\varOmega$ est un évènement qui est toujours réalisé, c’est l’évènement certain.
+                \\
+                \textbf{Définition :} Un évènement qui ne contient qu’un seul élément est appelé évènement élémentaire.
+                \\
+                \textbf{Définition :} Deux évènements sont dits disjoints si leur intersection est vide, on dit aussi qu’ils sont incompatibles.
+                \\
+                \textbf{Définition :} L’évènement contraire de $A$, noté $\overline{A}$, est son complémentaire dans $\varOmega$, c’est à dire l’ensemble des éléments de $\varOmega$ qui ne sont pas dans $A$.
+                \\
+                \textbf{Définition :} Soient $A$ et $B$ deux évènements, la réunion et l’intersection de ces évènements sont des évènements. $A\cup B$ est réalisé si l’un au moins des évènements $A$ ou $B$ est réalisé.
+                \\
+                \textbf{Définition :} Soient $A$ et $B$ deux évènements, la réunion et l’intersection de ces évènements sont des évènements. $A\cap B$ est réalisé si les évènements $A$ et $B$ sont réalisés en même temps.
+    \subsection{Probabilité}
+        \subsubsection{Définition}
+            \textbf{Définition :} Soit $\varOmega=\left\{a_{1},a_{2},a_{3},\ldots,a_{n}\right\}$ l’univers d’une expérience aléatoire. Définir une loi de probabilité $p$ sur $\varOmega$, c’est associer à chaque élément $a_{i}$ de $\varOmega$ un nombre positif ou nul, noté $p_{i}=p\left(\left\{a_{i}\right\}\right)$, et vérifiant $p_{1}+p_{2}+p_{3}+\ldots+p_{n}=1$. On appelle alors probabilité d’un événement $A$, notée $p\left(A\right)$, la somme des probabilités des éléments de $A$.
+            \\
+            \textbf{Remarque :} Ainsi, la probabilité d’un évènement $A$ est égale à la somme des probabilités des évènements élémentaires de $A$.
+        \subsubsection{Propriétés}
+            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux évènements, $0\leqslant p\left(A\right)\leqslant1$.
+            \\
+            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux évènements, $p\left(\overline{A}\right)=1-p\left(A\right)$.
+            \\
+            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux évènements, $p\left(\varOmega\right)=1$ et $p\left(\emptyset\right)=0$.
+            \\
+            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux évènements,\linebreak$p\left(A\cup B\right)=p\left(A\right)+p\left(B\right)-p\left(A\cap B\right)$.
+        \subsubsection{Loi des grands nombres}
+            \textbf{Remarque :} Soit une expérience aléatoire d’univers $\varOmega=\left\{a_{1},a_{2},a_{3},\ldots,a_{n}\right\}$. Chaque nombre\linebreak$p_{i}=p\left(\left\{a_{i}\right\}\right)$, pour $1\leqslant i\leqslant n$, est un nombre qui modélise, pour toutes les expériences, la fréquence d’apparition $f_{i}$, de l’issue $a_{i}$. Le résultat ci-dessous nous permet de valider ou de remettre en question le choix du modèle $\left\{p_{1},p_{2},p_{3},\ldots,p_{n}\right\}$.
+            \\
+            \textbf{Loi faible des grands nombres :} Si le modèle est bon, les fréquences $f_{i}$, calculées sur des séries de taille $N$, se rapprochent des $p_{i}$ lorsque $N$ devient grand.
+    \subsection{Équiprobabilité}
+        \subsubsection{Définitions}
+            \textbf{Définition :} Soit une expérience aléatoire d’univers $\varOmega=\left\{a_{1},a_{2},a_{3},\ldots,a_{n}\right\}$, il y a équiprobabilité si tous les évènements élémentaires ont la même probabilité.
+            \\
+            \textbf{Théorème :} Soit une expérience aléatoire d’univers $\varOmega=\left\{a_{1},a_{2},a_{3},\ldots,a_{n}\right\}$, la probabilité d’un\linebreak évènement élémentaire $\left\{a_{i}\right\}$ dans un univers $\varOmega$ équiprobable vaut : $p\left(\left\{a_{i}\right\}\right)=\frac{1}{\text{nombre d'éléments de }\varOmega}=\frac{1}{n}$.
+        \subsubsection{Propriété fondamentale}
+            \textbf{Théorème :} Soit $\varOmega$ l’univers fini d’une expérience aléatoire équiprobable et $A$ un évènement. On a $p\left(A\right)=\frac{\text{nombre d'éléments de }A}{\text{nombre d'éléments de }\varOmega}=\frac{\text{nombre de cas favorables}}{\text{nombre de cas possibles}}$.
+            \\
+            \textbf{Remarque :} Ainsi sous la condition d’équiprobabilité dans un univers fini, le calcul de la probabilité d’un évènement consiste en un dénombrement en premier lieu des cas possibles, puis des cas favorables.
+\section{Pourcentages}
+    \subsection{Coefficient multiplicateur}
+        \subsubsection{Cas général}
+            \textbf{Définition :} Soient $V_{I}$ la valeur initiale et $V_{F}$ la valeur finale. Le coefficient multiplicateur, noté $C_{M}$, de $V_{I}$ à VF, est le nombre qui multiplié par $V_{I}$ donne $V_{F}$. Ainsi $C_{M}=\frac{V_{F}}{V_{I}}$.
+            \\
+            \textbf{Théorème :} Augmenter une quantité de $t\%$ correspond au coefficient multiplicateur $C_{M}=1+\frac{t}{100}$.
+            \\
+            \textbf{Théorème :} Diminuer une quantité de $t\%$ correspond au coefficient multiplicateur $C_{M}=1-\frac{t}{100}$.
+            \\
+            \textbf{Remarque :} Un coefficient multiplicateur strictement supérieur à $1$ correspond à une hausse.
+            \\
+            \textbf{Remarque :} Un coefficient multiplicateur strictement inférieur à $1$ correspond à une baisse.
+        \subsubsection{Taux d’évolution}
+            \textbf{Remarque :} Afin de ne pas avoir à distinguer deux formules du coefficient multiplicateur $C_{M}$, suivant qu’il s’agisse d’une hausse ou d’une baisse, nous sommes amenés à définir le taux d’évolution noté $\tau$, avec alors $C_{M}=1+\tau$. Une hausse de $t\%$ correspondant à un taux de $\frac{t}{100}$ et une baisse de $t\%$ correspondant à un taux de $-\frac{t}{100}$.
+            \\
+            \textbf{Théorème :} Le taux d’évolution de $V_{I}$ à $V_{F}$ , ou variation relative, est donné par $\tau=\frac{V_{F}}{V_{I}}-1=\frac{V_{F}-V_{I}}{V_{I}}$.
+            \\
+            \textbf{Remarque :} $V_{F}-V_{I}$ est la variation absolue, tandis que $\frac{V_{F}-V_{I}}{V_{I}}$ est la variation relative.
+    \subsection{Applications}
+        \subsubsection{Évolutions successives}
+            \textbf{Théorème :} Considérons trois valeurs successives $V_{1}$, $V_{2}$ et $V_{3}$, $\tau_{1}$ le taux d’évolution de $V_{1}$ à $V_{2}$ et $\tau_{2}$ le taux d’évolution de $V_{2}$ à $V_{3}$. Soit $\varUpsilon$ le taux d’évolution globale, c’est à dire de $V_{1}$ à $V_{3}$. Le coefficient multiplicateur global est égal au produit des coefficients multiplicateurs des deux évolutions, ainsi\linebreak$1+\varUpsilon=\left(1+\tau_{1}\right)\times\left(1+\tau_{2}\right)$.
+        \subsubsection{Évolutions réciproques}
+            \textbf{Remarque :} On considère deux valeurs successives $V_{1}$ et $V_{2}$ et on note $\tau$ le taux d’évolution de $V_{1}$ à $V_{2}$. On cherche le taux d’évolution $\varUpsilon$ de $V_{2}$ à $V_{1}$ c’est-à-dire le taux d’évolution qu’il faudrait appliquer à $V_{2}$ pour retrouver la valeur initiale $V_{1}$.
+            \\
+            \textbf{Théorème :} Le coefficient multiplicateur de l’évolution (réciproque) de $V_{2}$ à $V_{1}$ est l’inverse du coefficient multiplicateur de l’évolution de $V_{1}$ à $V_{2}$.
+\null\newpage
+\pagenumbering{gobble}
+\null\newpage
+\null\newpage
+\null\newpage
+\end{document}
