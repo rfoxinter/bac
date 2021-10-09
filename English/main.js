@@ -8,37 +8,47 @@ function book_id(str) {
     return str
 }
 
-function online(a) {
+function online() {
     const title = document.getElementById("title").textContent;
     const author = document.getElementById("author").textContent;
-    a.setAttribute("href","https://rfoxinter.github.io/ebooks/bibi/?book="+title+" - "+author+".epub");
+    const a = document.getElementById("online");
+    if (a != null) {
+        a.setAttribute("href","https://rfoxinter.github.io/ebooks/bibi/?book="+title+" - "+author+".epub");
+    }
 }
 
-function pdf(a) {
+function ebook(format) {
     const title = document.getElementById("title").textContent;
     const author = document.getElementById("author").textContent;
-    a.setAttribute("href","../pdfs/"+title+" - "+author+".pdf");
+    var folder = "";
+    if (format == "epub" ||  format == "mobi") {
+        folder = "ebooks";
+    } else if (format == "pdf") {
+        folder = "pdfs";
+    }
+    const a = document.getElementById(format);
+    if (a != null) {
+        a.setAttribute("href","../"+folder+"/"+title+" - "+author+"."+format);
+    }
 }
 
-function ebook(a,format) {
-    const title = document.getElementById("title").textContent;
-    const author = document.getElementById("author").textContent;
-    a.setAttribute("href","../ebooks/"+title+" - "+author+"."+format);
-}
-
-function character_map(a) {
+function character_map() {
     const title = document.getElementById("title").textContent;
     const author = document.getElementById("author").textContent;
     const type = "character_maps";
-    var url = window.location.href;
-    url = book_id(url);
-    a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+url+"&type="+type);
+    const url = book_id(window.location.href);
+    const a = document.getElementById("map");
+    if (a != null) {
+        a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+url+"&type="+type);
+    }
 }
 
-function quotes(a) {
-    var url = window.location.href;
-    url = book_id(url)
-    a.setAttribute("href",quizlet[url]);
+function quotes() {
+    const url = book_id(window.location.href);
+    const a = document.getElementById("quotes");
+    if (a != null) {
+        a.setAttribute("href",quizlet[url]);
+    }
 }
 
 function ebooks() {
