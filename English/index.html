@@ -10,37 +10,32 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <style type="text/css">
-        img {
-            margin-top: 1px;
-            margin-bottom: 1px;
-        }
-    </style>
+    <script type="text/javascript" src="main.js"></script>
 </head>
-<body>
+<body onload="books()">
     <header class="page-header">
         <h1>Books</h1>
     </header>
     <main class="main-content">
         <h1>Drama</h1>
         <p class="main">
-            <a href="books/tiobe.html"><img align="middle" src="covers/tiobe.jpg" class="books"></a>
-            <a href="books/ia.html"><img align="middle" src="covers/ia.jpg" class="books"></a>
-            <a href="books/tt.html"><img align="middle" src="covers/tt.jpg" class="books"></a>
+            <book class="tiobe"></book>
+            <book class="ia"></book>
+            <book class="tt"></book>
         </p>
         <hr>
         <h1>Non-fiction</h1>
         <p class="main">
-            <a href="books/noans.html"><img align="middle" src="covers/noans.jpg" class="books"></a>
+            <book class="noans"></book>
         </p>
         <hr>
         <h1>Fiction</h1>
         <p class="main">
-            <a href="books/tpos.html"><img align="middle" src="covers/tpos.jpg" class="books"></a>
-            <a href="books/iom.html"><img align="middle" src="covers/iom.jpg" class="books"></a>
-            <a href="books/tht.html"><img align="middle" src="covers/tht.jpg" class="books"></a>
-            <a href="books/tttc.html"><img align="middle" src="covers/tttc.jpg" class="books"></a>
-            <a href="books/tfa.html"><img align="middle" src="covers/tfa.jpg" class="books"></a>
+            <book class="tpos"></book>
+            <book class="iom"></book>
+            <book class="tht"></book>
+            <book class="tttc"></book>
+            <book class="tfa"></book>
         </p>
         <hr>
         <h1>Poetry</h1>
