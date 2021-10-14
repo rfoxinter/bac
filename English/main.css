@@ -11,6 +11,9 @@ p, ul {
 .books{
     width: 100px;
     transition: transform .2s;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    vertical-align: middle;
 }
 
 @media (hover: hover) {
