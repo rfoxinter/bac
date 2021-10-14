@@ -1,5 +1,20 @@
 const quizlet = {ia : "https://quizlet.com/_9kcegz?x=1jqt&i=3hrg84", iom : "https://quizlet.com/_9w625w?x=1jqt&i=3hrg84", noans : "https://quizlet.com/_9w9akc?x=1jqt&i=3hrg84", tht : "https://quizlet.com/_9zvngk?x=1jqt&i=3hrg84", tiobe : "https://quizlet.com/_9lfo98?x=1jqt&i=3hrg84", tpos : "https://quizlet.com/_9vertz?x=1jqt&i=3hrg84", tt : "https://quizlet.com/_9zvnek?x=1jqt&i=3hrg84", tttc : "https://quizlet.com/_9zvnbk?x=1jqt&i=3hrg84", wp : "https://quizlet.com/_9w64y0?x=1jqt&i=3hrg84", yp : "https://quizlet.com/_9zvnhs?x=1jqt&i=3hrg84"};
 
+function books() {
+    const b = document.getElementsByTagName("book");
+    var i=0;
+    while (i < b.length) {
+        var a = document.createElement("a");
+        a.setAttribute("href","books/"+b[i].className+".html");
+        var img = document.createElement("img");
+        img.setAttribute("src","covers/"+b[i].className+".jpg");
+        img.setAttribute("class","books");
+        a.appendChild(img);
+        b[i].appendChild(a);
+        i=i+1;
+    }
+}
+
 function book_id(str) {
     str = str.substring(0,str.length-5);
     while (str.indexOf("/") != -1) {
