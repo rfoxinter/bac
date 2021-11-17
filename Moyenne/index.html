@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="../English/favicon.ico" />
-    <title>Simulateur de moyenne au bac</title>
+    <title>Simulateur de moyenne du bac général</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -44,14 +44,17 @@
             <input type="checkbox" name="option" id="_tp1" style="width: unset;" onclick="TP1(true)"><label>&nbsp;TP pour la spécialité 1</label>
         </p>
         <p>
-            <label id="_tp1_coeff">Coefficient du TP <input type="number" min="0" max="1" step="0.1" value="0.2" placeholder="Coefficient" onchange="TP1(true)" style="width: unset;" id="prop_1"></label>
+            <label id="_tp1_coeff">Coefficient du TP&nbsp;:&nbsp;<input type="number" min="0" max="1" step="0.1" value="0.2" placeholder="Coefficient" onchange="TP1(true)" style="width: unset;" id="prop_1"></label>
             
         </p>
         <p>
             <input type="checkbox" name="option" id="_tp2" style="width: unset;" onclick="TP2(true)"><label>&nbsp;TP pour la spécialité 2</label>
         </p>
         <p>
-            <label id="_tp2_coeff">Coefficient du TP&nbsp;<input type="number" min="0" max="1" step="0.1" value="0.2" placeholder="Coefficient" onchange="TP2(true)" style="width: unset;" id="prop_2" id="prop_2"></label>
+            <label id="_tp2_coeff">Coefficient du TP&nbsp;:&nbsp;<input type="number" min="0" max="1" step="0.1" value="0.2" placeholder="Coefficient" onchange="TP2(true)" style="width: unset;" id="prop_2" id="prop_2"></label>
+        </p>
+        <p>
+            Ouvrir le fichier de notes&nbsp;:&nbsp;<input type="file" style="width: unset;" accept=".notes" name="ouvrir" id="ouvrir"></label>
         </p>
         <p>
             <table>
@@ -66,14 +69,14 @@
                 <tbody>
                     <tr>
                         <td rowspan="8" id="1ere"><p>Première</p></td>
-                        <td><p>Français - Oral</p></td>
-                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="f_o_note"></input></p></td>
-                        <td><p><input type="number" min="0" max="20" step="0.5" value="5" placeholder="Coefficient" id="f_o_coeff"></input></p></td>
-                    </tr>
-                    <tr>
                         <td><p>Français - Écrit</p></td>
                         <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="f_e_note"></input></p></td>
                         <td><p><input type="number" min="0" max="20" step="0.5" value="5" placeholder="Coefficient" id="f_e_coeff"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Français - Oral</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="f_o_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="5" placeholder="Coefficient" id="f_o_coeff"></input></p></td>
                     </tr>
                     <tr>
                         <td><p>Spécialité abandonnée</p></td>
@@ -207,9 +210,30 @@
         <p>
             <button onclick="moyenne()">Calculer ma moyenne</button>
         </p>
-        <p id="moyenne"></p>
+        <p id="moyenne">&nbsp;</p>
+        <p>
+            <button onclick="sauvegarder()">Enregistrer les notes</button>
+        </p>
     </main>
     <footer class="site-footer">
     </footer>
+    <script type="text/javascript">
+        let params = new URLSearchParams(document.location.search.substring(1));
+        const s = params.get("section");
+        if (s == "aucune" || s == "internationale" || s == "chinoise") {document.getElementById("section").value = s;}
+        
+        delete params,s
+        document.getElementById('ouvrir').addEventListener('change', function() {
+            var fr=new FileReader();
+            fr.onload=function(){
+                var fichier = atob(fr.result).split("\n");
+                for (var i = 0; i < fichier.length; i++) {
+                    fichier[i] = fichier[i].replace("\r","")
+                }
+                ouvrir(fichier);
+            } 
+            fr.readAsText(this.files[0]);
+        })
+    </script>
 </body>
 </html>
