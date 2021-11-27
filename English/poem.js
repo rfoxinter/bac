@@ -1,6 +1,6 @@
 document.addEventListener('readystatechange', event => {
     if (event.target.readyState === "interactive") {
-            if (window.innerWidth == "500" && window.innerHeight == "500") {
+            if (window.innerWidth >= 495 && window.innerWidth <= 505 && window.innerHeight >= 495 && window.innerHeight <= 505) {
             var div = document.createElement("div");
             div.style.width = "25px";
             div.style.height = "25px";
