@@ -18,9 +18,9 @@ document.addEventListener('readystatechange', event => {
             a.appendChild(img);
             div.appendChild(a);
             document.body.appendChild(div);
-        }
-    } else {
+        } else {
         alert(window.innerWidth);
         alert(window.innerHeight);
+        }
     }
 });
