@@ -83,3 +83,20 @@ function poems() {
         document.getElementById("poems").style.display = "none";
     }
 }
+
+document.addEventListener('readystatechange', event => {
+    if (event.target.readyState === "interactive") {
+        var div = document.createElement("div");
+        div.style.background = "#A0A0A0";
+        div.style.position = "fixed";
+        div.style.top = "15px";
+        div.style.right = "15px";
+        var p = document.createTextNode("Calculer sa moyenne au bac");
+        var a = document.createElement("a");
+        a.href = "https://rfoxinter.github.io/bac/Moyenne/";
+        a.style.margin = "2px"
+        a.appendChild(p);
+        div.appendChild(a);
+        document.body.appendChild(div);
+    }
+});
