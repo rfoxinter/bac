@@ -22,6 +22,34 @@ p, ul {
     }
 }
 
+@media print {
+    footer {
+        visibility: hidden;
+    }
+    .page-header {
+        background-color: #FFFFFFFF !important;
+        background-image: none !important;
+    }
+    header {
+        padding: none !important;
+    }
+    main {
+        margin-top: 15px !important;
+    }
+    * {
+        color: #000000FF !important;
+        line-height: 1.15 !important;
+    }
+    h1 {
+        margin-top: 0px !important;
+        margin-bottom: 5px !important;
+        font-size: 20px !important;
+    }
+    p, br {
+        font-size: 12px !important;
+    }
+}
+
 .fake_a {
     cursor: pointer;
     margin-bottom: 0;
