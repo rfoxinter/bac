@@ -96,6 +96,7 @@ document.addEventListener('readystatechange', event => {
         a.href = "https://rfoxinter.github.io/bac/Moyenne/";
         a.style.margin = "2px";
         a.style.opacity = 0.5;
+        a.target = "_blank";
         a.appendChild(p);
         div.appendChild(a);
         document.body.appendChild(div);
