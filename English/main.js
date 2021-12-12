@@ -91,6 +91,7 @@ document.addEventListener('readystatechange', event => {
         div.style.position = "fixed";
         div.style.top = "15px";
         div.style.right = "15px";
+        div.id = "no_print";
         var p = document.createTextNode("Calculer sa moyenne au bac");
         var a = document.createElement("a");
         a.href = "https://rfoxinter.github.io/bac/Moyenne/?section=internationale";
