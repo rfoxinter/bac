@@ -24,7 +24,7 @@ p, ul {
 
 @media print {
     footer {
-        visibility: hidden;
+        display: none !important;
     }
     .page-header {
         background-color: #FFFFFFFF !important;
@@ -34,7 +34,9 @@ p, ul {
         padding: none !important;
     }
     main {
-        margin-top: 15px !important;
+        margin-top: 20px !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
     * {
         color: #000000FF !important;
