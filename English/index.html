@@ -14,12 +14,14 @@
     <link rel="manifest" href="app.webmanifest" crossorigin="use-credentials">
     <link rel="manifest" href="manifest.json">
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="pwa.js"></script>
 </head>
 <body onload="books()">
     <header class="page-header">
         <h1>Books</h1>
     </header>
     <main class="main-content">
+        <button id="add-button">Install PWA</button>
         <h1>Drama</h1>
         <p class="main">
             <book class="tiobe"></book>
@@ -53,7 +55,10 @@
     </footer>
     <script>
         if (navigator.serviceWorker) {
+            alert("c bon")
             navigator.serviceWorker.register('/bac/English/sw.js', {scope: '/bac/English/'})
+        } else {
+            alert("c pas bon")
         }
     </script>
 </body>
