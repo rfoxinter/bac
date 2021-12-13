@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <link rel="canonical" href="https://rfoxinter.github.io/bac/" />
     <link rel="icon" href="favicon.ico" />
     <title>Bac</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="app.webmanifest" crossorigin="use-credentials">
     <script type="text/javascript" src="main.js"></script>
 </head>
 <body onload="books()">
@@ -48,5 +51,10 @@
     </main>
     <footer class="site-footer" style="margin-bottom: 55px; padding: 0px;">
     </footer>
+    <script>
+        if (navigator.serviceWorker) {
+            navigator.serviceWorker.register('/English/sw.js', {scope: '/English/'})
+        }
+    </script>
 </body>
 </html>
