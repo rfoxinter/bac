@@ -1,6 +1,6 @@
 const quizlet = {ia : "https://quizlet.com/_9kcegz?x=1jqt&i=3hrg84", iom : "https://quizlet.com/_9w625w?x=1jqt&i=3hrg84", noans : "https://quizlet.com/_9w9akc?x=1jqt&i=3hrg84", tht : "https://quizlet.com/_9zvngk?x=1jqt&i=3hrg84", tiobe : "https://quizlet.com/_9lfo98?x=1jqt&i=3hrg84", tpos : "https://quizlet.com/_9vertz?x=1jqt&i=3hrg84", tt : "https://quizlet.com/_9zvnek?x=1jqt&i=3hrg84", tttc : "https://quizlet.com/_9zvnbk?x=1jqt&i=3hrg84", wp : "https://quizlet.com/_9w64y0?x=1jqt&i=3hrg84", yp : "https://quizlet.com/_9zvnhs?x=1jqt&i=3hrg84"};
 let params = new URLSearchParams(document.location.search.substring(1));
-const p = (params.get("app") !== "true");
+const p = !!params.get("app");
 
 function books() {
     const b = document.getElementsByTagName("book");
