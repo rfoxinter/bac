@@ -7,9 +7,10 @@ function books() {
     var i=0;
     while (i < b.length) {
         var a = document.createElement("a");
-        a.setAttribute("href","books/"+b[i].className+".html");
         if (p) {
-            a.href += "?app=true";
+            a.setAttribute("href","books/"+b[i].className+".html?app=true");
+        } else {
+            a.setAttribute("href","books/"+b[i].className+".html");
         }
         var img = document.createElement("img");
         img.setAttribute("src","covers/"+b[i].className+".jpg");
@@ -58,11 +59,10 @@ function character_map() {
     const type = "character_maps";
     const url = book_id(window.location.href);
     const a = document.getElementById("map");
-    if (a != null) {
+    if (a != null && p) {
+        a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+url+"&type="+type+"&app=true");
+    } else if (a!= null) {
         a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+url+"&type="+type);
-    }
-    if (p) {
-        a.href += "?app=true";
     }
 }
 
