@@ -1,4 +1,6 @@
 const quizlet = {ia : "https://quizlet.com/_9kcegz?x=1jqt&i=3hrg84", iom : "https://quizlet.com/_9w625w?x=1jqt&i=3hrg84", noans : "https://quizlet.com/_9w9akc?x=1jqt&i=3hrg84", tht : "https://quizlet.com/_9zvngk?x=1jqt&i=3hrg84", tiobe : "https://quizlet.com/_9lfo98?x=1jqt&i=3hrg84", tpos : "https://quizlet.com/_9vertz?x=1jqt&i=3hrg84", tt : "https://quizlet.com/_9zvnek?x=1jqt&i=3hrg84", tttc : "https://quizlet.com/_9zvnbk?x=1jqt&i=3hrg84", wp : "https://quizlet.com/_9w64y0?x=1jqt&i=3hrg84", yp : "https://quizlet.com/_9zvnhs?x=1jqt&i=3hrg84"};
+let params = new URLSearchParams(document.location.search.substring(1));
+const p = (params.get("app") !== "true");
 
 function books() {
     const b = document.getElementsByTagName("book");
@@ -6,6 +8,9 @@ function books() {
     while (i < b.length) {
         var a = document.createElement("a");
         a.setAttribute("href","books/"+b[i].className+".html");
+        if (p) {
+            a.href += "?app=true";
+        }
         var img = document.createElement("img");
         img.setAttribute("src","covers/"+b[i].className+".jpg");
         img.setAttribute("class","books");
@@ -56,6 +61,9 @@ function character_map() {
     if (a != null) {
         a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+url+"&type="+type);
     }
+    if (p) {
+        a.href += "?app=true";
+    }
 }
 
 function quotes() {
@@ -85,8 +93,7 @@ function poems() {
 }
 
 document.addEventListener('readystatechange', event => {
-    let params = new URLSearchParams(document.location.search.substring(1));
-    if (event.target.readyState === "interactive" && params.get("app") !== "true") {
+    if (event.target.readyState === "interactive" && p) {
         var div = document.createElement("div");
         div.style.background = "#A0A0A07E";
         div.style.position = "fixed";
