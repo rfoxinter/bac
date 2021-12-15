@@ -86,7 +86,7 @@ function poems() {
 
 document.addEventListener('readystatechange', event => {
     let params = new URLSearchParams(document.location.search.substring(1));
-    if (event.target.readyState === "interactive" && params.get("app") === "true") {
+    if (event.target.readyState === "interactive" && params.get("app") !== "true") {
         var div = document.createElement("div");
         div.style.background = "#A0A0A07E";
         div.style.position = "fixed";
