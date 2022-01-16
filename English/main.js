@@ -1,16 +1,11 @@
 const quizlet = {ia : "https://quizlet.com/_9kcegz?x=1jqt&i=3hrg84", iom : "https://quizlet.com/_9w625w?x=1jqt&i=3hrg84", noans : "https://quizlet.com/_9w9akc?x=1jqt&i=3hrg84", tht : "https://quizlet.com/_9zvngk?x=1jqt&i=3hrg84", tiobe : "https://quizlet.com/_9lfo98?x=1jqt&i=3hrg84", tpos : "https://quizlet.com/_9vertz?x=1jqt&i=3hrg84", tt : "https://quizlet.com/_9zvnek?x=1jqt&i=3hrg84", tttc : "https://quizlet.com/_9zvnbk?x=1jqt&i=3hrg84", wp : "https://quizlet.com/_9w64y0?x=1jqt&i=3hrg84", yp : "https://quizlet.com/_9zvnhs?x=1jqt&i=3hrg84"};
-let params = new URLSearchParams(document.location.search.substring(1));
 
 function books() {
     const b = document.getElementsByTagName("book");
     var i=0;
     while (i < b.length) {
         var a = document.createElement("a");
-        if (!params.get("app")) {
-            a.setAttribute("href","books/"+b[i].className+".html");
-        } else {
-            a.setAttribute("href","books/"+b[i].className+".html?app=true");
-        }
+        a.setAttribute("href","books/"+b[i].className+".html");
         var img = document.createElement("img");
         img.setAttribute("src","covers/"+b[i].className+".jpg");
         img.setAttribute("class","books");
@@ -58,10 +53,8 @@ function character_map() {
     const type = "character_maps";
     const url = book_id(window.location.href);
     const a = document.getElementById("map");
-    if (a != null && !params.get("app")) {
+    if (a != null) {
         a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+url+"&type="+type);
-    } else if (a!= null) {
-        a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+url+"&type="+type+"&app=true");
     }
 }
 
@@ -92,21 +85,25 @@ function poems() {
 }
 
 document.addEventListener('readystatechange', event => {
-    if (event.target.readyState === "interactive" && !params.get("app")) {
-        var div = document.createElement("div");
-        div.style.background = "#A0A0A07E";
-        div.style.position = "fixed";
-        div.style.top = "15px";
-        div.style.right = "15px";
-        div.id = "no_print";
-        var p = document.createTextNode("Calculer sa moyenne au bac");
-        var a = document.createElement("a");
-        a.href = "https://rfoxinter.github.io/bac/Moyenne/?section=internationale";
-        a.style.margin = "2px";
-        a.style.opacity = 0.5;
-        a.target = "_blank";
-        a.appendChild(p);
-        div.appendChild(a);
-        document.body.appendChild(div);
+    if (event.target.readyState === "interactive") {
+        let displayMode = 'browser';
+        const mqStandAlone = '(display-mode: standalone)';
+        if (navigator.standalone === false || window.matchMedia(mqStandAlone).matches === false) {
+            var div = document.createElement("div");
+            div.style.background = "#A0A0A07E";
+            div.style.position = "fixed";
+            div.style.top = "15px";
+            div.style.right = "15px";
+            div.id = "no_print";
+            var p = document.createTextNode("Calculer sa moyenne au bac");
+            var a = document.createElement("a");
+            a.href = "https://rfoxinter.github.io/bac/Moyenne/?section=internationale";
+            a.style.margin = "2px";
+            a.style.opacity = 0.5;
+            a.target = "_blank";
+            a.appendChild(p);
+            div.appendChild(a);
+            document.body.appendChild(div);
+        }
     }
 });
