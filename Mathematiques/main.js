@@ -15,10 +15,12 @@ function niveau() {
         tex.setAttribute("class","latex");
         var a_tex = document.createElement("a");
         a_tex.setAttribute("href","Mathematiques"+(n[i].className).replace("<","").replace(">","").replace("è","e")+".tex");
+        a_tex.setAttribute("target","_blank");
         a_tex.appendChild(tex);
         var pdf = document.createTextNode("pdf");
         var a_pdf = document.createElement("a");
         a_pdf.setAttribute("href","Mathematiques"+(n[i].className).replace("<","").replace(">","").replace("è","e")+".pdf");
+        a_pdf.setAttribute("target","_blank");
         a_pdf.appendChild(pdf);
         p.appendChild(a_tex);
         p.innerHTML += "&Tab;&Tab;"
