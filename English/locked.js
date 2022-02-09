@@ -11,5 +11,6 @@ function checkPass() {
     }
     else {
         document.getElementById("alert").innerHTML = "The password is not correct";
+        document.f_pass.pass.value="";
     }
 }
