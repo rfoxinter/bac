@@ -1,0 +1,46 @@
+.dropbtn {
+    cursor: pointer;
+    margin-bottom: 0;
+    width: 7.5em;
+}
+
+.dropdown {
+    margin-bottom: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    overflow: auto;
+    width: 7.5em;
+    padding: 0;
+}
+
+.dropdown-content a{
+    display: block;
+}
+
+.option:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.show {
+    display: unset;
+}
+
+.option {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.text {
+    margin-top:  0;
+    margin-bottom: 0;
+    white-space: pre;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.0625em;
+    padding-bottom: 0.0625em;
+}
