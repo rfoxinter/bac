@@ -29,19 +29,19 @@ function change_diff(lvl) {
 
 function aff_diff(){
     if (diff == 1) {
-        document.getElementById("d1").style.display = "unset";
+        document.getElementById("d1").style.fontWeight = "800";
     } else {
-        document.getElementById("d1").style.display = "none";
+        document.getElementById("d1").style.fontWeight = "400";
     }
     if (diff == 2) {
-        document.getElementById("d2").style.display = "unset";
+        document.getElementById("d2").style.fontWeight = "800";
     } else {
-        document.getElementById("d2").style.display = "none";
+        document.getElementById("d2").style.fontWeight = "400";
     }
     if (diff == 3) {
-        document.getElementById("d3").style.display = "unset";
+        document.getElementById("d3").style.fontWeight = "800";
     } else {
-        document.getElementById("d3").style.display = "none";
+        document.getElementById("d3").style.fontWeight = "400";
     }
 }
 
