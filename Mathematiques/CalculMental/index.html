@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="../../English/favicon.ico" />
+    <title>Mathématiques - Calcul mental</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../English/main.css">
+    <link rel="stylesheet" type="text/css" href="../../English/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../English/style.css">
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body onload="aff_diff(),operation()">
+    <header class="page-header">
+        <h1>Calcul mental</h1>
+    </header>
+    <main class="main-content">
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Difficulté</button>
+            <div id="dropdown" class="dropdown-content">
+                <div onclick="change_diff(1)" class="option"><p class="text"><tick id="d1" style="display: none;"> ✓</tick>&Tab;Facile</p></div>
+                <div onclick="change_diff(2)" class="option"><p class="text"><tick id="d2" style="display: none;"> ✓</tick>&Tab;Moyenne</p></div>
+                <div onclick="change_diff(3)" class="option"><p class="text"><tick id="d3" style="display: none;"> ✓</tick>&Tab;Difficile</p></div>
+            </div>
+        </div>
+        <div style="width: 90vw; height:  50vh; display: table; margin: auto;">
+            <div style="display: table-cell; vertical-align: middle; text-align: center;">
+                <p style="font-size: max(10vw,5vh);" id="operation"></p>
+            </div>
+        </div>
+        <form name="f_pass" action="#" onsubmit="return false" style="margin-bottom: 5px;">
+            <input style="text-align: center; width: 20vw; margin-left: calc(40vw - 1rem); margin-bottom: 2px;" type="text" name="result" placeholder="Résultat">
+            <input style="text-align: center; width: 20vw; margin-left: calc(40vw - 1rem);" type="submit" name="valider" value="Valider" onclick="verifier()">
+        </form>
+        <div style="width: 90vw; display: table; margin: auto; margin-bottom: 5px;">
+            <div style="display: table-cell; vertical-align: middle; text-align: center;">
+                <p id="res">&nbsp;</p>
+            </div>
+        </div>
+        <div style="display: table; width: 100%">
+            <p style="display: table-cell; text-align: left;  width: 50%; color: #159957;">Correct&nbsp;:&nbsp;<tag style="display: unset;" id="corr">0</tag></p>
+            <p style="display: table-cell; text-align: right; width: 50%; color: #EC7063;">Incorrect&nbsp;:&nbsp;<tag style="display: unset;" id="incorr">0</tag></p>
+        </div>
+    </main>
+    <footer class="site-footer" style="margin-bottom: 55px; padding: 0px;">
+    </footer>
+    <script type="text/javascript">
+    const p = document.getElementById("operation");
+    const rep = document.getElementById("res");
+    document.getElementById("corr").textContent=correct;
+    document.getElementById("incorr").textContent=incorrect;
+</script>
+</body>
+</html>
