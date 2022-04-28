@@ -9,7 +9,7 @@ function checkStart() {
 
     if (x.search(atob(id)+"_"+type) != -1) {
         eval(x);
-        if (eval(atob(id)+"_"+type) == 1) {
+        if (eval(atob(id)+"_"+type) == pwd) {
             var exp = new Date();
             exp.setFullYear(exp.getFullYear()+1);
             document.cookie = atob(id)+"_"+type+"=1; expires="+exp+";";
@@ -31,7 +31,7 @@ function checkPass() {
     if (btoa(document.f_pass.pass.value) == pwd) {
         var exp = new Date();
         exp.setFullYear(exp.getFullYear()+1);
-        document.cookie = atob(id)+"_"+type+"=1; expires="+exp+";";
+        document.cookie = atob(id)+"_"+type+"="+pwd+"; expires="+exp+";";
         var correct = 0;
         var incorrect = 0;
         window.open("./" + type + "/" + title + " - " + author + ".pdf", target="_self");
