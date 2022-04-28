@@ -1,0 +1,841 @@
+\documentclass[a4paper,titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{tabularx}
+\usepackage{tkz-tab, tikz}
+\usepackage{environ}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\centering\arraybackslash\hsize=0.25\hsize}X}
+\newcolumntype{Z}{>{\centering\arraybackslash\hsize=1.375\hsize}X}
+\setlength{\parindent}{0cm}
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+\tikzset{arrow style/.style={->=latex,shorten >=2pt, shorten <=2pt}}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\makeatletter
+\newsavebox{\measure@tikzpicture}
+\NewEnviron{scaletikzpicturetowidth}[1]{
+    \def\tikz@width{#1}
+    \def\tikzscale{1}\begin{lrbox}{\measure@tikzpicture}
+    \BODY
+    \end{lrbox}
+    \pgfmathparse{#1/\wd\measure@tikzpicture}
+    \edef\tikzscale{\pgfmathresult}
+    \BODY
+}
+\makeatother
+\makeatletter
+\DeclareFontFamily{U}{tipa}{}
+\DeclareFontShape{U}{tipa}{m}{n}{<->tipa10}{}
+\newcommand{\arc@char}{{\usefont{U}{tipa}{m}{n}\symbol{62}}}%
+\newcommand{\arc}[1]{\mathpalette\arc@arc{#1}}
+\newcommand{\arc@arc}[2]{
+    \sbox0{$\m@th#1#2$}
+    \vbox{
+        \hbox{\resizebox{\wd0}{\height}{\arc@char}}
+        \nointerlineskip
+        \box0
+    }
+}
+\makeatother
+\hypersetup{hidelinks,linktoc=all}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\hypersetup{pdftitle=Mathématiques 1\textsuperscript{ère}}
+\title{Mathématiques 1\textsuperscript{ère}}
+\author{}
+\date{}
+\begin{document}
+\setlength{\abovedisplayskip}{0cm}
+\setlength{\belowdisplayskip}{0cm}
+\setlength{\abovedisplayshortskip}{0cm}
+\setlength{\belowdisplayshortskip}{0cm}
+\setlength{\jot}{0cm}
+\pagenumbering{gobble}
+\maketitle
+\null\newpage
+\null\newpage
+\tableofcontents
+\null\newpage
+\null\newpage
+\null\newpage
+\null\newpage
+\pagenumbering{arabic}
+\section{Le second degré}
+    \subsection{Racine d’un polynôme du second degré}
+        \subsubsection{Définitions}
+            \textbf{Définition :} Un polynôme du second degré est défini sur $\mathbb{R}$ par : $P\left(x\right)=ax^{2}+bx+c$ où $a$, $b$ et $c$ sont des réels fixés, avec $a\neq0$.
+            \\
+            \textbf{Définition :} Si $P\left(x_{0}\right)=0$ alors, $x_{0}$ est racine de $P$.
+        \subsubsection{Factorisation}
+            \textbf{Théorème :} Si $x_{1}$ est une racine de $P\left(x\right)=ax^{2}+bx+c$ alors, il existe un réel $x_{2}$ tel que\linebreak$P\left(x\right)=a\left(x-x_{1}\right)\left(x-x_{2}\right)$.
+            \\
+            \textbf{Remarque :} Un polynôme du second degré admet au plus deux racines.
+        \subsubsection{Somme et produit des racines}
+        \textbf{Propriété :} Soient $x_{1}$ et $x_{2}$ les deux racines de $P\left(x\right)=ax^{2}+bx+c$ alors $\left\{\begin{smallmatrix*}[l]S=x_{1}+x_{2}=\frac{-b}{a}\\P=x_{1}x_{2}=\frac{c}{a}\end{smallmatrix*}\!\right.$, $x_{1}$ et $x_{2}$ sont les racines de $Q\left(x\right)=x^{2}-Sx+P$.
+    \subsection{Équations du second degré}
+        \subsubsection{Forme canonique et discriminant}
+            \textbf{Remarque :}
+            \begin{flalign*}
+                \textstyle f\left(x\right)&\textstyle=ax^{2}+bx+c&\textstyle\\
+                \textstyle&\textstyle=a\left(x^{2}+\frac{b}{a}x+\frac{c}{a}\right)&\textstyle\\
+                \textstyle&\textstyle=a\left(\left(x+\frac{b}{2a}\right)^\mathrm{2}-\left(\frac{b}{2a}\right)^\mathrm{2}+\frac{c}{a}\right)&\textstyle\\
+                \textstyle&\textstyle=a\left(\left(x+\frac{b}{2a}\right)^\mathrm{2}-\left(\frac{b^{2}-4ac}{4a^{2}}\right)\right)&\textstyle
+            \end{flalign*}
+            \textbf{Définition :} Soit $f\left(x\right)=ax^{2}+bx+c$ avec $a\neq0$, $\varDelta=b^{2}-4ac$ est le discriminant.
+            \\
+            \textbf{Définition :} Soit $f\left(x\right)=ax^{2}+bx+c$ avec $a\neq0$, $f\left(x\right)=a\left(x+\frac{b}{2a}\right)^{2}-\frac{\varDelta}{4a}=a\left(x-\alpha\right)^{2}+\beta$ avec $\alpha=-\frac{b}{2a}$ et $\beta=f\left(\alpha\right)=-\frac{\varDelta}{4a}=\frac{-b^{2}+4ac}{4a}$ est la forme canonique de $f\left(x\right)$.
+        \subsubsection{Résolution}
+            \textbf{Remarque :} Soit $f\left(x\right)=a\left(\left(x+\frac{b}{2a}\right)^{2}-\frac{\varDelta}{4a^{2}}\right)$ avec $a\neq0$.
+            \\
+            \textbf{Définition :} Si $\varDelta<0$ alors, $\left(x+\frac{b}{2a}\right)^{2}-\frac{\varDelta}{4a^{2}}>0$.
+            \\
+            \textbf{Définition :} Si $\varDelta=0$ alors, $f\left(x\right)=a\left(x+\frac{b}{2a}\right)^{2}$.
+            \\
+            \textbf{Définition :} Si $\varDelta>0$ alors,  $f\left(x\right)=a\left(x+\frac{b}{2a}+\frac{\sqrt{\varDelta}}{2a}\right)\left(x+\frac{b}{2a}-\frac{\sqrt{\varDelta}}{2a}\right)=a\left(x+\frac{b+\sqrt{\varDelta}}{2a}\right)\left(x+\frac{b-\sqrt{\varDelta}}{2a}\right)$.
+            \\
+            \textbf{Théorème :} Soit $f\left(x\right)=ax^{2}+bx+c$ avec $a\neq0$, si $\varDelta<0$ alors, $f\left(x\right)$ n’admet aucune racine.
+            \\
+            \textbf{Théorème :} Soit $f\left(x\right)=ax^{2}+bx+c$ avec $a\neq0$, si $\varDelta=0$ alors, $f\left(x\right)$ admet une racine double en $x_{0}=\frac{-b}{2a}$ avec $f\left(x\right)=a\left(x-x_{0}\right)^{2}$.
+            \\
+            \textbf{Théorème :} Soit $f\left(x\right)=ax^{2}+bx+c$ avec $a\neq0$, si $\varDelta>0$ alors, $f\left(x\right)$ admet deux racines distinctes en $x_{1}=\frac{-b-\sqrt{\varDelta}}{2a}$ et $x_{2}=\frac{-b+\sqrt{\varDelta}}{2a}$ avec $f\left(x\right)=a\left(x-x_{1}\right)\left(x-x_{2}\right)$.
+    \subsection{Représentation graphique}
+        \subsubsection{Sommet et axe de symétrie}
+            \textbf{Remarque :} On a montré que $f\left(x\right)=ax^{2}+bx+c=a\left(x-\alpha\right)^{2}+\beta$ ainsi, $f\left(x\right)=a\left(x-\alpha\right)^{2}+f\left(\alpha\right)$.
+            \textbf{Propriété :} Soit $f\left(x\right)=ax^{2}+bx+c$ avec $a\neq0$, la courbe représentative de $f$ est une parabole de sommet $S\left(\alpha;\beta\right)$. Elle admet donc la droite d’équation $x=\alpha$ pour axe de symétrie.
+        \subsubsection{Tableau de variations}
+            \textbf{Remarque :} Si $a>0$\\
+            \begin{scaletikzpicturetowidth}{\textwidth}
+                \begin{tikzpicture}[scale=\tikzscale]
+                    \tkzTabInit[]{$x$/1,$ax^{2}+bx+c$/1}{$-\infty$,$\alpha$,$+\infty$}
+                    \tkzTabVar{+/,-/$\beta$,+/}
+                \end{tikzpicture}
+            \end{scaletikzpicturetowidth}\\
+            \textbf{Remarque :} Si $a<0$\\
+            \begin{scaletikzpicturetowidth}{\textwidth}
+                \begin{tikzpicture}[scale=\tikzscale]
+                    \tkzTabInit[]{$x$/1,$ax^{2}+bx+c$/1}{$-\infty$,$\alpha$,$+\infty$}
+                    \tkzTabVar{-/,+/$\beta$,-/}
+                \end{tikzpicture}
+            \end{scaletikzpicturetowidth}
+        \subsubsection{Application aux racines}
+            \begin{tabularx}{\linewidth}{RZZ}
+                $\varDelta<0$&$a>0$&$a<0$\\
+                &\begin{tikzpicture}
+                    \draw[->] (-4.3,0) -- (0.3,0) ;
+                    \draw[->] (0,-0.2) -- (0,5);
+                    \draw[dotted] (-1.875,0) -- (-1.875,0.4844);
+                    \draw[domain=-4:0.25, samples=425, scale=1, smooth, variable=\x, black] plot (\x,{\x*\x+3.75*\x+4});
+                    \draw[mark options={}] plot[mark=x] coordinates {(-1.875,0.4844)} node[above]{$\frac{-b}{2a}$};
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}
+                    \draw[->] (-0.3,0) -- (4.3,0) ;
+                    \draw[->] (0,-5) -- (0,0.2);
+                    \draw[dotted] (1.875,0) -- (1.875,-0.4844);	
+                    \draw[domain=-0.25:4, samples=425, scale=1, smooth, variable=\x, black] plot (\x,{-\x*\x+3.75*\x-4});
+                    \draw[mark options={}] plot[mark=x] coordinates {(1.875,-0.4844)} node[below]{$\frac{-b}{2a}$};
+                \end{tikzpicture}\\
+            \end{tabularx}
+            \linebreak[4]
+            \linebreak[4]
+            \linebreak[4]
+            \linebreak[4]
+            \linebreak[4]
+            \begin{tabularx}{\linewidth}{RZZ}
+                $\varDelta=0$&$a>0$&$a<0$\\
+                &\begin{tikzpicture}
+                    \draw[->] (-4.3,0) -- (0.3,0) ;
+                    \draw[->] (0,-0.2) -- (0,5);
+                    \draw[domain=-4.2361:0.2361, samples=448, scale=1, smooth, variable=\x, black] plot (\x,{\x*\x+4*\x+4});
+                    \draw[mark options={}] plot[mark=x] coordinates {(-2,0)} node[above]{$\frac{-b}{2a}$};
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}
+                    \draw[->] (-0.3,0) -- (4.3,0) ;
+                    \draw[->] (0,-5) -- (0,0.2);
+                    \draw[domain=-0.2361:4.2361, samples=448, scale=1, smooth, variable=\x, black] plot (\x,{-\x*\x+4*\x-4});
+                    \draw[mark options={}] plot[mark=x] coordinates {(2,0)} node[below]{$\frac{-b}{2a}$};
+                \end{tikzpicture}\\
+            \end{tabularx}\\
+            \begin{tabularx}{\linewidth}{RZZ}
+                $\varDelta>0$&$a>0$&$a<0$\\
+                &\begin{tikzpicture}
+                    \draw[->] (-4.3,0) -- (0.3,0) ;
+                    \draw[->] (0,-0.6) -- (0,5);
+                    \draw[dotted] (-2.15,-0.5156) -- (-2.15,0) node[above]{$\frac{-b}{2a}$};
+                    \draw[domain=-4.4735:0.2235, samples=470, scale=1, smooth, variable=\x, black] plot (\x,{\x*\x+4.25*\x+4});
+                    \draw[mark options={}] plot[mark=x] coordinates {(-2.15,-0.5156)};
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}
+                    \draw[->] (-0.3,0) -- (4.3,0) ;
+                    \draw[->] (0,-5) -- (0,0.6);
+                    \draw[dotted] (2.15,0.5156) -- (2.15,0) node[below]{$\frac{-b}{2a}$};
+                    \draw[domain=-0.2235:4.4735, samples=470, scale=1, smooth, variable=\x, black] plot (\x,{-\x*\x+4.25*\x-4});
+                    \draw[mark options={}] plot[mark=x] coordinates {(2.15,0.5156)};
+                \end{tikzpicture}\\
+            \end{tabularx}
+    \subsection[Signe de $ax^{2}+bx+c$]{\boldmath Signe de $ax^{2}+bx+c$}
+        \textbf{Remarque :} $f\left(x\right)=a\left(\left(x+\frac{b}{2a}\right)^{2}-\frac{\varDelta}{4a^{2}}\right)$ avec $a\neq0$, si $\varDelta<0$ alors $\left(x+\frac{b}{2a}\right)^{2}-\frac{\varDelta}{4a^2}>0$ d’où $f\left(x\right)$ est du signe de $a$.\\
+        \textbf{Remarque :} $f\left(x\right)=a\left(\left(x+\frac{b}{2a}\right)^{2}-\frac{\varDelta}{4a^{2}}\right)$ avec $a\neq0$, si $\varDelta=0$ alors $f\left(x\right)=a\left(x+\frac{b}{2a}\right)^{2}$ d’où $f\left(x\right)$ est du signe de $a$ et s’annule en $\frac{-b}{2a}$.\\
+        \textbf{Remarque :} $f\left(x\right)=a\left(\left(x+\frac{b}{2a}\right)^{2}-\frac{\varDelta}{4a^{2}}\right)$ avec $a\neq0$, si $\varDelta>0$ alors $f\left(x\right)=a(x-x_{1})(x-x_{2})$ avec $x_{1}<x_{2}$.
+        \\
+        \begin{scaletikzpicturetowidth}{\textwidth}
+            \begin{tikzpicture}[scale=\tikzscale]
+                \tkzTabInit[lgt=3]{$x$/1,$x-x_{1}$/1,$x-x_{2}$/1,$\left(x-x_{1}\right)\left(x-x_{2}\right)$/1,$ax^{2}+bx+c$/1}{$-\infty$,$x_{1}$,$x_{2}$,$+\infty$}
+                \tkzTabLine{,-,z,+,t,+,}
+                \tkzTabLine{,-,t,-,z,+,}
+                \tkzTabLine{,+,z,-,z,+,}
+                \tkzTabLine{,$Signe de $a,z,$Signe de $-a,z,$Signe de $a,}
+            \end{tikzpicture}
+        \end{scaletikzpicturetowidth}
+        \\
+        \textbf{Théorème :} Soit $f\left(x\right)=ax^{2}+bx+c$ avec $a\neq0$, si $\varDelta<0$ alors $f\left(x\right)$ est du signe de $a$.
+        \\
+        \textbf{Théorème :} Soit $f\left(x\right)=ax^{2}+bx+c$ avec $a\neq0$, si $\varDelta=0$ alors $f\left(x\right)$ est du signe de $a$ sauf en $\alpha$ où elle s’annule.
+        \\
+        \textbf{Théorème :} Soit $f\left(x\right)=ax^{2}+bx+c$ avec $a\neq0$, si $\varDelta>0$ alors $f\left(x\right)$ est du signe de $a$ à l’extérieur des racines et du signe de $-a$ à l’intérieur des racines.
+\section{Les fonctions dérivées}
+    \subsection{Nombre dérivé}
+        \subsubsection{Définition}
+            \textbf{Définition :} Soit $f$ une fonction définie sur $E$ et $a\in E$, $f$ est dite dérivable en $a$, de nombre dérivé $f^{\prime}\left(a\right)$, si $\lim\limits_{h\to0}\left(\frac{f\left(a+h\right)-f\left(a\right)}{h}\right)=f^{\prime}\left(a\right)$.
+            \\
+            \textbf{Définition :} La tangente en $A\left(a;f\left(a\right)\right)$ à $\left(y=f\left(x\right)\right)$ admet pour équation $y=f^{\prime}\left(a\right)\left(x-a\right)+f\left(a\right)$.
+            \\
+            \textbf{Définition :} $f^{\prime}\left(a\right)$ est le coefficient directeur de la tangente en $a$.
+    \subsection{Calcul de nombres dérivés}
+        \subsubsection[Fonction affine $f\left(x\right)=mx+p$]{\boldmath Fonction affine $f\left(x\right)=mx+p$}
+            \textbf{Définition :} Soit $a\in\mathbb{R}$
+            \begin{flalign*}
+                \textstyle \frac{f\left(a+h\right)-f\left(a\right)}{h}&\textstyle=\frac{m\left(a+h\right)+p-\left(ma+p\right)}{h}&\textstyle\\
+                \textstyle&\textstyle=\frac{mh}{h}&\textstyle\\
+                \textstyle&\textstyle=m&\textstyle
+            \end{flalign*}
+            $f^{\prime}\left(a\right)=m$
+        \subsubsection[Fonction carrée $f\left(x\right)=x^{2}$]{\boldmath Fonction carrée $f\left(x\right)=x^{2}$}
+            \textbf{Définition :} Soit $a\in\mathbb{R}$
+            \begin{flalign*}
+                \textstyle \frac{f\left(a+h\right)-f\left(a\right)}{h}&\textstyle=\frac{\left(a+h\right)^{2}-a^{2}}{h}&\textstyle\\
+                \textstyle&\textstyle=\frac{2ah+h^{2}}{h}&\textstyle\\
+                \textstyle&\textstyle=2a+h&\textstyle
+            \end{flalign*}
+            $f^{\prime}\left(a\right)=2a$
+        \subsubsection[Fonction inverse $f\left(x\right)=\frac{1}{x}$]{\boldmath Fonction inverse $f\left(x\right)=\frac{1}{x}$}
+            \textbf{Définition :} Soit $a\in\mathbb{R}^{*}$
+            \begin{flalign*}
+                \textstyle \frac{f\left(a+h\right)-f\left(a\right)}{h}&\textstyle=\frac{\frac{1}{a+h}-\frac{1}{a}}{h}&\textstyle\\
+                \textstyle&\textstyle=\frac{\frac{-h}{a\left(a+h\right)}}{h}&\textstyle\\
+                \textstyle&\textstyle=\frac{-1}{a\left(a+h\right)}&\textstyle
+            \end{flalign*}
+            $f^{\prime}\left(a\right)=-\frac{1}{a^{2}}$
+        \subsubsection[Fonction racine carrée $f\left(x\right)=\sqrt{x}$]{\boldmath Fonction racine carrée $f\left(x\right)=\sqrt{x}$}
+            \textbf{Définition :} Soit $a\in\mathbb{R}^{*}$
+            \begin{flalign*}
+                \textstyle \frac{f\left(a+h\right)-f\left(a\right)}{h}&\textstyle=\frac{\sqrt{a+h}-\sqrt{a}}{h}&\textstyle\\
+                \textstyle&\textstyle=\frac{\sqrt{a+h}-\sqrt{a}}{h}\times\frac{\sqrt{a+h}+\sqrt{a}}{\sqrt{a+h}+\sqrt{a}}&\textstyle\\
+                \textstyle&\textstyle=\frac{h}{h\left(\sqrt{a+h}+\sqrt{a}\right)}&\textstyle\\
+                \textstyle&\textstyle=\frac{1}{\sqrt{a+h}+\sqrt{a}}&\textstyle
+            \end{flalign*}
+            $f^{\prime}\left(a\right)=-\frac{1}{2\sqrt{a}}$
+        \subsubsection[Fonction valeur absolue $f\left(x\right)=\left|x\right|$]{\boldmath Fonction valeur absolue $f\left(x\right)=\left|x\right|$}
+            \textbf{Définition :} $\left\{\begin{smallmatrix*}[l]\left|x\right|=x \text{ si } x\geqslant0\\\left|x\right|=-x \text{ si } x\leqslant0\end{smallmatrix*}\!\right.$.
+            \\
+            \textbf{Remarque :} La fonction valeur absolue n’est pas dérivable en $0$.
+    \subsection{Fonction dérivée}
+        \subsubsection{Définitions}
+            \textbf{Définition :} Une fonction $f$ est dérivable sur un intervalle $I$ si elle admet un nombre dérivable pour tout $x\in I$.
+            \\
+            \textbf{Définition :} La fonction qui à $x$ fait correspondre le nombre dérivé en $x$ est appelée fonction dérivée et est notés $f^{\prime}$.
+        \subsubsection{Dérivée de fonctions usuelles}
+            \textbf{Définition :} $f\left(x\right)=mx+p$ est dérivable sur $\mathbb{R}$ avec $f^{\prime}\left(x\right)=m$.
+            \\
+            \textbf{Définition :} $f\left(x\right)=x^{2}$ est dérivable sur $\mathbb{R}$ avec $f^{\prime}\left(x\right)=2x$.
+            \\
+            \textbf{Définition :} $f\left(x\right)=\frac{1}{x}$ est dérivable sur $\mathbb{R}^{*}$ avec $f^{\prime}\left(x\right)=\frac{-1}{x^{2}}$.
+            \\
+            \textbf{Définition :} $f\left(x\right)=\sqrt{x}$ est dérivable sur $\mathbb{R}_{+}^{*}$ avec $f^{\prime}\left(x\right)=\frac{1}{2\sqrt{x}}$.
+            \\
+            \textbf{Définition :} Pour tout $n\in\mathbb{N}$ $f\left(x\right)=x^{n}$ est dérivable sur $\mathbb{R}$ avec $f^{\prime}\left(x\right)=nx^{n-1}$.
+            \\
+            \textbf{Définition :} Pour tout $n\in\mathbb{N}$ $f\left(x\right)=\frac{1}{x^{n}}$ est dérivable sur $\mathbb{R}^{*}$ avec $f^{\prime}\left(x\right)=\frac{-n}{x^{n+1}}$.
+    \subsection{Opérations}
+        \subsubsection{Somme}
+            \textbf{Théorème :} Si $f$ et $g$ sont deux fonctions dérivables sur un intervalle $I$, alors $\left(f+g\right)$ est dérivable sur $I$, avec $\left(f+g\right)^{\prime}=f^{\prime}+g^{\prime}$.
+        \subsubsection{Produit}
+            \textbf{Théorème :} Soient $u$ et $v$ deux fonctions dérivables sur un intervalle $I$. La fonction $\left(u\times v\right)$ est dérivable sur $I$ avec $\left(uv\right)^{\prime}=u^{\prime}v+uv^{\prime}$.
+            \\
+            \textbf{Démonstration :}
+            \begin{flalign*}
+                \textstyle\left(uv\right)^{\prime}&\textstyle=\frac{\left(uv\right)\left(a+h\right)-\left(uv\right)\left(a\right)}{h}&\textstyle\\
+                \textstyle&\textstyle=\frac{u\left(a+h\right)v\left(a+h\right)-u\left(a\right)v\left(a\right)}{h}&\textstyle\\
+                \textstyle&\textstyle=\frac{u\left(a+h\right)-u\left(a\right)}{h}v\left(a+h\right)+u\left(a\right)\frac{v\left(a+h\right)-v\left(a\right)}{h}&\textstyle\\
+                \textstyle&\textstyle=u^{\prime}\left(a\right)v\left(a\right)+u\left(a\right)v^{\prime}\left(a\right)&\textstyle
+            \end{flalign*}
+            \textbf{Conséquence :} $\left(kf\right)^{\prime}=kf^{\prime}$ pour $k$ un réel fixé.
+        \subsubsection{Quotient}
+            \textbf{Démonstration :} Soit $f$ une fonction dérivable sur $I$ avec $f\left(x\right)=0$ sur $I$. Soit $g\left(x\right)=\frac{1}{f\left(x\right)}$.
+            \begin{flalign*}
+                \textstyle g^{\prime}\left(x\right)&\textstyle=\frac{g\left(a+h\right)-g\left(a\right)}{h}&\textstyle\\
+                \textstyle&\textstyle=\frac{\frac{1}{f\left(a+h\right)}-\frac{1}{f\left(a\right)}}{h}&\textstyle\\
+                \textstyle&\textstyle=\frac{f\left(a\right)-f\left(a+h\right)}{hf\left(a\right)f\left(a+h\right)}&\textstyle\\
+                \textstyle&\textstyle=-\frac{f\left(a+h\right)-f\left(a\right)}{h}\times\frac{1}{f\left(a\right)f\left(a+h\right)}&\textstyle
+            \end{flalign*}
+            Or, $\lim\limits_{h\to0}\left(\frac{f\left(a+h\right)-f\left(a\right)}{h}\right)=f^{\prime}\left(a\right)$ et $\lim\limits_{h\to0}\left(\frac{1}{f\left(a\right)f\left(a+h\right)}\right)=\frac{1}{\left(f\left(a\right)\right)^{2}}$.
+            \\
+            D’où $\lim\limits_{h\to0}=\left(\frac{g\left(a+h\right)-g\left(a\right)}{h}\right)=\frac{-f^{\prime}\left(a\right)}{\left(f\left(a\right)\right)^{2}}$.
+            \\
+            \textbf{Théorème :} Soit $f$ une fonction dérivable sur $I$ avec $f\left(x\right)\neq0$ pour tout $x$ sur $I$. Alors, $\frac{1}{f}$ est dérivable sur $I$ avec $\left(\frac{1}{f}\right)^{\prime}=\frac{-f^{\prime}}{f^{2}}$.
+            \\
+            \textbf{Théorème :} Soient $u$ et $v$ deux fonctions dérivable sur $I$ avec $v\left(x\right)\neq0$ pour tour $x$ dans $I$. La fonction $\left(\frac{u}{v}\right)$ est dérivable sur $I$ avec $\left(\frac{u}{v}\right)^{\prime}=\frac{u^{\prime}v-uv^{\prime}}{v^{2}}$.
+            \\
+            \textbf{Démonstration :}
+            \begin{flalign*}
+                \textstyle\left(\frac{u}{v}\right)^{\prime}&\textstyle=\left(u\times\frac{1}{v}\right)^{\prime}&\textstyle\\
+                \textstyle&\textstyle=u^{\prime}\times\frac{1}{v}+u\times\left(\frac{1}{v}\right)^{\prime}&\textstyle\\
+                \textstyle&\textstyle=\frac{u^{\prime}}{v}+u\times\frac{-v^{\prime}}{v^{2}}&\textstyle\\
+                \textstyle&\textstyle=\frac{u^{\prime}v-uv^{\prime}}{v^{2}}&\textstyle
+            \end{flalign*}
+        \subsubsection{Composition}
+            \textbf{Théorème :} Soient $f$ et $g$ deux fonctions dérivables, alors $\left(g\left(f\left(x\right)\right)\right)^{\prime}=g^{\prime}\left(f\left(x\right)\right)\times f^{\prime}\left(x\right)$.
+            \\
+            \textbf{Conséquence :} $\left(f\left(x\right)^{n}\right)^{\prime}=n\left(f\left(x\right)\right)^{n-1}\times f^{\prime}\left(x\right)$ pour tout $n\in\mathbb{N}$.
+            \\
+            \textbf{Conséquence :} $\left(\frac{1}{f\left(x\right)^{n}}\right)^{\prime}=\frac{-n}{\left(f\left(x\right)\right)^{n+1}}\times f^{\prime}\left(x\right)$ pour tout $n\in\mathbb{N}$.
+            \\
+            \textbf{Conséquence :} $\left(\sqrt{f\left(x\right)}\right)^{\prime}=\frac{1}{2\sqrt{f\left(x\right)}}\times f^{\prime}\left(x\right)$.
+            \\
+            \textbf{Conséquence :} $\left(f\left(ax+b\right)\right)^{\prime}=f^{\prime}\left(ax+b\right)\times a$ pour tout $\left(a;b\right)\in\mathbb{R}^{2}$.
+\section{Application de la dérivée}
+    \subsection{Dérivée et variation}
+        \textbf{Théorème :} Soit $f$ une fonction dérivable sur un intervalle $I$. Si $f^{\prime}\left(x\right)>0$ sur $I$, sauf en un nombre fini de points où elle s’annule, alors $f$ est strictement croissante sur $I$.
+        \\
+        \textbf{Théorème :} Soit $f$ une fonction dérivable sur un intervalle $I$. Si $f^{\prime}\left(x\right)<0$ sur $I$, sauf en un nombre fini de points où elle s’annule, alors $f$ est strictement décroissante sur $I$.
+        \\
+        \textbf{Théorème :} Soit $f$ une fonction dérivable sur un intervalle $I$. Si $f^{\prime}\left(x\right)=0$ sur $I$, alors $f$ est constante sur $I$.
+    \subsection{Extremum local d’une fonction}
+        \textbf{Définition :} Soit $f$ une fonction définie sur $E$ et $a\in E$. $f$ admet un extremum local en $x=a$ s’il existe un intervalle ouvert, centré en $a$ tel que la restriction de $f$ à cet intervalle admette un extremum en $a$.
+        \\
+        \textbf{Propriété :} Soit $f$ une fonction dérivable. Si $f$ admet un extremum local en $a$, alors $f^{\prime}\left(a\right)=0$.
+        \\
+        \textbf{Propriété :} Soit $f$ une fonction dérivable. Si $f^{\prime}$ s’annule en $a$, alors $f$ admet un extremum local en $a$.
+    \subsection{Des polynômes du troisième degré}
+        \subsubsection[$f\left(x\right)=x^{3}-ax$ ; où $a>0$]{\boldmath$f\left(x\right)=x^{3}-ax$ ; où $a>0$}
+            \textbf{Remarque :} $f$ est définie sur $\mathbb{R}$ avec $f^{\prime}\left(x\right)=3x^{2}-a$.
+            \begin{flalign*}
+                \textstyle&\textstyle3x^{2}-a=0&\textstyle\\
+                \textstyle\Leftrightarrow\text{ }&\textstyle x^{2}=\frac{a}{3}&\textstyle\\
+                \textstyle\Leftrightarrow\text{ }&\textstyle x=\pm\sqrt{\frac{a}{3}}&\textstyle
+            \end{flalign*}
+            Le coefficient de $x^{2}$ étant $3>0$, on en déduit le signe de $f^{\prime}$.\\
+            \begin{scaletikzpicturetowidth}{\textwidth}
+                \begin{tikzpicture}[scale=\tikzscale]
+                    \tkzTabInit[]{$x$/1,Signe de $f^{\prime}\left(x\right)$/1,Variations de $f\left(x\right)$/1}{$-\infty$,$-\sqrt{\frac{a}{3}}$,$\sqrt{\frac{a}{3}}$,$+\infty$}
+                    \tkzTabLine{,+,z,-,z,+,}
+                    \tkzTabVar{-/,+/,-/,+/}
+                \end{tikzpicture}
+            \end{scaletikzpicturetowidth}
+        \subsubsection[$f\left(x\right)=x^{3}+ax$ ; où $a>0$]{\boldmath$f\left(x\right)=x^{3}+ax$ ; où $a>0$}
+            \textbf{Remarque :} $f$ est définie sur $\mathbb{R}$ avec $f^{\prime}\left(x\right)=3x^{2}+a$.\\
+            $3x^{2}+a\geqslant a>0$\\
+            \begin{scaletikzpicturetowidth}{\textwidth}
+                \begin{tikzpicture}[scale=\tikzscale]
+                    \tkzTabInit[]{$x$/1,Signe de $f^{\prime}\left(x\right)$/1,Variations de $f\left(x\right)$/1}{$-\infty$,,,$+\infty$}
+                    \tkzTabLine{,,,+,,,}
+                    \tkzTabVar{-/,R/,R/,+/}
+                \end{tikzpicture}
+            \end{scaletikzpicturetowidth}
+        \clearpage
+        \subsubsection{Courbes représentatives}
+            \textbf{Remarque :} Soit $a\in\mathbb{R}_{+}^{*}$\\
+            \begin{tabularx}{\linewidth}{YY}
+                \begin{center}
+                    \begin{tikzpicture}
+                        \draw[color=gray,opacity=0.2] (-2.2,-5.2) grid(2.2,5.2);
+                        \draw[->] (-2.2, 0) -- (2.2, 0) node[above left]{$x$};
+                        \draw[->] (0,-5.2) -- (0, 5.2) node[below right]{$y$};
+                        \foreach \y in {-5,...,-1} \draw(0,\y) node[left]{\footnotesize$\y$};
+                        \foreach \y in {1,...,5} \draw(0,\y) node[left]{\footnotesize$\y$};
+                        \foreach \x in {-2,-1} \draw(\x,0) node[below]{\footnotesize$\x$};
+                        \foreach \x in {1,2} \draw(\x,0) node[below]{\footnotesize$\x$};
+                        \draw(0,0) node[below left]{\footnotesize$0$};
+                        \draw[domain=-1.924:1.924, samples=385, scale=1, smooth, variable=\x, black] plot (\x,{\x*\x*\x-\x});
+                        \node[above] at (current bounding box.north) {$y=x^{3}-ax$};
+                    \end{tikzpicture}
+                \end{center}
+                &
+                \begin{center}
+                    \begin{tikzpicture}
+                        \draw[color=gray,opacity=0.2] (-2.2,-5.2) grid(2.2,5.2);
+                        \draw[->] (-2.2, 0) -- (2.2, 0) node[above left]{$x$};
+                        \draw[->] (0,-5.2) -- (0, 5.2) node[below right]{$y$};
+                        \foreach \y in {-5,...,-1} \draw(0,\y) node[left]{\footnotesize$\y$};
+                        \foreach \y in {1,...,5} \draw(0,\y) node[left]{\footnotesize$\y$};
+                        \foreach \x in {-2,-1} \draw(\x,0) node[below]{\footnotesize$\x$};
+                        \foreach \x in {1,2} \draw(\x,0) node[below]{\footnotesize$\x$};
+                        \draw(0,0) node[below left]{\footnotesize$0$};
+                        \draw[domain=-1.541:1.541, samples=309, scale=1, smooth, variable=\x, black] plot (\x,{\x*\x*\x+\x});
+                        \node[above] at (current bounding box.north) {$y=x^{3}+ax$};
+                    \end{tikzpicture}
+                \end{center}
+            \end{tabularx}
+\section{Suites numériques}
+    \subsection{Notion de suites}
+        \textbf{Définition :} Une suite numérique est une application de $\mathbb{N}$ dans $\mathbb{R}$.
+        \\
+        \textbf{Définition :} Pour $n\in\mathbb{N}$, et une suite $\left(u\right)$, on note $u_{n}$ l’image de l’entier $n$ par la suite $\left(u\right)$.
+    \subsection{Exemples fondamentaux de générations d’une suite}
+        \subsubsection{Mode explicite}
+            \textbf{Définition :} La suite $\left(u\right)$ est définie par $u_{n}=f\left(n\right)$.
+        \subsubsection{Mode itératif ou récurrent}
+            \textbf{Définition :} La suite $\left(u\right)$ est définie par $u_{0}$ et $u_{n+1}=f\left(u_{n}\right)$.
+    \subsection{Sens de variation}
+        \subsubsection{Définitions}
+            \textbf{Définition :} La suite $\left(u_{n}\right)$ est dite croissante si, pour tout $n\in\mathbb{N}$, $u_{n+1}\geq u_{n}$.
+            \\
+            \textbf{Définition :} La suite $\left(u_{n}\right)$ est dite strictement croissante si, pour tout $n\in\mathbb{N}$, $u_{n+1}>u_{n}$.
+            \\
+            \textbf{Définition :} La suite $\left(u_{n}\right)$ est dite décroissante si, pour tout $n\in\mathbb{N}$, $u_{n+1}\leq u_{n}$.
+            \\
+            \textbf{Définition :} La suite $\left(u_{n}\right)$ est dite strictement décroissante si, pour tout $n\in\mathbb{N}$, $u_{n+1}<u_{n}$.
+        \subsubsection{Méthodes}
+            \textbf{Méthode :} Si $u_{n}=f\left(n\right)$, alors $u_{n}$ est de même sens que $f\left(n\right)$.\\
+            \textbf{Méthode :} Dans les autres cas, on étudie le signe de $u_{n+1}-u_{n}$.
+    \subsection{Suites arithmétiques}
+        \subsubsection{Généralité}
+            \textbf{Définition :} Une suite $\left(u_{n}\right)$ est dite arithmétique de raison $r$, un réel fixé, si pour tout $n\in\mathbb{N}$,\linebreak$u_{n+1}=u_{n}+r$.
+            \\
+            \textbf{Propriété :} $\left(u_{n}\right)$ est une suite arithmétique de raison $r$ si et seulement si, $u_{n}=u_{0}+nr$, pour tout $n\in\mathbb{N}$.
+        \subsubsection{Représentation graphique}
+            \textbf{Propriété :} La représentation graphique d’une suite arithmétique est un ensemble de points alignés.
+            \\
+            \textbf{Remarque :} Une suite arithmétique a un accroissement linéaire ou une évolution linéaire.
+        \subsubsection{Somme des termes}
+            \textbf{Théorème :} Soit $\left(u_{n}\right)$ une suite arithmétique. $u_{0}+u_{1}+u_{2}+\cdots+u_{n}=\left(n+1\right)\left(\frac{u_{0}+u_{n}}{2}\right)$. C’est-à-dire : $\sum\limits_{k=0}^{n}\left(u_{k}\right)=\left(n+1\right)\left(\frac{u_{0}+u_{n}}{2}\right)$. D’où : $\sum\limits_{k=m}^{n}\left(u_{k}\right)=\left(n-m+1\right)\left(\frac{u_{m}+u_{n}}{2}\right)$, avec $m\leqslant n$.
+    \subsection{Suites géométriques}
+        \subsubsection{Généralités}
+            \textbf{Définition :} La suite $\left(u_{n}\right)$ est dite géométrique de raison $q$, un réel fixé, si pour tout $n\in\mathbb{N}$, $u_{n+1}=u_{n}\times q$.
+            \\
+            \textbf{Propriété :} $\left(u_{n}\right)$ est une suite géométrique de raison $q$ si et seulement si, $u_{n}=u_{0}\times q^{n}$, pour tout $n\in\mathbb{N}$.
+        \subsubsection{Représentation graphique}
+            \textbf{Remarque :} Une suite géométrique a un accroissement exponentiel ou une évolution exponentielle.
+        \subsubsection{Somme des termes}
+            \textbf{Théorème :} Soit $\left(u_{n}\right)$ une suite géométrique. $u_{0}+u_{1}+u_{2}+\cdots+u_{n}=\left(\frac{u_{0}-u_{n+1}}{1-q}\right)=u_{0}\times\left(\frac{1-q^{n+1}}{1-q}\right)$. C’est-à-dire : $\sum\limits_{k=0}^{n}\left(u_{k}\right)=u_{0}\times\left(\frac{1-q^{n+1}}{1-q}\right)$. D’où : $\sum\limits_{k=m}^{n}\left(u_{k}\right)=u_{m}\times\left(\frac{1-q^{n-m+1}}{1-q}\right)$, avec $m\leqslant n$.
+\section{Limites de suites}
+    \subsection{Cas où la limite est finie}
+        \textbf{Définition :} On dit que la suite $\left(u_{n}\right)$ admet pour limite $+\infty$ si tout intervalle du type $\left[A;+\infty\right[$ contient tous les termes de la suite à partir d’un certain rang. On note alors, $\lim\limits_{n\to+\infty}\left(u_{n}\right)=+\infty$.
+        \\
+        \textbf{Définition :} On dit que la suite $\left(u_{n}\right)$ admet pour limite $-\infty$ si tout intervalle du type $\left]-\infty;A\right]$ contient tous les termes de la suite à partir d’un certain rang. On note alors, $\lim\limits_{n\to+\infty}\left(u_{n}\right)=-\infty$.
+        \\
+        \textbf{Remarque :} Une suite qui admet pour limite $+\infty$ n’est pas nécessairement croissante et, de même, une suite croissante n’admet pas non plus nécessairement pour limite $+\infty$.
+    \subsection{Cas où la limite est finie}
+        \textbf{Définition :} On dit que la suite $\left(u_{n}\right)$ admet pour limite un réel $l$, si tout intervalle centré en $l$ contient tous les termes de la suite à partir d’un certain rang. On note alors, $\lim\limits_{n\to+\infty}\left(u_{n}\right)=l$.
+    \subsection{Limites de suites géométriques}
+        \textbf{Théorème :} Si $\left|q\right|<1$, alors $\lim\limits_{n\to+\infty}\left(q^{n}\right)=0$.
+        \\
+        \textbf{Théorème :} Si $q>1$, alors $\lim\limits_{n\to+\infty}\left(q^{n}\right)=+\infty$.
+    \subsection{Vocabulaire}
+        \textbf{Définition :} Soit $\left(u_{n}\right)$ une suite. Si $\lim\limits_{n\to+\infty}\left(u_{n}\right)=l$ avec $l\in\mathbb{R}$, la suite est dite convergente.
+        \\
+        \textbf{Définition :} Soit $\left(u_{n}\right)$ une suite. Si $\lim\limits_{n\to+\infty}\left(u_{n}\right)=\pm\infty$ ou si la suite $\left(u_{n}\right)$ n’admet pas de limite, la suite est dite divergente.
+\section{Trigonométrie}
+    \subsection{Angles orientés}
+        \subsubsection{Le radian}
+            \textbf{Définition :} L’angle plat vaut $\pi$ radians.
+        \subsubsection{Orientation}
+            \textbf{Définition :} Le sens inverse à celui des aiguilles d’une montre est appelé le sens trigonométrique. Le sens contraire est appelé anti-trigonométrique.
+            \\
+            \textbf{Définition :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère orthonormé. Le cercle de centre $O$ et de rayon $1$, orienté dans le sens trigonométrique est appelé cercle trigonométrique.
+        \subsubsection[Point associé à un angle $x$]{\boldmath Point associé à un angle $x$}
+            \textbf{Définition :} Soient $M$ un point du cercle trigonométrique et $l$ la longueur entre l’origine du cercle et le point $M$. Le point $M$ est associé à l’angle $x$, avec : $x=l$ si l’on parcourt le cercle dans le sens trigonométrique et $x=-l$ si l’on parcourt le cercle dans le sens anti-trigonométrique.
+            \\
+            \textbf{Définition :} Un point $M$ est associé à un réel $x$ est aussi associé à $x+2k\pi$, où $k\in\mathbb{Z}$.
+            \\
+            \textbf{Définition :} La mesure principale d’un nombre est l’unique mesure dans l'intervalle $\left]-\pi;\pi\right]$.
+            \\
+            \textbf{Remarque :} La mesure principale correspond au chemin le plus court sur le cercle.
+        \subsubsection{Angles orientés de vecteurs}
+            \textbf{Définition :} Soit $l$ la longueur de l’arc $\arc{AB}$. $\left(\vec{u},\vec{v}\right)=l$ si l’on parcourt le cercle dans le sens trigonométrique.
+            \\
+            \textbf{Définition :} Soit $l$ la longueur de l’arc $\arc{AB}$. $\left(\vec{u},\vec{v}\right)=-l$ si l’on parcourt le cercle dans le sens anti-trigonométrique.
+    \subsection{Sinus et cosinus}
+        \subsubsection{Définition}
+            \textbf{Définition :} soit $\alpha\in\mathbb{R}$ et $M$ le point du cercle trigonométrique associé à l’angle de mesure $\alpha$, $\left\{\begin{smallmatrix*}[l]\cos\left(\alpha\right)=x_{M}\\\sin\left(\alpha\right)=y_{M}\end{smallmatrix*}\!\right.$.
+            \\
+            \textbf{Propriété :} Pour tout $x\in\mathbb{R}$, $\left\{\begin{smallmatrix*}[l]-1\leqslant\cos\left(x\right)\leqslant1\\-1\leqslant\sin\left(x\right)\leqslant1\end{smallmatrix*}\!\right.$.
+            \\
+            \textbf{Relation fondamentale :} $\left(\cos\left(x\right)\right)^{2}+\left(\sin\left(x\right)\right)^{2}=\cos^{2}\left(x\right)+\sin^{2}\left(x\right)=1$.
+            \\
+            \textbf{Valeurs de référence :}
+            \\
+            \begin{tabularx}{\linewidth}{|Y|Y|Y|Y|Y|Y|Y|}
+                \hline
+                $x$&$0$&$\frac{\pi}{6}$&$\frac{\pi}{4}$&$\frac{\pi}{3}$&$\frac{\pi}{2}$&$\pi$\\
+                \hline
+                $\cos\left(x\right)$&$1$&$\frac{\sqrt{3}}{2}$&$\frac{\sqrt{2}}{2}$&$\frac{1}{2}$&$0$&$-1$\\
+                \hline
+                $\sin\left(x\right)$&$0$&$\frac{1}{2}$&$\frac{\sqrt{2}}{2}$&$\frac{\sqrt{3}}{2}$&$1$&$0$\\
+                \hline
+            \end{tabularx}
+        \subsubsection{Propriétés des fonctions sinus et cosinus}
+            \paragraph{Périodicité}\mbox{}\\
+                \textbf{Propriété :} $\left\{\begin{smallmatrix*}[l]\cos\left(x+2k\pi\right)=\cos\left(x\right)\\\sin\left(x+2k\pi\right)=\sin\left(x\right)\end{smallmatrix*}\!\right.$, pour tout $x\in\mathbb{R}$, $k\in\mathbb{Z}$.
+                \\
+                \textbf{Propriété :} Les fonctions sinus et cosinus sont périodiques de période $2\pi$.
+            \paragraph{Parité}\mbox{}\\
+                \textbf{Propriété :} $\left\{\begin{smallmatrix*}[l]\cos\left(-x\right)=\cos\left(x\right)\\\sin\left(-x\right)=-\sin\left(x\right)\end{smallmatrix*}\!\right.$, pour tout $x\in\mathbb{R}$.
+                \\
+                \textbf{Propriété :} La fonction cosinus est paire.
+                \\
+                \textbf{Propriété :} La fonction sinus est impaire.
+            \paragraph{Variations}\mbox{}\\
+                \begin{scaletikzpicturetowidth}{\textwidth}
+                    \begin{tikzpicture}[scale=\tikzscale]
+                        \tkzTabInit[]{$x$/1,$\cos\left(x\right)$/1,$\sin\left(x\right)$/1}{$0$,$\frac{\pi}{2}$,$\pi$}
+                        \tkzTabVar{+/$1$,R/,-/$-1$}
+                        \tkzTabIma{1}{3}{2}{$0$}
+                        \tkzTabVar{-/$0$,+/$1$,-/$0$}
+                    \end{tikzpicture}
+                \end{scaletikzpicturetowidth}
+            \paragraph{Courbes représentatives}\mbox{}\\
+                \begin{center}
+                    \begin{tikzpicture}
+                        \draw[color=gray,opacity=0.2] (-7.2,-1.2) grid[xstep=pi/2](7.2,1.2);
+                        \draw[->] (-7.2, 0) -- (7.2, 0) node[above left]{$x$};
+                        \draw[->] (0,-1.2) -- (0, 1.2) node[below right]{$y$};
+                        \foreach \y in {-1} \draw(0,\y) node[left]{\footnotesize$\y$};
+                        \foreach \y in {1} \draw(0,\y) node[left]{\footnotesize$\y$};
+                        \foreach \x[count=\cnt] in {-2\pi,-\frac{3\pi}{2},-\pi,-\frac{\pi}{2}} \draw({(\cnt/2-2.5)*pi},0) node[below]{\footnotesize$\x$};
+                        \foreach \x[count=\cnt] in {\frac{\pi}{2},\pi,\frac{3\pi}{2},2\pi} \draw({(\cnt/2)*pi},0) node[below]{\footnotesize$\x$};
+                        \draw(0,0) node[below left]{\footnotesize$0$};
+                        \draw[domain=-7.2:7.2, samples=1440, smooth, variable=\x, black] plot (\x, {cos(\x r)});
+                        \node[above] at (current bounding box.north) {$y=\cos\left(x\right)$};
+                    \end{tikzpicture}
+                \end{center}
+                \begin{center}
+                    \begin{tikzpicture}
+                        \draw[color=gray,opacity=0.2] (-7.2,-1.2) grid[xstep=pi/2](7.2,1.2);
+                        \draw[->] (-7.2, 0) -- (7.2, 0) node[above left]{$x$};
+                        \draw[->] (0,-1.2) -- (0, 1.2) node[below right]{$y$};
+                        \foreach \y in {-1} \draw(0,\y) node[left]{\footnotesize$\y$};
+                        \foreach \y in {1} \draw(0,\y) node[left]{\footnotesize$\y$};
+                        \foreach \x[count=\cnt] in {-2\pi,-\frac{3\pi}{2},-\pi,-\frac{\pi}{2}} \draw({(\cnt/2-2.5)*pi},0) node[below]{\footnotesize$\x$};
+                        \foreach \x[count=\cnt] in {\frac{\pi}{2},\pi,\frac{3\pi}{2},2\pi} \draw({(\cnt/2)*pi},0) node[below]{\footnotesize$\x$};
+                        \draw(0,0) node[below left]{\footnotesize$0$};
+                        \draw[domain=-7.2:7.2, samples=1440, smooth, variable=\x, black] plot (\x, {sin(\x r)});
+                        \node[above] at (current bounding box.north) {$y=\sin\left(x\right)$};
+                    \end{tikzpicture}
+                \end{center}
+            \paragraph{Dérivées}\mbox{}\\
+                \textbf{Propriété :} $\left\{\begin{smallmatrix*}[l]\left(\cos\left(x\right)\right)^{\prime}=-\sin\left(x\right)\\\left(\sin\left(x\right)\right)^{\prime}=\cos\left(x\right)\end{smallmatrix*}\!\right.$, pour tout $x\in\mathbb{R}$.
+    \subsection{Angles associés}
+        \textbf{Propriété :} $\left\{\begin{smallmatrix*}[l]\cos\left(-x\right)=\cos\left(x\right)\\\sin\left(-x\right)=-\sin\left(x\right)\end{smallmatrix*}\!\right.$, pour tout $x\in\mathbb{R}$.
+        \\
+        \textbf{Propriété :} $\left\{\begin{smallmatrix*}[l]\cos\left(x+2k\pi\right)=\cos\left(x\right)\\\sin\left(x+2k\pi\right)=\sin\left(x\right)\end{smallmatrix*}\!\right.$, pour tout $x\in\mathbb{R}$, $k\in\mathbb{Z}$.
+        \\
+        \textbf{Propriété :} $\left\{\begin{smallmatrix*}[l]\cos\left(x+\pi\right)=-\cos\left(x\right)\\\sin\left(x+\pi\right)=-\sin\left(x\right)\end{smallmatrix*}\!\right.$, pour tout $x\in\mathbb{R}$.
+        \\
+        \textbf{Propriété :} $\left\{\begin{smallmatrix*}[l]\cos\left(\pi-x\right)=-\cos\left(x\right)\\\sin\left(\pi-x\right)=\sin\left(x\right)\end{smallmatrix*}\!\right.$, pour tout $x\in\mathbb{R}$.
+        \\
+        \textbf{Propriété :} $\left\{\begin{smallmatrix*}[l]\cos\left(x+\frac{\pi}{2}\right)=-\sin\left(x\right)\\\sin\left(x+\frac{\pi}{2}\right)=\cos\left(x\right)\end{smallmatrix*}\!\right.$, pour tout $x\in\mathbb{R}$.
+        \\
+        \textbf{Propriété :} $\left\{\begin{smallmatrix*}[l]\cos\left(\frac{\pi}{2}-x\right)=\sin\left(x\right)\\\sin\left(\frac{\pi}{2}-x\right)=\cos\left(x\right)\end{smallmatrix*}\!\right.$, pour tout $x\in\mathbb{R}$.
+    \subsection{Cercle trigonométrique}
+        \begin{center}
+            \begin{tikzpicture}[point/.style={inner sep=1,outer sep=0}]
+                \draw[->] (-6,0) -- (6,0) node[above left] {$x$};
+                \draw[->] (0,-5.5) -- (0,5.5) node[below right] {$y$};
+                \draw[thick] (0,0) circle(4);
+                \foreach \x in {-150,-120,...,180} {\draw[gray] (0,0) -- (\x:4); \draw[mark options={}] plot[mark=x,mark size=4] coordinates {(\x:4)}; \draw (\x:2.5) node[point,fill=white] {$\x^\circ$};}
+                \foreach \x in {-135,-45,45,135} {\draw[gray] (0,0) -- (\x:4); \draw[mark options={}] plot[mark=x,mark size=4] coordinates {(\x:4)}; \draw (\x:2.5) node[point,fill=white] {$\x^{\circ}$};}
+                \foreach \x/\xtext in {30/\frac{\pi}{6},45/\frac{\pi}{4},60/\frac{\pi}{3},90/\frac{\pi}{2},120/\frac{2\pi}{3},135/\frac{3\pi}{4},150/\frac{5\pi}{6},180/\pi,210/\frac{-5\pi}{6},225/\frac{-3\pi}{4},240/\frac{-2\pi}{3},270/\frac{-\pi}{2},300/\frac{-\pi}{3},315/\frac{-\pi}{4},330/\frac{-\pi}{6},360/2\pi} \draw (\x:3.375) node[point,fill=white] {$\xtext$};
+                \foreach \x/\xtext/\y in {30/\frac{\sqrt{3}}{2}/\frac{1}{2},45/\frac{\sqrt{2}}{2}/\frac{\sqrt{2}}{2},60/\frac{1}{2}/\frac{\sqrt{3}}{2},150/-\frac{\sqrt{3}}{2}/\frac{1}{2},135/-\frac{\sqrt{2}}{2}/\frac{\sqrt{2}}{2},120/-\frac{1}{2}/\frac{\sqrt{3}}{2},210/-\frac{\sqrt{3}}{2}/-\frac{1}{2},225/-\frac{\sqrt{2}}{2}/-\frac{\sqrt{2}}{2},240/-\frac{1}{2}/-\frac{\sqrt{3}}{2},330/\frac{\sqrt{3}}{2}/-\frac{1}{2},315/\frac{\sqrt{2}}{2}/-\frac{\sqrt{2}}{2},300/\frac{1}{2}/-\frac{\sqrt{3}}{2}} \draw (\x:5) node[point] {$\left(\xtext,\y\right)$};
+                \foreach \x/\xtext/\y in {90/0/1,270/0/-1} \draw (\x:4.5) node[point,fill=white] {$\left(\xtext,\y\right)$};
+                \foreach \x/\xtext/\y in {180/-1/0,360/1/0} \draw (\x:4.8125) node[point,fill=white] {$\left(\xtext,\y\right)$};
+            \end{tikzpicture}
+        \end{center}
+        \hfill \break
+        \begin{center}
+            \begin{tikzpicture}[point/.style={inner sep=1}]
+                \draw[->] (-5,0) -- (5,0) node[above left] {$x$};
+                \draw[->] (0,-5) -- (0,5) node[below right] {$y$};
+                \draw[thick] (0,0) circle(4);
+                \draw[dashed] (-4,-4) arc (-90:90:4);
+                \draw[dashed] (4,-4) arc (0:180:4);
+                \draw[dashed] (4,4) arc (90:270:4);
+                \draw[dashed] (-4,4) arc (180:360:4);
+                \draw[dashed] (-4,-4) -- (4,-4);
+                \draw[dashed] (4,-4) -- (4,4);
+                \draw[dashed] (4,4) -- (-4,4);
+                \draw[dashed] (-4,4) -- (-4,-4);
+                \draw[dashed] (-4,-4) -- (4,4);
+                \draw[dashed] (-4,4) -- (4,-4);
+                \foreach \x in {0,30,45,60,90,120,135,150} {\draw[mark options={}] plot[mark=x,mark size=4] coordinates {(\x:4)}; \draw[mark options={}] plot[mark=x,mark size=4] coordinates {(\x+180:4)};}
+                \foreach \x/\t in {30/\frac{\pi}{6},60/\frac{\pi}{3},120/\frac{2\pi}{3},150/\frac{5\pi}{6},-150/\frac{-5\pi}{6},-120/\frac{-2\pi}{3},-60/\frac{-\pi}{3},-30/\frac{-\pi}{6}} \draw (\x:3.375) node[point] {$\t$};
+                \foreach \x/\t in {0/0,45/\frac{\pi}{4},90/\frac{\pi}{2},135/\frac{3\pi}{4},180/\pi,-135/\frac{-3\pi}{4},-90/\frac{-\pi}{2},-45/\frac{-\pi}{4}} \draw (\x:3.375) node[point,fill=white] {$\t$};
+            \end{tikzpicture}
+        \end{center}
+\section{Probabilités}
+    \subsection{Probabilité conditionnelle}
+        \textbf{Définition :} Soient $A$ et $B$ deux événements avec $P\left(B\right)\neq0$. La probabilité que $A$ soit réalisé sachant que $B$ soit réalisé est $P_{B}\left(A\right)=\frac{P\left(A\cap B\right)}{P\left(B\right)}$. $P_{B}\left(A\right)$ se lit « $P$ de $A$ sachant $B$ ».
+        \\
+        \textbf{Remarque :} $P_{B}\left(A\right)\times P\left(B\right)=P\left(A\cap B\right)=P\left(B\cap A\right)=P_{A}\left(B\right)\times P\left(A\right)$.
+        \\
+        \textbf{Arbre pondéré de probabilités :}
+        \\
+        \begin{center}
+            \begin{tikzpicture}
+                \node (R) at (0,-1.5) {$\varOmega$};
+                \node (Ra) at (3,-0.5) {$A$};
+                \node (Raa) at (6,0) {$B$};
+                \node at (11,0) {$P\left(A\cap B\right)=P_{A}\left(B\right)\times P\left(A\right)$};
+                \node (Rab) at (6,-1) {$\overline{B}$};
+                \node at (11,-1) {$P\left(A\cap\overline{B}\right)=P_{A}\left(\overline{B}\right)\times P\left(A\right)$};
+                \node (Rb) at (3,-2.5) {$\overline{A}$};
+                \node (Rba) at (6,-2) {$B$};
+                \node at (11,-2) {$P\left(\overline{A}\cap B\right)=P_{\overline{A}}\left(B\right)\times P\left(\overline{A}\right)$};
+                \node (Rbb) at (6,-3) {$\overline{B}$};
+                \node at (11,-3) {$P\left(\overline{A}\cap\overline{B}\right)=P_{\overline{A}}\left(\overline{B}\right)\times P\left(\overline{A}\right)$};
+                \draw (R)--(Ra) node[midway,sloped,anchor=center,above] {$P\left(A\right)$};
+                \draw (Ra)--(Raa) node[midway,sloped,anchor=center,above] {$P_{A}\left(B\right)$};
+                \draw (Ra)--(Rab) node[midway,sloped,anchor=center,below] {$P_{A}\left(\overline{B}\right)$};
+                \draw (R)--(Rb) node[midway,sloped,anchor=center,below] {$P\left(\overline{A}\right)$};
+                \draw (Rb)--(Rba) node[midway,sloped,anchor=center,above] {$P_{\overline{A}}\left(B\right)$};
+                \draw (Rb)--(Rbb) node[midway,sloped,anchor=center,below] {$P_{\overline{A}}\left(\overline{B}\right)$};
+            \end{tikzpicture}
+        \end{center}
+        \textbf{Remarque :} La somme des probabilités des branches issues d’un nœud vaut $1$.
+        \\
+        \textbf{Remarque :} La probabilité d’un chemin est égal au produit des probabilités des branches composant ce chemin.
+        \\
+        \textbf{Remarque :} La probabilité d’un événement est la somme des probabilités des chemins réalisant cet événement
+    \subsection{Formules des probabilités totales}
+        \textbf{Définition :} $\left\{B_{1},B_{2},B_{3},\cdots,B_{n}\right\}$ est une partition de l’univers $\varOmega$ si $B_{1}\cup B_{2}\cup B_{3}\cup\cdots\cup B_{n}=\bigcup\limits_{k=1}^{n}\left(B_{k}\right)=\varOmega$ et si $B_{k}\cap B_{j}=\emptyset$ pour $k\neq j$.
+        \\
+        \textbf{Théorème :} Soit $\left\{B_{1},B_{2},B_{3},\cdots,B_{n}\right\}$ une partition de l’univers $\varOmega$ et $A$ un événement.\linebreak $P\left(A\right)=P\left(A\cap B_{1}\right)+P\left(A\cap B_{2}\right)+\cdots+P\left(A\cap B_{n}\right)=\sum\limits_{k=1}^{n}\left(P\left(A\cap B_{k}\right)\right)=\sum\limits_{k=1}^{n}\left(P_{B_{k}}\left(A\right)\times P\left( B_{k}\right)\right)$
+    \subsection{Événements indépendants}
+        \textbf{Définition :} Soient $A$ et $B$ deux événements avec $P\left(A\right)\neq0$ et $P\left(B\right)\neq0$. $A$ et $B$ sont dits indépendants si $P_{A}\left(B\right)=P\left(B\right)$.
+        \\
+        \textbf{Remarque :} Soient $A$ et $B$ deux événements indépendants, $P_{A}\left(B\right)=P\left(B\right)$.
+        \\
+        \textbf{Remarque :} Soient $A$ et $B$ deux événements indépendants, $P_{B}\left(A\right)=P\left(A\right)$.
+        \\
+        \textbf{Remarque :} Soient $A$ est indépendant de $B$ si et seulement si $B$ est indépendant de $A$.
+        \\
+        \textbf{Théorème :} $A$ et $B$ sont indépendants si et seulement si $P\left(A\cap B\right)=P\left(A\right)\times P\left(B\right)$.
+        \\
+        \textbf{Remarque :} $A$ et $B$ sont indépendants si et seulement si $\overline{A}$ et $B$ sont indépendants.
+        \\
+        \textbf{Remarque :} $A$ et $B$ sont indépendants si et seulement si $A$ et $\overline{B}$ sont indépendants.
+        \\
+        \textbf{Remarque :} $A$ et $B$ sont indépendants si et seulement si $\overline{A}$ et $\overline{B}$ sont indépendants.
+\section{Variables aléatoires}
+    \subsection{Variable aléatoire réelle}
+        \textbf{Définition :} Soit une expérience aléatoire d’univers $\varOmega$. Une variable aléatoire réelle, notée $X$, est une application de $\varOmega$ dans $\mathbb{R}$.
+        \\
+        \textbf{Définition :} $X\left(\varOmega\right)=\left\{x_{1},x_{2},x_{3},\cdots,x_{n}\right\}$ est l’image univers de $\varOmega$ par $X$.
+        \\
+        \textbf{Définition :} La loi de $X$ est la probabilité définie par $p\left(X=x_{k}\right)=p_{k}$ pour $1\leqslant k\leqslant n$.
+    \subsection{Espérance}
+        \textbf{Définition :} Soient une expérience aléatoire d’univers $\varOmega$ et $X$ une variable aléatoire réelle d’univers image $X\left(\varOmega\right)=\left\{x_{1},x_{2},x_{3},\cdots,x_{n}\right\}$. On appelle espérance mathématiques de $X$ le réel noté $E\left(X\right)$ défini par $E\left(X\right)=x_{1}p\left(X=x_{1}\right)+x_{2}p\left(X=x_{2}\right)+x_{3}p\left(X=x_{3}\right)+\cdots+x_{n}p\left(X=x_{n}\right)=\sum\limits_{k=1}^{n}\left(x_{k}p\left(X=x_{k}\right)\right)$.
+        \\
+        \textbf{Remarque :} Le terme espérance vient du langage des jeux. Lorsque $X$ représente le gain, $E\left(X\right)$ représente le gain moyen que peut « espérer » un joueur sur un grand nombre de parties.
+        \\
+        \textbf{Remarque :} $E\left(X\right)$ est la moyenne des résultats $x_{k}$, pondérés par les valeurs $p_{k}$. Ainsi, $E\left(X\right)$ est parfois noté $\overline{X}$ ou $m$.
+        \\
+        \textbf{Remarque :} $E\left(X\right)=\sum\limits_{\omega\in\varOmega}\left(X\left(\omega\right)p\left(\omega\right)\right)$.
+    \subsection{Variance et écart type}
+        \textbf{Définition :} Soient une expérience aléatoire d’univers $\varOmega$ et $X$ une variable aléatoire réelle d’univers image $X\left(\varOmega\right)=\left\{x_{1},x_{2},x_{3},\cdots,x_{n}\right\}$. On appelle variance de $X$ le réel noté $V\left(X\right)$ défini par
+        \begin{flalign*}
+                \textstyle V\left(X\right)&\textstyle=p\left(X=x_{1}\right)\left(x_{1}-E\left(X\right)\right)^{2}+p\left(X=x_{2}\right)\left(x_{2}-E\left(X\right)\right)^{2}+\cdots+p\left(X=x_{n}\right)\left(x_{n}-E\left(X\right)\right)^{2}&\textstyle\\
+                \textstyle&\textstyle=\sum\limits_{k=1}^{n}\left(p\left(X=x_{k}\right)\left(x_{k}-E\left(X\right)\right)^{2}\right)&\textstyle
+            \end{flalign*}
+            \textbf{Remarque :} La variance représente la moyenne des carrés des écarts à la moyenne $E\left(X\right)$, des résultats $x_{k}$ pondérés par les valeurs $p_{k}$.
+            \\
+            \textbf{Remarque :} Pour tout $1\leqslant k\leqslant n$, $p\left(X=x_{k}\right)\geqslant0$ et $\left(x_{k}-E\left(X\right)\right)^{2}\geqslant0$ d’où $V\left(X\right)\geqslant0$.
+            \\
+            \textbf{Remarque :} Les valeurs $\left(x_{k}-E\left(X\right)\right)$ sont les valeurs prises par la variable aléatoire réelle $\left(X-E\left(X\right)\right)$, $E\left(X\right)$ est un nombre fixé, donc $V\left(X\right)=E\left(X-E\left(\left(X\right)\right)^{2}\right)$
+            \\
+            \textbf{Définition :} Soient une expérience aléatoire d’univers $\varOmega$ et $X$ une variable aléatoire réelle d’univers image $X\left(\varOmega\right)=\left\{x_{1},x_{2},x_{3},\cdots,x_{n}\right\}$. On appelle écart type de la variable aléatoire réelle $X$ le réel noté $\sigma\left(X\right)$ défini par $\sigma\left(X\right)=\sqrt{V\left(X\right)}$.
+\section{Fonction exponentielle}
+    \subsection[$y^{\prime}=y$ et $y\left(0\right)=1$]{\boldmath$y^{\prime}=y$ et $y\left(0\right)=1$}
+        \textbf{Lemme :} Si une fonction $f$, dérivable sur $\mathbb{R}$, vérifie $f^{\prime}\left(x\right)=f\left(x\right)$ et $f\left(0\right)=1$, alors pour tout $x\in\mathbb{R}$, $f\left(x\right)\neq0$.
+        \\
+        \textbf{Démonstration :}
+        \\
+        Soit $g\left(x\right)=f\left(x\right)\times f\left(-x\right)$.
+        \begin{flalign*}
+            \textstyle g^{\prime}\left(x\right)&\textstyle=f^{\prime}\left(x\right)\times f\left(-x\right)+f\left(x\right)\times f^{\prime}\left(-x\right)\times\left(-1\right)&\textstyle\\
+            \textstyle&\textstyle=f\left(x\right)\times f\left(-x\right)-f\left(x\right)\times f\left(-x\right)&\textstyle\\
+            \textstyle&\textstyle=0&\textstyle
+        \end{flalign*}
+        Donc, $g\left(x\right)=k=g\left(0\right)=f\left(0\right)\times f\left(-0\right)=1$.
+        \\
+        Donc, $g\left(x\right)=f\left(x\right)\times f\left(-x\right)=1$, et ainsi, $f\left(x\right)\neq0$.
+        \\
+        \textbf{Théorème :} Il existe une unique fonction, appelée exponentielle et notée $\exp$, solution de l'équation $\left\{\begin{smallmatrix*}[l]y^{\prime}=y\\y\left(0\right)=1\end{smallmatrix*}\!\right.$.
+        \\
+        \textbf{Démonstration :}
+        \\
+        On admet l’existence de solution.
+        \\
+        Soient $f$ et $g$ deux fonctions vérifiant $\left\{\begin{smallmatrix*}[l]f^{\prime}\left(x\right)=f\left(x\right)\\f\left(0\right)=1\end{smallmatrix*}\!\right.$ et $\left\{\begin{smallmatrix*}[l]g^{\prime}\left(x\right)=g\left(x\right)\\g\left(0\right)=1\end{smallmatrix*}\!\right.$.
+        \\
+        Soit $h\left(x\right)=\frac{f\left(x\right)}{g\left(x\right)}$.
+        \\
+        $h^{\prime}\left(x\right)=\frac{f^{\prime}\left(x\right)\times g\left(x\right)-f\left(x\right)\times g^{\prime}\left(x\right)}{\left(g\left(x\right)\right)^{2}}=0$.
+        \\
+        D’où $h\left(x\right)=k$.
+        \\
+        Or, $h\left(0\right)=\frac{f\left(0\right)}{g\left(0\right)}=1=k$.
+        \\
+        Ainsi, $h\left(x\right)=\frac{f\left(x\right)}{g\left(x\right)}=1\Leftrightarrow f\left(x\right)=g\left(x\right)$.
+    \subsection{Vers une nouvelle écriture}
+        \subsubsection{Propriétés fondamentales}
+            \textbf{Propriété :} La fonction exponentielle est définie et dérivable sur $\mathbb{R}$ avec $\left(\exp\left(x\right)\right)^{\prime}=\exp\left(x\right)$ et\linebreak$\exp\left(0\right)=1$.
+            \\
+            \textbf{Propriété :} Pour tous réels $x$ et $y$, $\exp\left(x+y\right)=\exp\left(x\right)\times\exp\left(y\right)$.
+            \\
+            \textbf{Propriété :} Pour tout réel $x$, $\exp\left(-x\right)=\frac{1}{\exp\left(x\right)}$.
+            \\
+            \textbf{Propriété :} Pour tous réels $x$ et $y$, $\exp\left(x-y\right)=\frac{\exp\left(x\right)}{\exp\left(y\right)}$.
+            \\
+            \textbf{Propriété :} Pour tout réel $x$, $\exp\left(x\times n\right)=\left(\exp\left(x\right)\right)^{n}$.
+            \\
+            \textbf{Propriété :} Pour tout réel $x$, $\exp\left(\frac{x}{2}\right)=\sqrt{\exp\left(x\right)}$.
+            \\
+            \textbf{Propriété :} Pour tout réel $x$, $\exp\left(x\right)>0$.
+            \\
+            \textbf{\boldmath Démonstration de $\exp\left(x+y\right)=\exp\left(x\right)\times\exp\left(y\right)$ :}
+            \\
+            Soit $f\left(x\right)=\frac{\exp\left(a+x\right)}{\exp\left(x\right)}$.
+            \\
+            $f^{\prime}\left(x\right)=\frac{\exp\left(a+x\right)}{\exp\left(x\right)}=f\left(x\right)$.
+            \\
+            $f\left(0\right)=\frac{\exp\left(a\right)}{\exp\left(a\right)}=1$.
+            \\
+            Ainsi, $f\left(x\right)=\exp\left(x\right)$.
+            \\
+            D’où $\frac{\exp\left(a+x\right)}{\exp\left(a\right)}=\exp\left(x\right)$.
+            \\
+            Ou encore, $\exp\left(a+x\right)=\exp\left(a\right)\times\exp\left(x\right)$.
+        \subsubsection{Nouvelle notation}
+            \textbf{Définition :} On note $\exp\left(1\right)=e$ et $\exp\left(x\right)=e^{x}$.
+            \\
+            \textbf{Remarque :} $\left(e^{x}\right)^{\prime}=e^{x}$.
+            \\
+            \textbf{Remarque :} $e^{x+y}=e^{x}\times e^{y}$.
+            \\
+            \textbf{Remarque :} $e^{-x}=\frac{1}{e^{x}}$.
+            \\
+            \textbf{Remarque :} $e^{x-y}=\frac{e^{x}}{e^{y}}$.
+            \\
+            \textbf{Remarque :} $e^{nx}=\left(e^{x}\right)^{n}$.
+            \\
+            \textbf{Remarque :} $e^{\frac{x}{2}}=\sqrt{e^{x}}$.
+            \\
+            \textbf{Remarque :} $e^{x}>0$.
+    \subsubsection{Étude de la fonction exponentielle}
+        \textbf{Remarque :} Pour tout $x\in\mathbb{R}$, $\left(e^{x}\right)^{\prime}=e^{x}>0$.
+        \\
+        \textbf{Tableau de variations :}
+        \\
+        \begin{scaletikzpicturetowidth}{\textwidth}
+            \begin{tikzpicture}[scale=\tikzscale]
+                \tkzTabInit[]{$x$/1,$e^{x}$/1}{$-\infty$,$0$,$1$,$+\infty$}
+                \tkzTabVar{-/,R/,R/,+/}
+                \tkzTabIma{1}{4}{2}{$1$}
+                \tkzTabIma{1}{4}{3}{$e$}
+            \end{tikzpicture}
+        \end{scaletikzpicturetowidth}
+        \\
+        \textbf{Conséquences :} $e^{x}>1\Leftrightarrow x>0$.
+        \\
+        \textbf{Conséquences :} $e^{x}<1\Leftrightarrow x<0$.
+        \\
+        \textbf{Conséquences :} $e^{x}>e\Leftrightarrow x>1$.
+        \\
+        \textbf{Conséquences :} $e^{x}<e\Leftrightarrow x<1$.
+    \subsection{Fonctions exponentielles}
+        \subsubsection[$f\left(x\right)=e^{kx}$, avec $k\in\mathbb{R}$ fixé]{\boldmath$f\left(x\right)=e^{kx}$, avec $k\in\mathbb{R}$ fixé}
+            \textbf{Remarque :} $f^{\prime}\left(x\right)=\left(e^{kx}\right)^{\prime}=ke^{kx}$.
+            \\
+            \textbf{Remarque :} $\left(e^{u\left(x\right)}\right)^{\prime}=u^{\prime}\left(x\right)e^{u\left(x\right)}$.
+        \subsubsection{Application aux suites géométriques}
+            \textbf{Théorème :} Pour tout réel $k$, la suite $\left(u_{n}\right)$ définie par $u_{n}=e^{kn}$ est une suite géométrique de raison $q=e^{k}$.
+            \\
+            \textbf{Théorème :} Si $u_{n}=q^{n}\times u_{0}$ avec $q>0$, alors il existe un $k\in\mathbb{R}$, tel que $q=e^{k}$.
+            \\
+            \textbf{Remarque :} $0<q<1\Leftrightarrow k<0$.
+            \\
+            \textbf{Remarque :} $q=1\Leftrightarrow k=0$.
+            \\
+            \textbf{Remarque :} $q>1\Leftrightarrow k>0$.
+    \subsection{Courbe représentative}
+        \begin{center}
+            \begin{tikzpicture}[]
+                \draw[color=gray,opacity=0.2] (-5.2,-0.2) grid(2.2,7.2);
+                \draw[->] (-5.2, 0) -- (2.2, 0) node[above left]{$x$};
+                \draw[->] (0,-0.2) -- (0, 7.2) node[below right]{$y$};
+                \foreach \y in {1,...,7} \draw(0,\y) node[left]{\footnotesize$\y$};
+                \foreach \x in {-5,...,-1} \draw(\x,0) node[below]{\footnotesize$\x$};
+                \foreach \x in {1,2} \draw(\x,0) node[below]{\footnotesize$\x$};
+                \draw(0,0) node[below left]{\footnotesize$0$};
+                \draw[domain=-5.2:1.974, samples=718, scale=1, smooth, variable=\x, black] plot (\x,{exp(\x)});
+                \node[above] at (current bounding box.north) {$y=e^{x}$};
+            \end{tikzpicture}
+        \end{center}
+\section{Produit scalaire}
+    \subsection{Expression du produit scalaire}
+        \textbf{Rappel :} La norme du vecteur $\vec{u}$ est sa longueur notée $\left\|\vec{u}\right\|$.
+        \\
+        \textbf{Définition :} Le produit scalaire de deux vecteurs $\vec{u}$ et $\vec{v}$ est noté $\vec{u}\cdot\vec{v}$.
+        \\
+        \textbf{Définition :} Si $\vec{u}\neq\overrightarrow{0}$ et $\vec{v}\neq\overrightarrow{0}$, $\vec{u}\cdot\vec{v}=\left\|\vec{u}\right\|\times\left\|\vec{v}\right\|\times\cos\left(\vec{u},\vec{v}\right)$.
+        \\
+        \textbf{Définition :} Si $\vec{u}=\overrightarrow{0}$ ou $\vec{v}=\overrightarrow{0}$, $\vec{u}\cdot\vec{v}=0$.
+        \\
+        \textbf{Propriété :} $\vec{u}$ et $\vec{v}$ sont orthogonaux si et seulement si $\vec{u}\cdot\vec{v}=0$.
+    \subsection{Propriétés}
+        \textbf{Théorème :} $\vec{u}\cdot\vec{u}=\left\|\vec{u}\right\|^{2}=\vec{u}^{2}$.
+        \\
+        \textbf{Théorème :} $\vec{u}\cdot\vec{v}=\vec{v}\cdot\vec{u}$.
+        \\
+        \textbf{Théorème :} $\vec{u}\cdot\left(k\vec{v}\right)=\left(k\vec{u}\right)\cdot\vec{v}=k\left(\vec{u}\cdot\vec{v}\right)$ avec $k\in\mathbb{R}$.
+        \\
+        \textbf{Théorème :} $\vec{u}\cdot\left(\vec{v}+\vec{w}\right)=\vec{u}\cdot\vec{v}+\vec{u}\cdot\vec{w}$.
+        \\
+        \textbf{Remarque :} $\left(\vec{u}+\vec{v}\right)^{2}=\left\|\vec{u}+\vec{v}\right\|^{2}=\vec{u}^{2}+2\vec{u}\cdot\vec{v}+\vec{v}^{2}\Leftrightarrow\vec{u}\cdot\vec{v}=\frac{1}{2}\left(\left\|\vec{u}+\vec{v}\right\|^{2}-\vec{u}^{2}-\vec{v}^{2}\right)$.
+    \subsection{Résultat fondamental}
+        \textbf{Remarque :} Soient $\overrightarrow{AB}$ et $\overrightarrow{AC}$ deux vecteurs, $\alpha=\left(\overrightarrow{AB},\overrightarrow{AC}\right)$ et $H$ le projeté orthogonal de $C$ sur $\left(AB\right)$. $\overrightarrow{AB}\cdot\overrightarrow{AC}=AB\times AC\times\cos\left(\alpha\right)$.
+        \\
+        \textbf{Remarque :} Soient $\overrightarrow{AB}$ et $\overrightarrow{AC}$ deux vecteurs, $\alpha=\left(\overrightarrow{AB},\overrightarrow{AC}\right)$ et $H$ le projeté orthogonal de $C$ sur $\left(AB\right)$. $\overrightarrow{AB}\cdot\overrightarrow{AC}=AB\times AH$ si $H\in\left[AB\right)$.
+        \\
+        \textbf{Remarque :} Soient $\overrightarrow{AB}$ et $\overrightarrow{AC}$ deux vecteurs, $\alpha=\left(\overrightarrow{AB},\overrightarrow{AC}\right)$ et $H$ le projeté orthogonal de $C$ sur $\left(AB\right)$. $\overrightarrow{AB}\cdot\overrightarrow{AC}=-AB\times AH$ si $H\notin\left[AB\right)$.
+    \subsection{Expression dans une base orthogonale}
+        \textbf{Théorème :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan. Soit $\vec{u}\left(\begin{smallmatrix}a\\b\end{smallmatrix}\right)$ et $\vec{v}\left(\begin{smallmatrix}a^{\prime}\\b^{\prime}\end{smallmatrix}\right)$ deux vecteurs, $\vec{u}\cdot\vec{v}=aa^{\prime}+bb^{\prime}$.
+        \\
+        \textbf{Conséquence :} $\vec{u}^{2}=\left\|\vec{u}\right\|^{2}=a^{2}+b^{2}\Leftrightarrow\left\|\vec{u}\right\|=\sqrt{a^{2}+b^{2}}$.
+        \\
+        \textbf{Conséquence :} $\left\|\overrightarrow{AB}\right\|=\sqrt{\left(x_{B}-x_{A}\right)^{2}+\left(y_{B}-y_{A}\right)^{2}}$
+\section{Application du produit scalaire}
+    \subsection{Équations de droite}
+        \textbf{Définition :} Un vecteur $\vec{n}$ orthogonal à $\overrightarrow{AB}$ est dit normal à $\left(AB\right)$.
+        \\
+        \textbf{Théorème :} Toute droite de vecteur normal $\vec{n}\left(\begin{smallmatrix}a\\b\end{smallmatrix}\right)\neq\overrightarrow{0}$ admet une équation de la forme $ax+by+c=0$ avec $c\in\mathbb{R}$.
+        \\
+        \textbf{Théorème :} Réciproquement, $ax+by+c=0$ avec $\left(a,b\right)\neq\left(0,0\right)$ et $c\in\mathbb{R}$ est l’équation d’une droite de vecteur normal $\vec{n}\left(\begin{smallmatrix}a\\b\end{smallmatrix}\right)$.
+        \\
+        \textbf{Remarque :} La droite $\left(D\right)~ax+by+c=0$ admet pour vecteur directeur $\vec{u}\left(\begin{smallmatrix}-b\\a\end{smallmatrix}\right)$ car $\vec{u}\cdot\vec{n}=-ba+ab=0$.
+    \subsection{Équations de cercles}
+        \textbf{Théorème :} L’équation du cercle de centre $I\left(a;b\right)$ et de rayon $r\geqslant0$ est $\left(x-a\right)^{2}+\left(y-b\right)^{2}=r^{2}$.
+\null\newpage
+\pagenumbering{gobble}
+\null\newpage
+\null\newpage
+\end{document}
