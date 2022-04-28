@@ -7,7 +7,7 @@ function checkStart() {
     const pwd = btoa(atob(id).toUpperCase() + new Date().getFullYear());
     let x = document.cookie;
 
-    if (x != 0) {
+    if (atob(id)+"_"+type in x) {
         eval(x);
         if (eval(atob(id)+"_"+type) == 1) {
             var exp = new Date();
