@@ -6,15 +6,17 @@ function checkStart() {
     const type = params.get("type");
     const pwd = btoa(atob(id).toUpperCase() + new Date().getFullYear());
     let x = document.cookie;
-    eval(x);
 
-    if (eval(atob(id)+"_"+type) == 1) {
-        var exp = new Date();
-        exp.setFullYear(exp.getFullYear()+1);
-        document.cookie = atob(id)+"_"+type+"=1; expires="+exp+";";
-        var correct = 0;
-        var incorrect = 0;
-        window.open("./" + type + "/" + title + " - " + author + ".pdf", target="_self");
+    if (x != 0) {
+        eval(x);
+        if (eval(atob(id)+"_"+type) == 1) {
+            var exp = new Date();
+            exp.setFullYear(exp.getFullYear()+1);
+            document.cookie = atob(id)+"_"+type+"=1; expires="+exp+";";
+            var correct = 0;
+            var incorrect = 0;
+            window.open("./" + type + "/" + title + " - " + author + ".pdf", target="_self");
+        }
     }
 }
 
