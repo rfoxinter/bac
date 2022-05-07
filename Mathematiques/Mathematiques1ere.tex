@@ -15,6 +15,10 @@
 \setlength{\parindent}{0cm}
 \let\oldsection\section
 \renewcommand\section{\clearpage\oldsection}
+\let\oldleft\left
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\oldleft}
+\let\oldright\right
+\renewcommand{\right}{\aftergroup\egroup\oldright}
 \tikzset{arrow style/.style={->=latex,shorten >=2pt, shorten <=2pt}}
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
 \makeatletter
@@ -618,7 +622,7 @@
     \subsection{Formules des probabilités totales}
         \textbf{Définition :} $\left\{B_{1},B_{2},B_{3},\cdots,B_{n}\right\}$ est une partition de l’univers $\varOmega$ si $B_{1}\cup B_{2}\cup B_{3}\cup\cdots\cup B_{n}=\bigcup\limits_{k=1}^{n}\left(B_{k}\right)=\varOmega$ et si $B_{k}\cap B_{j}=\emptyset$ pour $k\neq j$.
         \\
-        \textbf{Théorème :} Soit $\left\{B_{1},B_{2},B_{3},\cdots,B_{n}\right\}$ une partition de l’univers $\varOmega$ et $A$ un événement.\linebreak $P\left(A\right)=P\left(A\cap B_{1}\right)+P\left(A\cap B_{2}\right)+\cdots+P\left(A\cap B_{n}\right)=\sum\limits_{k=1}^{n}\left(P\left(A\cap B_{k}\right)\right)=\sum\limits_{k=1}^{n}\left(P_{B_{k}}\left(A\right)\times P\left( B_{k}\right)\right)$
+        \textbf{Théorème :} Soit $\left\{B_{1},B_{2},B_{3},\cdots,B_{n}\right\}$ une partition de l’univers $\varOmega$ et $A$ un événement.\linebreak$P\left(A\right)=P\left(A\cap B_{1}\right)+P\left(A\cap B_{2}\right)+\cdots+P\left(A\cap B_{n}\right)=\sum\limits_{k=1}^{n}\left(P\left(A\cap B_{k}\right)\right)=\sum\limits_{k=1}^{n}\left(P_{B_{k}}\left(A\right)\times P\left( B_{k}\right)\right)$
     \subsection{Événements indépendants}
         \textbf{Définition :} Soient $A$ et $B$ deux événements avec $P\left(A\right)\neq0$ et $P\left(B\right)\neq0$. $A$ et $B$ sont dits indépendants si $P_{A}\left(B\right)=P\left(B\right)$.
         \\
@@ -698,7 +702,7 @@
         Ainsi, $h\left(x\right)=\frac{f\left(x\right)}{g\left(x\right)}=1\Leftrightarrow f\left(x\right)=g\left(x\right)$.
     \subsection{Vers une nouvelle écriture}
         \subsubsection{Propriétés fondamentales}
-            \textbf{Propriété :} La fonction exponentielle est définie et dérivable sur $\mathbb{R}$ avec $\left(\exp\left(x\right)\right)^{\prime}=\exp\left(x\right)$ et\linebreak$\exp\left(0\right)=1$.
+            \textbf{Propriété :} La fonction exponentielle est définie et dérivable sur $\mathbb{R}$ avec $\left(\exp\left(x\right)\right)^{\prime}=\exp\left(x\right)$ et $\exp\left(0\right)=1$.
             \\
             \textbf{Propriété :} Pour tous réels $x$ et $y$, $\exp\left(x+y\right)=\exp\left(x\right)\times\exp\left(y\right)$.
             \\
