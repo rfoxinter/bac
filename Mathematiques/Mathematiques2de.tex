@@ -13,6 +13,10 @@
 \setlength{\parindent}{0cm}
 \let\oldsection\section
 \renewcommand\section{\clearpage\oldsection}
+\let\oldleft\left
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\oldleft}
+\let\oldright\right
+\renewcommand{\right}{\aftergroup\egroup\oldright}
 \tikzset{arrow style/.style={->=latex,shorten >=2pt, shorten <=2pt}}
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
 \makeatletter
@@ -49,54 +53,55 @@
 \null\newpage
 \null\newpage
 \pagenumbering{arabic}
-\section{Les triangles}
-    \subsection{Médianes}
-        \textbf{Théorème :} Une médiane d’un triangle étant issue d’un sommet passant par le milieu du côté opposé, les trois médianes sont concourantes en un point appelé le centre de gravité du triangle et situé au $\frac{2}{3}$ de chacune des médianes.
-    \subsection{Médiatrices}
-        \textbf{Théorème :} Une médiatrice d’un triangle étant la droite issue du milieu d’un côté, perpendiculaire à ce même côté, les trois médiatrices sont concourantes en un point qui est le centre du cercle circonscrit au triangle.
-    \subsection{Hauteurs}
-        \textbf{Théorème :} Une hauteur d’un triangle étant la droite issue d’un sommer perpendiculaire au côté opposé, les trois hauteurs sont concourantes en un point nommé orthocentre du triangle.
-    \subsection{Bissectrices}
-        \textbf{Théorème :} Une bissectrice d’un triangle étant la droite issue d’un sommet et divisant l’angle à ce sommet en deux angles égaux, les trois bissectrices sont concourantes en un point qui est le centre du cercle inscrit du triangle.
-    \subsection{Le triangle rectangle}
-        \textbf{Théorème de Pythagore :} $ABC$ est un triangle rectangle en $A$ si $BC^{2}=BA^{2}+CA^{2}$.
+\section{Figures et propriétés de référence}
+    \subsection{Les triangles}
+        \subsubsection{Médianes}
+            \textbf{Théorème :} Une médiane d’un triangle étant issue d’un sommet passant par le milieu du côté opposé, les trois médianes sont concourantes en un point appelé le centre de gravité du triangle et situé au $\frac{2}{3}$ de chacune des médianes.
+        \subsubsection{Médiatrices}
+            \textbf{Théorème :} Une médiatrice d’un triangle étant la droite issue du milieu d’un côté, perpendiculaire à ce même côté, les trois médiatrices sont concourantes en un point qui est le centre du cercle circonscrit au triangle.
+        \subsubsection{Hauteurs}
+            \textbf{Théorème :} Une hauteur d’un triangle étant la droite issue d’un sommer perpendiculaire au côté opposé, les trois hauteurs sont concourantes en un point nommé orthocentre du triangle.
+        \subsubsection{Bissectrices}
+            \textbf{Théorème :} Une bissectrice d’un triangle étant la droite issue d’un sommet et divisant l’angle à ce sommet en deux angles égaux, les trois bissectrices sont concourantes en un point qui est le centre du cercle inscrit du triangle.
+        \subsubsection{Le triangle rectangle}
+            \textbf{Théorème de Pythagore :} $ABC$ est un triangle rectangle en $A$ si $BC^{2}=BA^{2}+CA^{2}$.
+            \\
+            \textbf{Théorème :} $ABC$ est un triangle rectangle en $A$ si $A$ se situe sur le cercle de diamètre $\left[BC\right]$.
+        \subsubsection{Théorème de Thalès}
+            \textbf{Théorème de Thalès :} Si les droites $\left(MN\right)$ et $\left(BC\right)$ sont parallèles alors $\frac{AM}{AB}=\frac{AN}{AC}=\frac{MN}{BC}$.
+            \\
+            \textbf{Théorème de Thalès :} Si $\frac{AM}{AB}=\frac{AN}{AC}$ alors les droites $\left(MN\right)$ et $\left(BC\right)$ sont parallèles.
+    \subsection{Les quadrilatères}
+        \subsubsection{Propriétés caractéristiques}
+            \textbf{Propriété :} Un quadrilatère est un parallélogramme si ses diagonales ont le même milieu.
+            \\
+            \textbf{Propriété :} Un quadrilatère est un rectangle si ses diagonales ont le même milieu et sont de même longueur.
+            \\
+            \textbf{Propriété :} Un quadrilatère est un losange si ses diagonales ont le même milieu et sont perpendiculaires.
+            \\
+            \textbf{Propriété :} Un quadrilatère est un carré si ses diagonales ont le même milieu, sont de même longueur et perpendiculaires.
+        \subsubsection{Symétries}
+            \textbf{Propriété :} Un parallélogramme admet pour centre de symétrie le point d’intersection de ses diagonales.
+            \\
+            \textbf{Propriété :} Un rectangle admet pour axes de symétries les deux médiatrices de ses côtés et pour centre de symétrie le point d’intersection de ses diagonales.
+            \\
+            \textbf{Propriété :} Un losange admet pour axes de symétries ses deux diagonales et pour centre de symétrie le point d’intersection de ses diagonales.
+            \\
+            \textbf{Propriété :} Un carré admet pour axes de symétries les deux médiatrices de ses côtés ainsi que ses deux diagonales et pour centre de symétrie le point d’intersection de ses diagonales.
+    \subsection{Relations trigonométriques}
+        \textbf{Remarque :} Soit $ABC$ un triangle rectangle en $A$.
         \\
-        \textbf{Théorème :} $ABC$ est un triangle rectangle en $A$ si $A$ se situe sur le cercle de diamètre $\left[BC\right]$.
-    \subsection{Théorème de Thalès}
-        \textbf{Théorème de Thalès :} Si les droites $\left(MN\right)$ et $\left(BC\right)$ sont parallèles alors $\frac{AM}{AB}=\frac{AN}{AC}=\frac{MN}{BC}$.
+        \textbf{Cosinus :} $\cos\left(\widehat{ABC}\right)=\frac{AB}{BC}$.
         \\
-        \textbf{Théorème de Thalès :} Si $\frac{AM}{AB}=\frac{AN}{AC}$ alors les droites $\left(MN\right)$ et $\left(BC\right)$ sont parallèles.
-\section{Les quadrilatères}
-    \subsection{Propriétés caractéristiques}
-        \textbf{Propriété :} Un quadrilatère est un parallélogramme si ses diagonales ont le même milieu.
+        \textbf{Sinus :} $\sin\left(\widehat{ABC}\right)=\frac{AC}{BC}$.
         \\
-        \textbf{Propriété :} Un quadrilatère est un rectangle si ses diagonales ont le même milieu et sont de même longueur.
+        \textbf{Tangente :} $\tan\left(\widehat{ABC}\right)=\frac{\sin\left(\widehat{ABC}\right)}{\cos\left(\widehat{ABC}\right)}=\frac{AC}{AB}$.
         \\
-        \textbf{Propriété :} Un quadrilatère est un losange si ses diagonales ont le même milieu et sont perpendiculaires.
+        \textbf{Relation fondamentale :} $\cos^{2}\left(\widehat{ABC}\right)+\sin^{2}\left(\widehat{ABC}\right)=1$.
+    \subsection{Projection orthogonale}
+        \textbf{Définition :} Le projeté du point $A$ sur la droite $\left(d\right)$ est le point $H$ de la droite $\left(d\right)$ tel que $\left(AH\right)\perp\left(d\right)$.
         \\
-        \textbf{Propriété :} Un quadrilatère est un carré si ses diagonales ont le même milieu, sont de même longueur et perpendiculaires.
-    \subsection{Symétries}
-        \textbf{Propriété :} Un parallélogramme admet pour centre de symétrie le point d’intersection de ses diagonales.
-        \\
-        \textbf{Propriété :} Un rectangle admet pour axes de symétries les deux médiatrices de ses côtés et pour centre de symétrie le point d’intersection de ses diagonales.
-        \\
-        \textbf{Propriété :} Un losange admet pour axes de symétries ses deux diagonales et pour centre de symétrie le point d’intersection de ses diagonales.
-        \\
-        \textbf{Propriété :} Un carré admet pour axes de symétries les deux médiatrices de ses côtés ainsi que ses deux diagonales et pour centre de symétrie le point d’intersection de ses diagonales.
-\section{Relations trigonométriques}
-    \textbf{Remarque :} Soit $ABC$ un triangle rectangle en $A$.
-    \\
-    \textbf{Cosinus :} $\cos\left(\widehat{ABC}\right)=\frac{AB}{BC}$.
-    \\
-    \textbf{Sinus :} $\sin\left(\widehat{ABC}\right)=\frac{AC}{BC}$.
-    \\
-    \textbf{Tangente :} $\tan\left(\widehat{ABC}\right)=\frac{\sin\left(\widehat{ABC}\right)}{\cos\left(\widehat{ABC}\right)}=\frac{AC}{AB}$.
-    \\
-    \textbf{Relation fondamentale :} $\cos^{2}\left(\widehat{ABC}\right)+\sin^{2}\left(\widehat{ABC}\right)=1$.
-\section{Projection orthogonale}
-    \textbf{Définition :} Le projeté du point $A$ sur la droite $\left(d\right)$ est le point $H$ de la droite $\left(d\right)$ tel que $\left(AH\right)\perp\left(d\right)$.
-    \\
-    \textbf{Propriété :} Le projeté orthogonal de point $A$ sur la droite $\left(d\right)$ est le point de la droite $\left(d\right)$ le plus proche de $A$.
+        \textbf{Propriété :} Le projeté orthogonal de point $A$ sur la droite $\left(d\right)$ est le point de la droite $\left(d\right)$ le plus proche de $A$.
 \section{Les vecteurs}
     \subsection{Notation et norme d’un vecteur}
         \textbf{Définition :} Le vecteur $\overrightarrow{AB}$ est défini par sa direction (direction de la droite $\left(AB\right)$), sa longueur (la distance $AB$) et son sens de $A$ vers $B$.
@@ -575,19 +580,19 @@
         \textbf{Remarque :} Soit $\left(O;\vec{\imath},\vec{\jmath}\right)$ un repère du plan. En se déplaçant sur une droite l’accroissement des ordonnées est proportionnel à l’accroissement des abscisses, le facteur de proportionnalité étant le coefficient directeur. Ainsi si l’on se déplace sur la droite en augmentant l’abscisse de $1$, l’ordonnée varie de $m$.
     \subsection{Systèmes de deux équations linéaires à deux inconnues}
         \subsubsection{Définitions}
-            \textbf{Définition :} Un système de deux équations linéaires à deux inconnues est un système qui peut se mettre sous la forme $\left\{\begin{smallmatrix*}[l]ax+by+c\\a^{\prime}x+b^{\prime}y+c^{\prime}\end{smallmatrix*}\!\right.$, avec $a$, $b$, $c$, $a^{\prime}$, $b^{\prime}$, $c^{\prime}$ des réels donnés.
+            \textbf{Définition :} Un système de deux équations linéaires à deux inconnues est un système qui peut se mettre sous la forme $\left\{\begin{smallmatrix*}[l]ax+by+c=0\\a^{\prime}x+b^{\prime}y+c^{\prime}=0\end{smallmatrix*}\!\right.$, avec $a$, $b$, $c$, $a^{\prime}$, $b^{\prime}$, $c^{\prime}$ des réels donnés.
             \\
-            \textbf{Définition :} Un couple $(u;v)$ est solution du système s’il vérifie $\left\{\begin{smallmatrix*}[l]au+bv+c\\a^{\prime}u+b^{\prime}v+c^{\prime}\end{smallmatrix*}\!\right.$.
+            \textbf{Définition :} Un couple $(u;v)$ est solution du système s’il vérifie $\left\{\begin{smallmatrix*}[l]au+bv+c=0\\a^{\prime}u+b^{\prime}v+c^{\prime}=0\end{smallmatrix*}\!\right.$.
             \\
             \textbf{Définition :} Résoudre le système c’est trouver l’ensemble des couples solution de ce système.
             \\
-            \textbf{Interprétation géométrique :} Soit $\left(D\right)$ la droite d’équation $ax+by+c=0$, et $\left(D^{\prime}\right)$ la droite d’équation $a^{\prime}x+b^{\prime}y+c^{\prime}=0$. Résoudre le système revient alors à trouver les coordonnées $\left(x;y\right)$ des points d’intersection de ces deux droites, et ainsi, trois cas sont possibles : $\left(D\right)$ et $\left(D^{\prime}\right)$ sont sécantes, il existe alors un unique couple de solution $(x_{0};y_{0})$, coordonnées de l’unique point d’intersection, $\left(D\right)$ et $\left(D^{\prime}\right)$ sont parallèles distinctes, il n’y a aucune solution ou $\left(D\right)$ et $\left(D^{\prime}\right)$ sont confondues, il y a alors une infinité de solution, $S=\left\{\left(x;y\right)\!/ax+by=-c\right\}$, coordonnées des points de la droite $\left(D\right)$.
+            \textbf{Interprétation géométrique :} Soit $\left(D\right)$ la droite d’équation $ax+by+c=0$, et $\left(D^{\prime}\right)$ la droite d’équation $a^{\prime}x+b^{\prime}y+c^{\prime}=0$. Résoudre le système revient alors à trouver les coordonnées $\left(x;y\right)$ des points d’intersection de ces deux droites, et ainsi, trois cas sont possibles : $\left(D\right)$ et $\left(D^{\prime}\right)$ sont sécantes, il existe alors un unique couple de solution $(x_{0};y_{0})$, coordonnées de l’unique point d’intersection, $\left(D\right)$ et $\left(D^{\prime}\right)$ sont parallèles distinctes, il n’y a aucune solution ou $\left(D\right)$ et $\left(D^{\prime}\right)$ sont confondues, il y a alors une infinité de solution, $S=\left\{\left(x;y\right),ax+by=-c\right\}$, coordonnées des points de la droite $\left(D\right)$.
             \\
             \textbf{Remarque :} Or $\overrightarrow{V}\left(\begin{smallmatrix}-b\\a\end{smallmatrix}\right)$ et $\overrightarrow{V^{\prime}}\left(\begin{smallmatrix}-b^{\prime}\\a^{\prime}\end{smallmatrix}\right)$ sont des vecteurs directeurs respectifs des droites $\left(D\right)$ et $\left(D^{\prime}\right)$. Ainsi, $\left(D\right)$ et $\left(D^{\prime}\right)$ sont parallèles si $\det\left(\overrightarrow{V},\overrightarrow{V^{\prime}}\right)=\left|\begin{smallmatrix}-b&-b^{\prime}\\a&a^{\prime}\end{smallmatrix}\right|=0$, donc si $ab^{\prime}-a^{\prime}b=0$.
         \subsubsection{Critère d’existence et d’unicité de la solution}
-            \textbf{Définition :} Le réel $\left(ab^{\prime}-a^{\prime}b\right)$ est appelé déterminant du système $\left\{\begin{smallmatrix*}[l]ax+by+c\\a^{\prime}x+b^{\prime}y+c^{\prime}\end{smallmatrix*}\!\right.$. On le note\linebreak$D=\left|\begin{smallmatrix}a&a^{\prime}\\b&b^{\prime}\end{smallmatrix}\right|=ab^{\prime}-a^{\prime}b$.
+            \textbf{Définition :} Le réel $\left(ab^{\prime}-a^{\prime}b\right)$ est appelé déterminant du système $\left\{\begin{smallmatrix*}[l]ax+by+c=0\\a^{\prime}x+b^{\prime}y+c^{\prime}=0\end{smallmatrix*}\!\right.$. On le note\linebreak$D=\left|\begin{smallmatrix}a&a^{\prime}\\b&b^{\prime}\end{smallmatrix}\right|=ab^{\prime}-a^{\prime}b$.
             \\
-            \textbf{Théorème :} Soit le système $\left\{\begin{smallmatrix*}[l]ax+by+c\\a^{\prime}x+b^{\prime}y+c^{\prime}\end{smallmatrix*}\!\right.$. Si $ab^{\prime}-a^{\prime}b\neq0$, alors le système admet un unique couple de solutions. Si $ab^{\prime}-a^{\prime}b=0$, alors le système admet une infinité de solutions ou aucune.
+            \textbf{Théorème :} Soit le système $\left\{\begin{smallmatrix*}[l]ax+by+c=0\\a^{\prime}x+b^{\prime}y+c^{\prime}=0\end{smallmatrix*}\!\right.$. Si $ab^{\prime}-a^{\prime}b\neq0$, alors le système admet un unique couple de solutions. Si $ab^{\prime}-a^{\prime}b=0$, alors le système admet une infinité de solutions ou aucune.
 \section{Statistiques}
     \subsection{Vocabulaire}
         \textbf{Définition :} On appelle population tout ensemble soumis à une étude statistique et individu tout élément de cette population.
@@ -662,49 +667,49 @@
             \textbf{Définition :} Une expérience aléatoire est une expérience dont on connaît le déroulement mais dont on ne peut prévoir l’issue.
         \subsubsection{Univers}
             \textbf{Définition :} L’univers d’une expérience aléatoire, noté $\varOmega$, est l’ensemble des issues, ou résultats, possibles.
-        \subsubsection{Évènements}
+        \subsubsection{événements}
             \paragraph{Définitions}\mbox{}\\
-                \textbf{Définition :} Un évènement $A$ est une partie, ou sous ensemble, de l’univers $\varOmega$. $A$ est dit réalisé si le résultat de l’expérience aléatoire est un élément de $A$.
-            \paragraph{Évènements particuliers}\mbox{}\\
-                \textbf{Définition :} $\emptyset$ est un évènement qui n’est jamais réalisé, c’est l’évènement impossible.
+                \textbf{Définition :} Un événement $A$ est une partie, ou sous ensemble, de l’univers $\varOmega$. $A$ est dit réalisé si le résultat de l’expérience aléatoire est un élément de $A$.
+            \paragraph{événements particuliers}\mbox{}\\
+                \textbf{Définition :} $\emptyset$ est un événement qui n’est jamais réalisé, c’est l’événement impossible.
                 \\
-                \textbf{Définition :} $\varOmega$ est un évènement qui est toujours réalisé, c’est l’évènement certain.
+                \textbf{Définition :} $\varOmega$ est un événement qui est toujours réalisé, c’est l’événement certain.
                 \\
-                \textbf{Définition :} Un évènement qui ne contient qu’un seul élément est appelé évènement élémentaire.
+                \textbf{Définition :} Un événement qui ne contient qu’un seul élément est appelé événement élémentaire.
                 \\
-                \textbf{Définition :} Deux évènements sont dits disjoints si leur intersection est vide, on dit aussi qu’ils sont incompatibles.
+                \textbf{Définition :} Deux événements sont dits disjoints si leur intersection est vide, on dit aussi qu’ils sont incompatibles.
                 \\
-                \textbf{Définition :} L’évènement contraire de $A$, noté $\overline{A}$, est son complémentaire dans $\varOmega$, c’est à dire l’ensemble des éléments de $\varOmega$ qui ne sont pas dans $A$.
+                \textbf{Définition :} L’événement contraire de $A$, noté $\overline{A}$, est son complémentaire dans $\varOmega$, c’est à dire l’ensemble des éléments de $\varOmega$ qui ne sont pas dans $A$.
                 \\
-                \textbf{Définition :} Soient $A$ et $B$ deux évènements, la réunion et l’intersection de ces évènements sont des évènements. $A\cup B$ est réalisé si l’un au moins des évènements $A$ ou $B$ est réalisé.
+                \textbf{Définition :} Soient $A$ et $B$ deux événements, la réunion et l’intersection de ces événements sont des événements. $A\cup B$ est réalisé si l’un au moins des événements $A$ ou $B$ est réalisé.
                 \\
-                \textbf{Définition :} Soient $A$ et $B$ deux évènements, la réunion et l’intersection de ces évènements sont des évènements. $A\cap B$ est réalisé si les évènements $A$ et $B$ sont réalisés en même temps.
+                \textbf{Définition :} Soient $A$ et $B$ deux événements, la réunion et l’intersection de ces événements sont des événements. $A\cap B$ est réalisé si les événements $A$ et $B$ sont réalisés en même temps.
     \subsection{Probabilité}
         \subsubsection{Définition}
             \textbf{Définition :} Soit $\varOmega=\left\{a_{1},a_{2},a_{3},\ldots,a_{n}\right\}$ l’univers d’une expérience aléatoire. Définir une loi de probabilité $p$ sur $\varOmega$, c’est associer à chaque élément $a_{i}$ de $\varOmega$ un nombre positif ou nul, noté $p_{i}=p\left(\left\{a_{i}\right\}\right)$, et vérifiant $p_{1}+p_{2}+p_{3}+\ldots+p_{n}=1$. On appelle alors probabilité d’un événement $A$, notée $p\left(A\right)$, la somme des probabilités des éléments de $A$.
             \\
-            \textbf{Remarque :} Ainsi, la probabilité d’un évènement $A$ est égale à la somme des probabilités des évènements élémentaires de $A$.
+            \textbf{Remarque :} Ainsi, la probabilité d’un événement $A$ est égale à la somme des probabilités des événements élémentaires de $A$.
         \subsubsection{Propriétés}
-            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux évènements, $0\leqslant p\left(A\right)\leqslant1$.
+            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux événements, $0\leqslant p\left(A\right)\leqslant1$.
             \\
-            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux évènements, $p\left(\overline{A}\right)=1-p\left(A\right)$.
+            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux événements, $p\left(\overline{A}\right)=1-p\left(A\right)$.
             \\
-            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux évènements, $p\left(\varOmega\right)=1$ et $p\left(\emptyset\right)=0$.
+            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux événements, $p\left(\varOmega\right)=1$ et $p\left(\emptyset\right)=0$.
             \\
-            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux évènements,\linebreak$p\left(A\cup B\right)=p\left(A\right)+p\left(B\right)-p\left(A\cap B\right)$.
+            \textbf{Théorème :} Soit $p$ une loi de probabilité sur $\varOmega$. Soient $A$ et $B$ deux événements,\linebreak$p\left(A\cup B\right)=p\left(A\right)+p\left(B\right)-p\left(A\cap B\right)$.
         \subsubsection{Loi des grands nombres}
             \textbf{Remarque :} Soit une expérience aléatoire d’univers $\varOmega=\left\{a_{1},a_{2},a_{3},\ldots,a_{n}\right\}$. Chaque nombre\linebreak$p_{i}=p\left(\left\{a_{i}\right\}\right)$, pour $1\leqslant i\leqslant n$, est un nombre qui modélise, pour toutes les expériences, la fréquence d’apparition $f_{i}$, de l’issue $a_{i}$. Le résultat ci-dessous nous permet de valider ou de remettre en question le choix du modèle $\left\{p_{1},p_{2},p_{3},\ldots,p_{n}\right\}$.
             \\
             \textbf{Loi faible des grands nombres :} Si le modèle est bon, les fréquences $f_{i}$, calculées sur des séries de taille $N$, se rapprochent des $p_{i}$ lorsque $N$ devient grand.
     \subsection{Équiprobabilité}
         \subsubsection{Définitions}
-            \textbf{Définition :} Soit une expérience aléatoire d’univers $\varOmega=\left\{a_{1},a_{2},a_{3},\ldots,a_{n}\right\}$, il y a équiprobabilité si tous les évènements élémentaires ont la même probabilité.
+            \textbf{Définition :} Soit une expérience aléatoire d’univers $\varOmega=\left\{a_{1},a_{2},a_{3},\ldots,a_{n}\right\}$, il y a équiprobabilité si tous les événements élémentaires ont la même probabilité.
             \\
-            \textbf{Théorème :} Soit une expérience aléatoire d’univers $\varOmega=\left\{a_{1},a_{2},a_{3},\ldots,a_{n}\right\}$, la probabilité d’un\linebreak évènement élémentaire $\left\{a_{i}\right\}$ dans un univers $\varOmega$ équiprobable vaut : $p\left(\left\{a_{i}\right\}\right)=\frac{1}{\text{nombre d'éléments de }\varOmega}=\frac{1}{n}$.
+            \textbf{Théorème :} Soit une expérience aléatoire d’univers $\varOmega=\left\{a_{1},a_{2},a_{3},\ldots,a_{n}\right\}$, la probabilité d’un événement élémentaire $\left\{a_{i}\right\}$ dans un univers $\varOmega$ équiprobable vaut : $p\left(\left\{a_{i}\right\}\right)=\frac{1}{\text{nombre d'éléments de }\varOmega}=\frac{1}{n}$.
         \subsubsection{Propriété fondamentale}
-            \textbf{Théorème :} Soit $\varOmega$ l’univers fini d’une expérience aléatoire équiprobable et $A$ un évènement. On a $p\left(A\right)=\frac{\text{nombre d'éléments de }A}{\text{nombre d'éléments de }\varOmega}=\frac{\text{nombre de cas favorables}}{\text{nombre de cas possibles}}$.
+            \textbf{Théorème :} Soit $\varOmega$ l’univers fini d’une expérience aléatoire équiprobable et $A$ un événement. On a $p\left(A\right)=\frac{\text{nombre d'éléments de }A}{\text{nombre d'éléments de }\varOmega}=\frac{\text{nombre de cas favorables}}{\text{nombre de cas possibles}}$.
             \\
-            \textbf{Remarque :} Ainsi sous la condition d’équiprobabilité dans un univers fini, le calcul de la probabilité d’un évènement consiste en un dénombrement en premier lieu des cas possibles, puis des cas favorables.
+            \textbf{Remarque :} Ainsi sous la condition d’équiprobabilité dans un univers fini, le calcul de la probabilité d’un événement consiste en un dénombrement en premier lieu des cas possibles, puis des cas favorables.
 \section{Pourcentages}
     \subsection{Coefficient multiplicateur}
         \subsubsection{Cas général}
