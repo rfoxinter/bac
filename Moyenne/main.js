@@ -1,6 +1,7 @@
 var _TP1 = false;
 var _TP2 = false;
 var OPT = false;
+/*var Supp = 0;*/
 
 function option(a) {
     if (document.getElementById("_option").checked) {
@@ -49,6 +50,39 @@ function TP2(a) {
         document.getElementById("tp2_coeff").value = 0;
         _TP2 = document.getElementById("_tp2").checked;
         if (a) {document.getElementById("Tle").rowSpan --;}
+    }
+}
+
+/*function supp(a) {
+    if (document.getElementById("_tp2").checked) {
+        document.getElementById("tp2").style.display = "table-row";
+        document.getElementById("_tp2_coeff").style.display = "unset";
+        document.getElementById("spe2_coeff").value = 16*(1-document.getElementById("prop_2").value);
+        document.getElementById("tp2_coeff").value = 16*document.getElementById("prop_2").value;
+        _TP2 = document.getElementById("_tp2").checked;
+        if (a) {document.getElementById("Tle").rowSpan ++;}
+    } else {
+        document.getElementById("tp2").style.display = "none";
+        document.getElementById("_tp2_coeff").style.display = "none";
+        document.getElementById("spe2_coeff").value = 16;
+        document.getElementById("tp2_coeff").value = 0;
+        _TP2 = document.getElementById("_tp2").checked;
+        if (a) {document.getElementById("Tle").rowSpan --;}
+    }
+}*/
+
+function change(_id,_value) {
+    if (_id.search("spe") + 1) {
+        _n = _id.substring(3,4);
+        if (eval("_TP"+_n)) {
+            document.getElementById("tp"+_n+"_coeff").value = Math.round((_value * document.getElementById("prop_"+_n).value / (1-document.getElementById("prop_"+_n).value))*1000)/1000;
+        }
+    }
+    else {
+        _n = _id.substring(2,3);
+        if (eval("_TP"+_n)) {
+            document.getElementById("spe"+_n+"_coeff").value = Math.round((_value * (1-document.getElementById("prop_"+_n).value) / document.getElementById("prop_"+_n).value)*1000)/1000;
+        }
     }
 }
 
@@ -152,9 +186,9 @@ function ouvrir(notes) {
         } else {
             document.getElementById(elements[i]).value = notes[i];
         }
-        option(true);
-        TP1(true);
-        TP2(true);
-        moyenne();
-    }    
+    }
+    option(document.getElementById("_option").checked);
+    TP1(document.getElementById("_tp1").checked);
+    TP2(document.getElementById("_tp2").checked);
+    moyenne();
 }
