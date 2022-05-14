@@ -87,7 +87,7 @@ function change(_id,_value) {
 }
 
 function section() {
-    if (document.getElementById("section").value == "aucune") {
+    if (document.getElementById("section").value === "aucune") {
         document.getElementById("1ere").rowSpan = 8;
         document.getElementById("Tle").rowSpan = 10;
         document.getElementById("LVA_1_coeff").value = 3.33;
@@ -110,7 +110,7 @@ function section() {
         document.getElementById("DNL_chi_2").style.display = "none";
         document.getElementById("DNL_o").style.display = "none";
         document.getElementById("DNL_e").style.display = "none";
-    } else if (document.getElementById("section").value == "chinoise") {
+    } else if (document.getElementById("section").value === "chinoise") {
         document.getElementById("1ere").rowSpan = 8;
         document.getElementById("Tle").rowSpan = 12;
         document.getElementById("LVA_1_coeff").value = 0;
@@ -181,7 +181,7 @@ function ouvrir(notes) {
     document.getElementById(elements[0]).value = notes[0];
     section()
     for (var i = 1; i < elements.length; i++) {
-        if (i == 1 || i == 2 || i ==4) {
+        if (i === 1 || i === 2 || i ===4) {
             document.getElementById(elements[i]).checked = Boolean(notes[i].replace("false",""));
         } else {
             document.getElementById(elements[i]).value = notes[i];
