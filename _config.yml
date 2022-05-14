@@ -1,4 +1,0 @@
-url: "https://rfoxinter.github.io"
-plugins:
-  - jekyll-sitemap
-sitemap: true
