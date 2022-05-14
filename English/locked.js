@@ -9,7 +9,7 @@ function checkStart() {
 
     if (x.search(atob(id)+"_"+type) != -1) {
         eval(x);
-        if (eval(atob(id)+"_"+type) == pwd) {
+        if (eval(atob(id)+"_"+type) === pwd) {
             var exp = new Date();
             exp.setFullYear(exp.getFullYear()+1);
             document.cookie = atob(id)+"_"+type+"='"+eval(atob(id)+"_"+type)+"'; expires="+exp+";";
@@ -28,7 +28,7 @@ function checkPass() {
     const type = params.get("type");
     const pwd = btoa(atob(id).toUpperCase() + new Date().getFullYear());
 
-    if (btoa(document.f_pass.pass.value) == pwd) {
+    if (btoa(document.f_pass.pass.value) === pwd) {
         var exp = new Date();
         exp.setFullYear(exp.getFullYear()+1);
         document.cookie = atob(id)+"_"+type+"='"+pwd+"'; expires="+exp+";";
