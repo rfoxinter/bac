@@ -82,9 +82,12 @@ document.addEventListener('readystatechange', event => {
         if (navigator.standalone === false || window.matchMedia(mqStandAlone).matches === false) {
             var div = document.createElement("div");
             div.style.background = "#A0A0A07E";
-            div.style.position = "fixed";
+            div.style.position = "sticky";
+            div.style.position = "-webkit-sticky";
             div.style.top = "15px";
-            div.style.right = "15px";
+            div.style.left = "100vw";
+            div.style.width = "fit-content";
+            div.style. = "fit-content";
             div.id = "no_print";
             var p = document.createTextNode("Calculer sa moyenne au bac");
             var a = document.createElement("a");
@@ -94,7 +97,8 @@ document.addEventListener('readystatechange', event => {
             a.target = "_blank";
             a.appendChild(p);
             div.appendChild(a);
-            document.body.appendChild(div);
+            div.style.marginBottom = "calc(-"+div.clientHeight+")";
+            document.getElementsByClassName("main-content")[0].prependChild(div);
         }
     }
 });
