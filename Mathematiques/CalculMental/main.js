@@ -28,17 +28,17 @@ function change_diff(lvl) {
 }
 
 function aff_diff(){
-    if (diff == 1) {
+    if (diff === 1) {
         document.getElementById("d1").style.fontWeight = "800";
     } else {
         document.getElementById("d1").style.fontWeight = "400";
     }
-    if (diff == 2) {
+    if (diff === 2) {
         document.getElementById("d2").style.fontWeight = "800";
     } else {
         document.getElementById("d2").style.fontWeight = "400";
     }
-    if (diff == 3) {
+    if (diff === 3) {
         document.getElementById("d3").style.fontWeight = "800";
     } else {
         document.getElementById("d3").style.fontWeight = "400";
@@ -67,26 +67,26 @@ for (var i = 0; i <= 1000; i++) {
 function operation() {
     var o = randint(0,4);
     var op = "";
-    if (diff == 1) {
-        if (o==0) {
+    if (diff === 1) {
+        if (o===0) {
             var a = randint(0,101);
             var b = randint(0,101);
             r = a+b;
             op = a+"+"+b;
         }
-        else if (o==1) {
+        else if (o===1) {
             var a = randint(0,101);
             var b = randint(0,101);
             r = a-b;
             op = a+"-"+b;
         }
-        else if (o==2) {
+        else if (o===2) {
             var a = randint(2,20);
             var b = randint(2,20);
             r = a*b;
             op = a+"×"+b;
         }
-        else if (o==3) {
+        else if (o===3) {
             var a = randint(2,20);
             var b = randint(2,20);
             var prod = a*b;
@@ -94,26 +94,26 @@ function operation() {
             op = prod+"/"+a;
         }
     }
-    if (diff == 2) {
-        if (o==0) {
+    if (diff === 2) {
+        if (o===0) {
             var a = randint(0,1001);
             var b = randint(0,1001);
             r = a+b;
             op = a+"+"+b;
         }
-        else if (o==1) {
+        else if (o===1) {
             var a = randint(0,1001);
             var b = randint(0,1001);
             r = a-b;
             op = a+"-"+b;
         }
-        else if (o==2) {
+        else if (o===2) {
             var a = randint(2,100);
             var b = randint(2,100);
             r = a*b;
             op = a+"×"+b;
         }
-        else if (o==3) {
+        else if (o===3) {
             var a = randint(2,100);
             var b = randint(2,100);
             var prod = a*b;
@@ -121,32 +121,32 @@ function operation() {
             op = prod+"/"+a;
         }
     }
-    if (diff == 3) {
-        if (o==0) {
+    if (diff === 3) {
+        if (o===0) {
             var a = randint(0,1001);
             var b = randint(0,1001);
             var c = randint(0,1001);
             r = a+b-c;
             op = a+"+"+b+"-"+c;
         }
-        else if (o==1) {
+        else if (o===1) {
             var a = randint(0,1001);
             var b = randint(0,1001);
             var c = randint(0,1001);
             r = a-b-c;
             op = a+"-"+b+"-"+c;
         }
-        else if (o==2) {
+        else if (o===2) {
             var a = randint(2,100);
             var b = randint(50,1000);
             r = a*b;
             op = a+"×"+b;
         }
-        else if (o==3) {
+        else if (o===3) {
             var a = randint(2,100);
             var b = randint(50,1000);
             var prod = a*b;
-            if (randint(0,2) == 0) {
+            if (randint(0,2) === 0) {
                 r = b;
                 op = prod+"/"+a;
             } else {
@@ -159,7 +159,7 @@ function operation() {
 }
 
 function verifier() {
-    if (document.f_pass.result.value == r) {
+    if (document.f_pass.result.value === r) {
         correct += 1;
         document.getElementById("corr").textContent=correct;
         rep.textContent="Correct : "+p.textContent+"="+r;
