@@ -81,7 +81,8 @@ document.addEventListener('readystatechange', event => {
         const mqStandAlone = '(display-mode: standalone)';
         if (navigator.standalone === false || window.matchMedia(mqStandAlone).matches === false) {
             var div = document.createElement("div");
-            div.style.background = "#EFF0F1";
+            div.style.border = "solid";
+            div.style.borderColor = "#EFF0F1";
             div.style.position = "sticky";
             div.style.position = "-webkit-sticky";
             div.style.top = "15px";
