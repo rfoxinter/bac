@@ -87,7 +87,6 @@ document.addEventListener('readystatechange', event => {
             div.style.position = "-webkit-sticky";
             div.style.top = "15px";
             div.style.left = "100vw";
-            div.style.opacity = 0.75;
             div.style.width = "fit-content";
             div.style.height = "fit-content";
             div.id = "no_print";
