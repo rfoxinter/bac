@@ -97,8 +97,8 @@ document.addEventListener('readystatechange', event => {
             a.target = "_blank";
             a.appendChild(p);
             div.appendChild(a);
-            div.style.marginBottom = "calc(-"+div.clientHeight+")";
             document.getElementsByClassName("main-content")[0].prepend(div);
+            document.getElementById("no_print").style.marginBottom = "-"+document.getElementById("no_print").clientHeight+"px";
         }
     }
 });
