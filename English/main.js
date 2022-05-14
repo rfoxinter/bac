@@ -7,6 +7,7 @@ function books() {
         var img = document.createElement("img");
         img.setAttribute("src","covers/"+b[i].className+".jpg");
         img.setAttribute("class","books");
+        img.setAttribute("alt",b[i].className);
         a.appendChild(img);
         b[i].appendChild(a);
         i=i+1;
