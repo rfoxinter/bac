@@ -5,7 +5,7 @@ function books() {
         var a = document.createElement("a");
         a.setAttribute("href","books/"+b[i].className+".html");
         var img = document.createElement("img");
-        img.setAttribute("src","covers/"+b[i].className+".jpg");
+        img.setAttribute("src","covers/"+b[i].className+".webp");
         img.setAttribute("class","books");
         img.setAttribute("alt",b[i].className);
         a.appendChild(img);
@@ -83,6 +83,7 @@ document.addEventListener('readystatechange', event => {
             var div = document.createElement("div");
             div.style.border = "solid";
             div.style.borderColor = "#EFF0F1";
+            div.style.background = "#FFFFFF";
             div.style.position = "sticky";
             div.style.position = "-webkit-sticky";
             div.style.top = "15px";
