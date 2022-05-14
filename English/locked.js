@@ -12,7 +12,7 @@ function checkStart() {
         if (eval(atob(id)+"_"+type) == pwd) {
             var exp = new Date();
             exp.setFullYear(exp.getFullYear()+1);
-            document.cookie = atob(id)+"_"+type+"=1; expires="+exp+";";
+            document.cookie = atob(id)+"_"+type+"="+eval(atob(id)+"_"+type)+"; expires="+exp+";";
             var correct = 0;
             var incorrect = 0;
             window.open("./" + type + "/" + title + " - " + author + ".pdf", target="_self");
