@@ -35,9 +35,9 @@ function ebook(format) {
     const title = document.getElementById("title").textContent;
     const author = document.getElementById("author").textContent;
     var folder = "";
-    if (format == "epub" ||  format == "mobi") {
+    if (format === "epub" ||  format === "mobi") {
         folder = "ebooks";
-    } else if (format == "pdf") {
+    } else if (format === "pdf") {
         folder = "pdfs";
     }
     const a = document.getElementById(format);
@@ -100,7 +100,7 @@ document.addEventListener('readystatechange', event => {
             div.appendChild(a);
             document.getElementsByClassName("main-content")[0].prepend(div);
             document.getElementById("no_print").style.marginBottom = "-"+document.getElementById("no_print").clientHeight+"px";
-            if (document.getElementsByTagName("h1").length == 5) {
+            if (document.getElementsByTagName("h1").length === 5) {
                 document.getElementsByTagName("h1")[1].style.marginTop = 0;
             }
         }
