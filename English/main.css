@@ -4,7 +4,8 @@ p, ul {
 }
 
 img {
-    width: 100px;
+    width: min(auto, 100px);
+    height: min(auto, 200px);
 }
 
 .home {
