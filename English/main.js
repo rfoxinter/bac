@@ -99,6 +99,9 @@ document.addEventListener('readystatechange', event => {
             div.appendChild(a);
             document.getElementsByClassName("main-content")[0].prepend(div);
             document.getElementById("no_print").style.marginBottom = "-"+document.getElementById("no_print").clientHeight+"px";
+            if (document.getElementsByTagName("h1").length == 5) {
+                document.getElementsByTagName("h1")[1].style.marginTop = 0;
+            }
         }
     }
 });
