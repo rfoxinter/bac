@@ -81,11 +81,12 @@ document.addEventListener('readystatechange', event => {
         const mqStandAlone = '(display-mode: standalone)';
         if (navigator.standalone === false || window.matchMedia(mqStandAlone).matches === false) {
             var div = document.createElement("div");
-            div.style.background = "#A0A0A07E";
+            div.style.background = "#EFF0F1";
             div.style.position = "sticky";
             div.style.position = "-webkit-sticky";
             div.style.top = "15px";
             div.style.left = "100vw";
+            div.style.opacity = 0.75;
             div.style.width = "fit-content";
             div.style.height = "fit-content";
             div.id = "no_print";
@@ -93,7 +94,6 @@ document.addEventListener('readystatechange', event => {
             var a = document.createElement("a");
             a.href = "https://rfoxinter.github.io/bac/Moyenne/?section=internationale";
             a.style.margin = "2px";
-            a.style.opacity = 0.5;
             a.target = "_blank";
             a.appendChild(p);
             div.appendChild(a);
