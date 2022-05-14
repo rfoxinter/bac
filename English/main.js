@@ -98,7 +98,7 @@ document.addEventListener('readystatechange', event => {
             a.appendChild(p);
             div.appendChild(a);
             div.style.marginBottom = "calc(-"+div.clientHeight+")";
-            document.getElementsByClassName("main-content")[0].prependChild(div);
+            document.getElementsByClassName("main-content")[0].prepend(div);
         }
     }
 });
