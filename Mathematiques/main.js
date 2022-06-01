@@ -14,7 +14,7 @@ function niveau() {
         tex.setAttribute("src","latex.svg");
         tex.setAttribute("class","latex");
         var a_tex = document.createElement("a");
-        a_tex.setAttribute("href","https://raw.githubusercontent.com/rfoxinter/bac/master/Mathematiques/Mathematiques"+(n[i].className).replace("<","").replace(">","").replace("è","e")+".tex");
+        a_tex.setAttribute("href","Mathematiques"+(n[i].className).replace("<","").replace(">","").replace("è","e")+".zip");
         a_tex.setAttribute("target","_blank");
         a_tex.appendChild(tex);
         var pdf = document.createTextNode("pdf");
