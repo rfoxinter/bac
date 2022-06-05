@@ -89,7 +89,7 @@ document.addEventListener('readystatechange', event => {
                 div.style.background = "#FFFFFF";
                 div.style.borderColor = "#EFF0F1";
             }
-            div.style.zIndex = "1";
+            div.style.zIndex = "999";
             div.style.position = "sticky";
             div.style.position = "-webkit-sticky";
             div.style.top = "15px";
