@@ -82,8 +82,14 @@ document.addEventListener('readystatechange', event => {
         if (navigator.standalone === false || window.matchMedia(mqStandAlone).matches === false) {
             var div = document.createElement("div");
             div.style.border = "solid";
-            div.style.borderColor = "#EFF0F1";
-            div.style.background = "#FFFFFF";
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                div.style.background = "#121212";
+                div.style.borderColor = "#7F7F7F";
+            } else {
+                div.style.background = "#FFFFFF";
+                div.style.borderColor = "#EFF0F1";
+            }
+            div.style.zIndex = "1";
             div.style.position = "sticky";
             div.style.position = "-webkit-sticky";
             div.style.top = "15px";
