@@ -110,10 +110,13 @@ img {
         background-color: #0A4C2B !important;
         background-image: linear-gradient(120deg, #0A2B4C, #0A4C2B) !important;
     }
-    img {/*:not(.books) {*/
+    img {
         filter: brightness(50%) !important;
     }
     .latex {
         filter: brightness(100%) !important;
+    }
+    a {
+        color: #133F6B !important;
     }
 }
