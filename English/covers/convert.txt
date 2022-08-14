@@ -1,1 +1,0 @@
-magick img.jpg -resize 175 -define webp:lossless=true img.webp
