@@ -18,17 +18,30 @@
     <link rel="manifest" href="app.webmanifest" crossorigin="use-credentials">
     <link rel="manifest" href="manifest.json">
     <script type="text/javascript" src="main.js"></script>
-    <link rel="preload" as="image" href="/bac/English/covers/tiobe.webp" type="image/webp">
-    <link rel="preload" as="image" href="/bac/English/covers/ia.webp" type="image/webp">
-    <link rel="preload" as="image" href="/bac/English/covers/tt.webp" type="image/webp">
-    <link rel="preload" as="image" href="/bac/English/covers/noans.webp" type="image/webp">
-    <link rel="preload" as="image" href="/bac/English/covers/tpos.webp" type="image/webp">
-    <link rel="preload" as="image" href="/bac/English/covers/iom.webp" type="image/webp">
-    <link rel="preload" as="image" href="/bac/English/covers/tht.webp" type="image/webp">
-    <link rel="preload" as="image" href="/bac/English/covers/tttc.webp" type="image/webp">
-    <link rel="preload" as="image" href="/bac/English/covers/tfa.webp" type="image/webp">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="theme-toggle.js"></script>
+    <link rel="stylesheet" type="text/css" href="theme-toggle.css">
 </head>
-<body onload="books()">
+<body>
+    <button class="theme-toggle no_print" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
+        <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+            <mask class="moon" id="moon-mask">
+                <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                <circle cx="24" cy="10" r="6" fill="black" />
+            </mask>
+                <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+            <g class="sun-beams" stroke="currentColor">
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </g>
+        </svg>
+    </button>
     <header class="page-header">
         <h1>Books</h1>
     </header>
@@ -64,6 +77,11 @@
     </main>
     <footer class="site-footer" style="margin-bottom: 55px; padding: 0px;">
     </footer>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            books();
+        });
+    </script>
     <script type="text/javascript" src="pwa.js"></script>
 </body>
 </html>
