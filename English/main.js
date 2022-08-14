@@ -110,7 +110,12 @@ document.addEventListener('readystatechange', event => {
             div.id = "no_print";
             var p = document.createTextNode("Calculer sa moyenne au bac");
             var a = document.createElement("a");
-            a.href = "https://rfoxinter.github.io/bac/Moyenne/?section=internationale";
+            var date = new Date();
+            var year = date.getFullYear();
+            if (date.getMonth >= 8) {
+                year += 1
+            }
+            a.href = "https://rfoxinter.github.io/bac/"+year+"/Moyenne/?section=internationale";
             a.style.margin = "2px";
             a.target = "_blank";
             a.appendChild(p);
