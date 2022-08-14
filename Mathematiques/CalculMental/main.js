@@ -159,7 +159,7 @@ function operation() {
 }
 
 function verifier() {
-    if (document.f_pass.result.value === r) {
+    if (document.f_pass.result.value == r) {
         correct += 1;
         document.getElementById("corr").textContent=correct;
         rep.textContent="Correct : "+p.textContent+"="+r;
