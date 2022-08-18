@@ -69,12 +69,12 @@ function Jury(a) {
     if (document.getElementById("_jury").checked) {
         document.getElementById("jury").style.display = "table-row";
         document.getElementById("jury_coeff").value = 1;
-        OPT = document.getElementById("_jury").checked;
+        _Jury = document.getElementById("_jury").checked;
         if (a) {document.getElementById("Tle").rowSpan ++;}
     } else {
         document.getElementById("jury").style.display = "none";
         document.getElementById("jury_coeff").value = 0;
-        OPT = document.getElementById("_jury").checked;
+        _Jury = document.getElementById("_jury").checked;
         if (a) {document.getElementById("Tle").rowSpan --;}
     }
 }
