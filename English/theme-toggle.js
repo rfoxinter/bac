@@ -10,6 +10,9 @@ const onClick = () => {
     if(typeof change_books === "function"){
         change_books()
     }
+    if(typeof change_latex_img === "function"){
+        change_latex_img()
+    }
 }
 
 const getColorPreference = () => {
