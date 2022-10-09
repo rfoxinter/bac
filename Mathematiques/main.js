@@ -11,7 +11,11 @@ function niveau() {
         p.innerHTML = (n[i].className.substring(0,n[i].className.search("<"))+n[i].className.substring(n[i].className.search("<")+1,n[i].className.search(">")).sup()+t);
         delete m,t;
         var tex = document.createElement("img");
-        tex.setAttribute("src","latex.svg");
+        if (document.getElementsByTagName('html')[0].attributes['data-theme'].value=='dark') {
+            tex.setAttribute("src","latex_dark.svg");
+        } else {
+            tex.setAttribute("src","latex.svg");
+        }
         tex.setAttribute("class","latex");
         var a_tex = document.createElement("a");
         a_tex.setAttribute("href","Mathematiques"+(n[i].className).replace("<","").replace(">","").replace("è","e")+".zip");
@@ -28,4 +32,17 @@ function niveau() {
         n[i].appendChild(p);
         i=i+1;
     }
+}
+
+function change_latex_img(argument) {
+    const l = document.getElementsByClassName("latex");
+    var i=0;
+    while (i < l.length) {
+        if (document.getElementsByTagName('html')[0].attributes['data-theme'].value=='dark') {
+            l[i].setAttribute("src","latex_dark.svg");
+        } else {
+            l[i].setAttribute("src","latex.svg");
+        }
+        i=i+1;
+    } 
 }
