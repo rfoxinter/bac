@@ -34,7 +34,7 @@ function niveau() {
     }
 }
 
-function change_latex_img(argument) {
+function change_latex_img() {
     const l = document.getElementsByClassName("latex");
     var i=0;
     while (i < l.length) {
