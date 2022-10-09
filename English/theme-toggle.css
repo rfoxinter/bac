@@ -78,7 +78,7 @@
 
 .theme-toggle {
 	--size: 2rem;
-	--icon-fill: hsl(210 10% 30%);
+	--icon-fill: hsl(210 10% 70%);
 	--icon-fill-hover: hsl(210 10% 15%);
 	background: none;
 	border: none;
@@ -100,7 +100,7 @@
 }
 
 [data-theme=dark] .theme-toggle {
-	--icon-fill: hsl(210 10% 70%);
+	--icon-fill: hsl(210 10% 30%);
 	--icon-fill-hover: hsl(210 15% 90%)
 }
 
