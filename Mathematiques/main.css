@@ -18,3 +18,6 @@
 .latex:hover {
 	box-shadow: inset 0 -1px 0 0 #1e6bb8;
 }
+[data-theme=dark] .latex:hover {
+	box-shadow: inset 0 -1px 0 0 #133F6B !important;
+}
