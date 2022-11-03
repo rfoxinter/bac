@@ -112,8 +112,8 @@ document.addEventListener('readystatechange', event => {
             var a = document.createElement("a");
             var date = new Date();
             var year = date.getFullYear();
-            if (date.getMonth >= 8) {
-                year += 1
+            if (date.getMonth() >= 8) {
+                year += 1;
             }
             a.href = "https://rfoxinter.github.io/bac/Moyenne/"+year+"/?section=internationale";
             a.style.margin = "2px";
