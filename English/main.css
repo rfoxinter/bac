@@ -8,6 +8,10 @@ img {
     height: min(auto, 200px);
 }
 
+table {
+    border-collapse: collapse !important;
+}
+
 .home {
     width: 25px;
     margin-left: 5px;
