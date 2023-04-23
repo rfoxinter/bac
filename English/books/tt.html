@@ -47,8 +47,9 @@
         <p><a target="blank" id="pdf">PDF</a></p>
         <p><a onclick="ebooks()" class="fake_a">Other formats</a></p>
         <ul style="display: none;" id="ebooks">
-            <li><a target="blank" id="epub">EPUB (for e-readers)</a></li>
-            <li><a target="blank" id="mobi">Mobi (for Kindle)</a></li>
+            <li><a target="blank" id="epub">ePub (for e-Readers)</a></li>
+            <li><a target="blank" id="mobi">Mobi (for old Kindle devices)</a></li>
+            <li><a target="blank" id="azw3">AZW3 (for Kindle devices)</a></li>
         </ul>
         <p><a target="blank" id="map">Character map</a></p>
     </main>
@@ -61,6 +62,7 @@
             ebook('pdf');
             ebook('epub');
             ebook('mobi');
+            ebook('azw3');
             character_map();
         });
     </script>

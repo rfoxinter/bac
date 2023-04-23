@@ -52,10 +52,10 @@ function ebook(format) {
     const title = document.getElementById("title").textContent;
     const author = document.getElementById("author").textContent;
     var folder = "";
-    if (format === "epub" ||  format === "mobi") {
-        folder = "ebooks";
-    } else if (format === "pdf") {
+    if (format === "pdf") {
         folder = "pdfs";
+    } else {
+        folder = "ebooks";
     }
     const a = document.getElementById(format);
     if (a != null) {
