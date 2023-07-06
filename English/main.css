@@ -78,7 +78,9 @@ table {
 .poem {
     margin-top: 0;
     margin-bottom: 0;
-    white-space: pre;
+    white-space: pre-wrap;
+	text-indent: calc(max(-15%,-1em));
+    margin-left: calc(min(15%,1em));
 }
 
 #poems {
