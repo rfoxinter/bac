@@ -17,12 +17,16 @@ table {
     margin-left: 5px;
 }
 
-.books{
+.books {
     width: 100px;
     transition: transform .2s;
     margin-top: 1px;
     margin-bottom: 1px;
     vertical-align: middle;
+}
+
+.print_only {
+	display: none !important;
 }
 
 @media (hover: hover) {
@@ -32,19 +36,19 @@ table {
 }
 
 @media print {
-    #no_print {
-        display: none !important;
-    }
     footer {
-        display: none !important;
-    }
-    .no_print {
         display: none !important;
     }
     .page-header {
         background-color: #FFFFFFFF !important;
         background-image: none !important;
     }
+    .no_print {
+        display: none !important;
+    }
+	.print_only {
+		display: block !important;
+	}
     header {
         padding: none !important;
     }
