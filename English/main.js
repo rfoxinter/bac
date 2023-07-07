@@ -117,6 +117,7 @@ document.addEventListener('readystatechange', event => {
             div.style.width = "fit-content";
             div.style.height = "fit-content";
             div.style.backgroundColor = "rgba(255,255,255,0.9)";
+            div.className = "no_print";
             div.id = "no_print";
             var p = document.createTextNode("Calculer sa moyenne au bac");
             var a = document.createElement("a");
@@ -126,7 +127,7 @@ document.addEventListener('readystatechange', event => {
                 year += 1;
             }
             a.href = "https://rfoxinter.github.io/bac/Moyenne/"+year+"/?section=internationale";
-            a.style.margin = "2px";
+            a.style.margin = "0.25em";
             a.target = "_blank";
             a.appendChild(p);
             div.appendChild(a);
@@ -144,16 +145,21 @@ var t = '';
 window.onbeforeprint = (event) => {
     t = theme.value;
     theme.value = 'light';
-    setPreference()
-    change_books()
+    setPreference();
+	changeImages();
 };
 
 window.onafterprint  = (event) => {
     theme.value = t;
-    setPreference()
-    change_books()
+    setPreference();
+	changeImages();
 };
 
 document.addEventListener("DOMContentLoaded", function(event) {
-   if (document.getElementsByClassName('home').length == 1){change_home();}
+    if (document.getElementsByClassName('home').length == 1){change_home();}
+    var hr = document.createElement("hr");
+    hr.className = "print_only";
+    document.getElementsByTagName("main")[0].prepend(hr);
+	var hr = hr.cloneNode(true);
+    document.getElementsByTagName("main")[0].appendChild(hr);
 });
