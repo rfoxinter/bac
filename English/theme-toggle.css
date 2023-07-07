@@ -143,3 +143,6 @@ html[data-theme=dark] {
 [data-theme=dark] a {
     color: #133F6B !important;
 }
+[data-theme=dark] .no_print {
+    color: rgba(32,32,32,0.9) !important;
+}
