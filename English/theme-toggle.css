@@ -120,7 +120,7 @@ html[data-theme=dark] {
 	color-scheme: dark
 }
 
-[data-theme=dark] body, [data-theme=dark] input, [data-theme=dark] select, [data-theme=dark] button:not(.theme-toggle), [data-theme=dark] div {
+[data-theme=dark] body, [data-theme=dark] input, [data-theme=dark] select, [data-theme=dark] button:not(.theme-toggle) {
     color: #9F938E !important;
     background: #202020 !important;
 }
@@ -143,6 +143,6 @@ html[data-theme=dark] {
 [data-theme=dark] a {
     color: #133F6B !important;
 }
-[data-theme=dark] .no_print {
-    color: rgba(32,32,32,0.9) !important;
+[data-theme=dark] div.no_print {
+    background-color: rgba(32,32,32,0.9) !important;
 }
