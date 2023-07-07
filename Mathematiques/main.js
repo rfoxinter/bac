@@ -44,5 +44,5 @@ function change_latex_img() {
             l[i].setAttribute("src","latex.svg");
         }
         i=i+1;
-    } 
+    }
 }
