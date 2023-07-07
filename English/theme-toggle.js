@@ -1,12 +1,6 @@
 const storageKey = 'theme-preference'
 
-const onClick = () => {
-    // flip current value
-    theme.value = theme.value === 'light'
-        ? 'dark'
-        : 'light'
-
-    setPreference()
+function changeImages () {
     if(typeof change_books === "function"){
         change_books()
     }
@@ -16,6 +10,19 @@ const onClick = () => {
     if(typeof change_home === "function" && document.getElementsByClassName('home').length == 1){
         change_home()
     }
+    if(typeof change_nt === "function"){
+        change_nt()
+    }
+}
+
+const onClick = () => {
+    // flip current value
+    theme.value = theme.value === 'light'
+        ? 'dark'
+        : 'light'
+
+    setPreference();
+	changeImages();
 }
 
 const getColorPreference = () => {
