@@ -13,6 +13,9 @@ const onClick = () => {
     if(typeof change_latex_img === "function"){
         change_latex_img()
     }
+    if(typeof change_home === "function" && document.getElementsByClassName('home').length == 1){
+        change_home()
+    }
 }
 
 const getColorPreference = () => {
