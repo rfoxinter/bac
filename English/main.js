@@ -31,6 +31,15 @@ function change_books() {
     } 
 }
 
+function change_home() {
+    const h = document.getElementsByClassName("home")[0];
+	if (document.getElementsByTagName('html')[0].attributes['data-theme'].value=='dark') {
+		h.src = h.src.replace("home.svg", "home_dark.svg");
+	} else {
+		h.src = h.src.replace("home_dark.svg", "home.svg");
+	}
+}
+
 function book_id(str) {
     str = str.substring(0,str.length-5);
     while (str.indexOf("/") != -1) {
@@ -107,6 +116,7 @@ document.addEventListener('readystatechange', event => {
             div.style.left = "100vw";
             div.style.width = "fit-content";
             div.style.height = "fit-content";
+            div.style.backgroundColor = "rgba(255,255,255,0.9)";
             div.id = "no_print";
             var p = document.createTextNode("Calculer sa moyenne au bac");
             var a = document.createElement("a");
@@ -143,3 +153,7 @@ window.onafterprint  = (event) => {
     setPreference()
     change_books()
 };
+
+document.addEventListener("DOMContentLoaded", function(event) {
+   if (document.getElementsByClassName('home').length == 1){change_home();}
+});
