@@ -1,3 +1,3 @@
-.zip files are for Chrome and other chromium based browsers
+```.zip``` files are for _Google Chrome_ and other chromium-based browsers
 
-.xpi files are for Firefox
+```.xpi``` files are for _Mozilla Firefox_
