@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Simulateur de moyenne du bac général international">
+    <meta http-equiv="Cache-control: max-age=31536000" content="public">
+    <meta name="theme-color" content="#157878"/>
+    <link rel="icon" type="image/png" href="../../English/favicon.ico" />
+    <title>Simulateur de moyenne du bac général</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../../English/main.css">
+    <link rel="stylesheet" type="text/css" href="../../English/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../English/style.css">
+    <script type="text/javascript" src="./main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="../../English/theme-toggle.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../English/theme-toggle.css">
+    <style>
+		input {
+			display: unset;
+			width: 100%;
+		}
+		table,tbody {
+			width: 100vw;
+		}
+		td {
+			width: 25vw;
+			padding: 5px 5px !important;
+		}
+	</style>
+</head>
+<body>
+    <button class="theme-toggle no_print" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
+        <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+            <mask class="moon" id="moon-mask">
+                <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                <circle cx="24" cy="10" r="6" fill="black" />
+            </mask>
+                <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+            <g class="sun-beams" stroke="currentColor">
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </g>
+        </svg>
+    </button>
+    <header class="page-header">
+        <h1>Simulateur de moyenne du bac général</h1>
+    </header>
+    <main class="main-content">
+        <p>Séction internationale&nbsp;:
+            <select id="section" onchange="section()">
+                <option value="aucune">aucune</option>
+                <option value="internationale">séction internationale (sauf section chinoise)</option>
+                <option value="chinoise">chinoise</option>
+            </select>
+        </p>
+        <p>
+            <input type="checkbox" name="option" id="_option_1" style="width: unset;" onclick="option_1(true)"><label for="_option_1">&nbsp;Option 1 (première)</label>
+        </p>
+        <p>
+            <input type="checkbox" name="option" id="_option_3" style="width: unset;" onclick="option_3(true)"><label for="_option_3">&nbsp;Option 2 (première)</label>
+        </p>
+        <p>
+            <input type="checkbox" name="option" id="_option" style="width: unset;" onclick="option(true)"><label for="_option">&nbsp;Option 1 (terminale)</label>
+        </p>
+        <p>
+            <input type="checkbox" name="option" id="_option_2" style="width: unset;" onclick="option_2(true)"><label for="_option_2">&nbsp;Option 2 (terminale)</label>
+        </p>
+        <p>
+            <input type="checkbox" name="option" id="_tp1" style="width: unset;" onclick="TP1(true)"><label for="_tp1">&nbsp;TP pour la spécialité 1</label>
+        </p>
+        <p id="_tp1_coeff">
+            <label for="prop_1">Coefficient du TP&nbsp;:&nbsp;</label><input type="number" min="0" max="1" step="0.1" value="0.2" placeholder="Coefficient" onchange="TP1(true)" style="width: unset;" id="prop_1">
+            
+        </p>
+        <p>
+            <input type="checkbox" name="option" id="_tp2" style="width: unset;" onclick="TP2(true)"><label for="_tp2">&nbsp;TP pour la spécialité 2</label>
+        </p>
+        <p id="_tp2_coeff">
+            <label for="prop_2">Coefficient du TP&nbsp;:&nbsp;</label><input type="number" min="0" max="1" step="0.1" value="0.2" placeholder="Coefficient" onchange="TP2(true)" style="width: unset;" id="prop_2">
+        </p>
+        <p id="_dnlfcb">
+            <input type="checkbox" name="option" id="_dnlf" style="width: unset;" onclick="DNLF(true)"><label for="_dnlf">&nbsp;DNL facultative</label>
+        </p>
+        <p>
+            <input type="checkbox" name="option" id="_jury" style="width: unset;" onclick="Jury(true)"><label for="_jury">&nbsp;Points du jury</label>
+        </p>
+        <p>
+            <label>Ouvrir un fichier&nbsp;:&nbsp;</label><input type="file" style="width: unset; cursor: select;" accept=".notes" name="ouvrir" id="ouvrir">
+        </p>
+        <p>
+            <table>
+                <thead>
+                    <tr>
+                        <td><p>Année</p></td>
+                        <td><p>Matière</p></td>
+                        <td><p>Note</p></td>
+                        <td><p>Coefficient</p></td>
+                    </tr>
+                </thead>
+                <tbody id="tableau">
+					<tr>
+                        <td rowspan="9" id="1ere"><p>Première</p></td>
+					</tr>
+                    <tr>
+                        <td><p>Français - Écrit</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="f_e_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="5" placeholder="Coefficient" id="f_e_coeff"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Français - Oral</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="f_o_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="5" placeholder="Coefficient" id="f_o_coeff"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Spécialité abandonnée</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="spe_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="8" placeholder="Coefficient" id="spe_coeff"></input></p></td>
+                    </tr>
+                    <tr id="DNL_chi_1">
+                        <td><p>DNL - Écrit</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="DNL_chi_1_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="0" placeholder="Coefficient" id="DNL_chi_1_coeff"></input></p></td>
+                    </tr>
+                    <tr id="DNL_chi_2">
+                        <td><p>DNL - Oral</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="DNL_chi_2_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="0" placeholder="Coefficient" id="DNL_chi_2_coeff"></input></p></td>
+                    </tr>
+                    <tr id="ens_1">
+                        <td><p>Enseignement scientifique</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="es1_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="3" placeholder="Coefficient" id="es1_coeff"></input></p></td>
+                    </tr>
+                    <tr id="LVA_1">
+                        <td><p>LVA</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="LVA_1_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="3" placeholder="Coefficient" id="LVA_1_coeff"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>LVB</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="LVB_1_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="3" placeholder="Coefficient" id="LVB_1_coeff"></input></p></td>
+                    </tr>
+                    <tr id="hg_1">
+                        <td><p>Histoire-géographie</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="hg_1_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="3" placeholder="Coefficient" id="hg_1_coeff"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>EMC</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="emc_1_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="1" placeholder="Coefficient" id="emc_1_coeff"></input></p></td>
+                    </tr>
+                    <tr id="option_1">
+                        <td><p>Option 1</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="option_1_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="0" placeholder="Coefficient" id="option_1_coeff"></input></p></td>
+                    </tr>
+                    <tr id="option_3">
+                        <td><p>Option 2</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="option_3_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="0" placeholder="Coefficient" id="option_3_coeff"></input></p></td>
+                    </tr>
+					<tr>
+                        <td rowspan="11" id="Tle"><p>Terminale</p></td>
+					</tr>
+                    <tr id="ens_2">
+                        <td><p>Enseignement scientifique</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="es2_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="3" placeholder="Coefficient" id="es2_coeff"></input></p></td>
+                    </tr>
+                    <tr id="LVA_2">
+                        <td><p>LVA</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="LVA_2_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="3" placeholder="Coefficient" id="LVA_2_coeff"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>LVB</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="LVB_2_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="3" placeholder="Coefficient" id="LVB_2_coeff"></input></p></td>
+                    </tr>
+                    <tr id="litt_e">
+                        <td><p>Approfondissement culturel et linguistique - Écrit</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="litt_e_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="0" placeholder="Coefficient" id="litt_e_coeff"></input></p></td>
+                    </tr>
+                    <tr id="litt_o">
+                        <td><p>Approfondissement culturel et linguistique - Oral</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="litt_o_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="0" placeholder="Coefficient" id="litt_o_coeff"></input></p></td>
+                    </tr>
+					<tr id="ecm">
+                        <td><p>Enseignement de connaissance du monde</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="ecm_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="20" placeholder="Coefficient" id="ecm_coeff"></input></p></td>
+                    </tr>
+                    <tr id="hg_2">
+                        <td><p>Histoire-géographie</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="hg_2_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="3" placeholder="Coefficient" id="hg_2_coeff"></input></p></td>
+                    </tr>
+                    <tr id="DNL_e">
+                        <td><p>DNL - Écrit</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="DNL_e_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="0" placeholder="Coefficient" id="DNL_e_coeff"></input></p></td>
+                    </tr>
+                    <tr id="DNL_o">
+                        <td><p>DNL - Oral</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="DNL_o_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="0" placeholder="Coefficient" id="DNL_o_coeff"></input></p></td>
+                    </tr>
+                    <tr id="dnlf">
+                        <td><p>DNL facultative</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="dnlf_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="0" placeholder="Coefficient" id="dnlf_coeff"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Philosophie</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="philo_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="8" placeholder="Coefficient" id="philo_coeff"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>EPS</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="eps_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="6" placeholder="Coefficient" id="eps_coeff"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>EMC</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="emc_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="1" placeholder="Coefficient" id="emc_coeff"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Spécialité 1</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="spe1_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="16" placeholder="Coefficient" id="spe1_coeff" onchange="change(this.id,this.value)"></input></p></td>
+                    </tr>
+                    <tr id="tp1">
+                        <td><p>Spécialité 1 - TP</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="tp1_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="0" placeholder="Coefficient" id="tp1_coeff" onchange="change(this.id,this.value)"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Spécialité 2</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="spe2_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="16" placeholder="Coefficient" id="spe2_coeff" onchange="change(this.id,this.value)"></input></p></td>
+                    </tr>
+                    <tr id="tp2">
+                        <td><p>Spécialité 2 - TP</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="tp2_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="0" placeholder="Coefficient" id="tp2_coeff" onchange="change(this.id,this.value)"></input></p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Grand oral</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="go_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="10" placeholder="Coefficient" id="go_coeff"></input></p></td>
+                    </tr>
+                    <tr id="option">
+                        <td><p>Option 1</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="option_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="0" placeholder="Coefficient" id="option_coeff"></input></p></td>
+                    </tr>
+                    <tr id="option_2">
+                        <td><p>Option 2</p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.25" value="10" placeholder="Note" id="option_2_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="20" step="0.5" value="0" placeholder="Coefficient" id="option_2_coeff"></input></p></td>
+                    </tr>
+                    <tr id="jury">
+                        <td><p>Points du jury</p></td>
+                        <td><p><input type="number" min="0" max="20" step="1" value="0" placeholder="Note" id="jury_note"></input></p></td>
+                        <td><p><input type="number" min="0" max="1" step="0" value="0" placeholder="Coefficient" id="jury_coeff" readonly="readonly"></input></p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </p>
+        <p>
+            <button onclick="moyenne()">Calculer ma moyenne</button>
+        </p>
+        <p id="moyenne">&nbsp;</p>
+        <p>
+            <button onclick="sauvegarder()">Enregistrer les notes</button>
+        </p>
+    </main>
+    <footer class="site-footer">
+    </footer>
+    <script type="text/javascript">
+        let params = new URLSearchParams(document.location.search.substring(1));
+        const s = params.get("section");
+        if (s === "aucune" || s === "internationale" || s === "chinoise") {document.getElementById("section").value = s;}
+        delete params,s
+        document.getElementById('ouvrir').addEventListener('change', function() {
+            var fr = new FileReader();
+            fr.onload = function(){
+                var fichier = atob(fr.result).split("\n");
+                for (var i = 0; i < fichier.length; i++) {
+                    fichier[i] = fichier[i].replace("\r","")
+                }
+                ouvrir(fichier,fr.result);
+            } 
+            fr.readAsText(this.files[0]);
+        })
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            section();
+            option_1(false);
+            option_3(false);
+            option(false);
+            option_2(false);
+            TP1(false);
+            TP2(false);
+            DNLF(false);
+            Jury(false);
+            verif_fichier();
+        });
+    </script>
+</body>
+</html>
