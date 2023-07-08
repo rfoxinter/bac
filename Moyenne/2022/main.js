@@ -200,10 +200,10 @@ function ouvrir(notes,file) {
         }
         if (notes[i] == undefined) {
             if (i === 1 || i === 2 || i === 4 || i === 60) {
-                notes.push("false");
-            } else {
-                notes.push("0");
-            }
+				notes[i] = "false";
+			} else {
+				notes[i] = 0;
+			}
         }
         if (i === 1 || i === 2 || i === 4 || i === 60) {
             document.getElementById(elements[i]).checked = Boolean(notes[i].replace("false",""));
