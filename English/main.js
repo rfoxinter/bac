@@ -109,6 +109,7 @@ document.addEventListener('readystatechange', event => {
             var div = document.createElement("div");
             div.style.border = "solid";
             div.style.borderColor = "#7F7F7F";
+			div.style.borderRadius = "5px";
             div.style.zIndex = "999";
             div.style.position = "sticky";
             div.style.position = "-webkit-sticky";
