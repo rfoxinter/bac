@@ -35,6 +35,7 @@ function change_home() {
 
 function change_nt() {
     const nt = document.getElementById("new_tab");
+	if (nt === null) {return;}
 	if (document.getElementsByTagName('html')[0].attributes['data-theme'].value=='dark') {
 		nt.src = nt.src.replace("new_tab.svg", "new_tab_dark.svg");
 	} else {

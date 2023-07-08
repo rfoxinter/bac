@@ -42,6 +42,7 @@ table {
     .page-header {
         background-color: #FFFFFFFF !important;
         background-image: none !important;
+		color: #155799 !important;
     }
     .no_print {
         display: none !important;
@@ -57,7 +58,7 @@ table {
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
     }
-    * {
+    *:not(a,h1,a>i,h1>i), .poem {
         color: #000000FF !important;
         line-height: 1.15 !important;
     }
