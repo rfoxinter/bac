@@ -95,3 +95,11 @@ window.onafterprint  = (event) => {
     setPreference()
     change_books()
 };
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    var hr = document.createElement("hr");
+    hr.className = "print_only";
+    document.getElementsByTagName("main")[0].prepend(hr);
+	var hr = hr.cloneNode(true);
+    document.getElementsByTagName("main")[0].appendChild(hr);
+});
