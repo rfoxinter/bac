@@ -4,7 +4,7 @@ document.addEventListener('readystatechange', event => {
             var div = document.createElement("div");
             div.style.width = "25px";
             div.style.height = "25px";
-            div.style.background = "#00000000";
+            div.style.setProperty("background-color","#00000000","important");
             div.style.position = "fixed";
             div.style.top = "15px";
             div.style.right = "15px";
