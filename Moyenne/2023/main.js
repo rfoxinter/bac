@@ -211,6 +211,7 @@ function section() {
         document.getElementById("DNL_e").style.display = "table-row";
     }
     if (OPT_1) {document.getElementById("1ere").rowSpan ++;}
+    if (OPT_3) {document.getElementById("1ere").rowSpan ++;}
     if (OPT) {document.getElementById("Tle").rowSpan ++;}
     if (OPT_2) {document.getElementById("Tle").rowSpan ++;}
     if (_TP1) {document.getElementById("Tle").rowSpan ++;}
@@ -256,9 +257,9 @@ function ouvrir(notes,file) {
         } else {
             if (notes[i] == undefined) {
                 if (i === 2 || i === 3 || i === 5 || i === 61 || i === 63 || i === 64 || i === 69) {
-                    notes.push("false");
+					notes[i] = "false";
                 } else {
-                    notes.push("0");
+					notes[i] = 0;
                 }
             }
             if (i === 2 || i === 3 || i === 5 || i === 61 || i === 63 || i === 64 || i === 69) {
