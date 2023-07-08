@@ -33,11 +33,11 @@ function change_books() {
 
 function change_home() {
     const h = document.getElementsByClassName("home")[0];
-	if (document.getElementsByTagName('html')[0].attributes['data-theme'].value=='dark') {
-		h.src = h.src.replace("home.svg", "home_dark.svg");
-	} else {
-		h.src = h.src.replace("home_dark.svg", "home.svg");
-	}
+    if (document.getElementsByTagName('html')[0].attributes['data-theme'].value=='dark') {
+        h.src = h.src.replace("home.svg", "home_dark.svg");
+    } else {
+        h.src = h.src.replace("home_dark.svg", "home.svg");
+    }
 }
 
 function book_id(str) {
@@ -109,7 +109,7 @@ document.addEventListener('readystatechange', event => {
             var div = document.createElement("div");
             div.style.border = "solid";
             div.style.borderColor = "#7F7F7F";
-			div.style.borderRadius = "5px";
+            div.style.borderRadius = "5px";
             div.style.zIndex = "999";
             div.style.position = "sticky";
             div.style.position = "-webkit-sticky";
@@ -141,19 +141,43 @@ document.addEventListener('readystatechange', event => {
     }
 });
 
-var t = '';
+var t;
+var eb;
+var pm;
+
+function unfold_all() {
+    if (document.getElementById('ebooks') !== null) {
+        eb = document.getElementById('ebooks').style.display;
+        document.getElementById('ebooks').style.display = "block";
+    }
+    if (document.getElementById('poems') !== null) {
+        pm = document.getElementById('poems').style.display;
+        document.getElementById('poems').style.display = "block";
+    }
+}
+
+function refold_all() {
+    if (document.getElementById('ebooks') !== null) {
+        document.getElementById('ebooks').style.display = eb;
+    }
+    if (document.getElementById('poems') !== null) {
+        document.getElementById('poems').style.display = pm;
+    }
+}
 
 window.onbeforeprint = (event) => {
     t = theme.value;
     theme.value = 'light';
     setPreference();
-	changeImages();
+    changeImages();
+	unfold_all();
 };
 
 window.onafterprint  = (event) => {
     theme.value = t;
     setPreference();
-	changeImages();
+    changeImages();
+	refold_all();
 };
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -161,6 +185,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var hr = document.createElement("hr");
     hr.className = "print_only";
     document.getElementsByTagName("main")[0].prepend(hr);
-	var hr = hr.cloneNode(true);
+    var hr = hr.cloneNode(true);
     document.getElementsByTagName("main")[0].appendChild(hr);
 });
