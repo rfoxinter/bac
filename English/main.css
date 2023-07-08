@@ -73,6 +73,9 @@ table {
     p, br, ul, li {
         font-size: 12px !important;
     }
+	hr {
+		rgba(239,240,241,0.5) !important;
+	}
 }
 
 .fake_a {
