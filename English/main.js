@@ -182,9 +182,11 @@ window.onafterprint  = (event) => {
 
 document.addEventListener("DOMContentLoaded", function(event) {
     if (document.getElementsByClassName('home').length == 1){change_home();}
-    var hr = document.createElement("hr");
-    hr.className = "print_only";
-    document.getElementsByTagName("main")[0].prepend(hr);
-    var hr = hr.cloneNode(true);
-    document.getElementsByTagName("main")[0].appendChild(hr);
+    if (window.location.href !== "https://rfoxinter.github.io/bac/English/" && window.location.href !== "https://rfoxinter.github.io/bac/English/index.html") {
+        var hr = document.createElement("hr");
+        hr.className = "print_only";
+        document.getElementsByTagName("main")[0].prepend(hr);
+        var hr = hr.cloneNode(true);
+        document.getElementsByTagName("main")[0].appendChild(hr);
+    }
 });
