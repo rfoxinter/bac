@@ -127,10 +127,13 @@ html[data-theme=dark] {
 [data-theme=dark] hr {
     background-color: #7F7F7F !important;
 }
+[data-theme=dark] #prev {
+    border-color: #7F7F7F !important;
+}
 [data-theme=dark] footer {
     border-top-color: #7F7F7F !important;
 }
-[data-theme=dark] h1 {
+[data-theme=dark] h1, [data-theme=dark] h2 {
     color: #0A4C2B !important;
 }
 [data-theme=dark] header h1 {
