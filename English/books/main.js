@@ -22,30 +22,11 @@ function change_home() {
     }
 }
 
-async function online_poems() {
-    var response = await fetch("./"+authors+".txt");
-    var poems;
-    if (response.status == 200) {
-        poems = await response.text();
-        poems = poems.replaceAll("\r", "");
-        poems = poems.split('\n');
-    }
-    var holder = document.getElementById("poems");
-    for (let i = 0; i < poems.length / 2; i++) {
-        var li = document.createElement("li");
-        var a = document.createElement("a");
-        a.innerHTML = "<i>" + poems[2*i] + "</i> - " + poems[2*i+1];
-        a.setAttribute("href", "./reader?title="+poems[2*i]+"&author="+poems[2*i+1]+"&parent="+authors);
-        li.appendChild(a);
-        holder.appendChild(li);
-    }
-}
-
 function online() {
-    urlExists("../ebooks/" + authors + " - " + authors + ".epub", () => {
+    urlExists("../ebooks/" + title + " - " + author + ".epub", () => {
         const a = document.getElementById("online");
         if (a != null) {
-            a.setAttribute("href","https://rfoxinter.github.io/ebooks/bibi/?book="+authors+" - "+authors+".epub");
+            a.setAttribute("href","https://rfoxinter.github.io/ebooks/bibi/?book="+title+" - "+author+".epub");
         }
     }, () => {
         const a = document.getElementById("online");
@@ -60,13 +41,13 @@ function ebook(format) {
     } else {
         folder = "pdfs";
     }
-    urlExists("../"+folder+"/"+authors+" - "+authors+"."+format, () => {
+    urlExists("../"+folder+"/"+title+" - "+author+"."+format, () => {
         if (format !== "pdf") {
             document.getElementById("ebooksa").style.display = "block";
         }
         const a = document.getElementById(format);
         if (a != null) {
-            a.setAttribute("href","../"+folder+"/"+authors+" - "+authors+"."+format);
+            a.setAttribute("href","../"+folder+"/"+title+" - "+author+"."+format);
         }
     }, () => {
         var a;
@@ -78,6 +59,25 @@ function ebook(format) {
         a.style.display = "none";
     });
     
+}
+
+const capitalizeAll = (str) => str.replace(/\b\w/g, (substr) => substr.toUpperCase());
+function onlyCapitalLetters (str) {
+    return str.replace(/[^A-Z]+/g, "");
+}
+
+function character_map() {
+    urlExists("../character_maps/" + title + " - " + author + ".pdf", () => {
+        const a = document.getElementById("map");
+        const capitalizedTitle = capitalizeAll(title);
+        const id = onlyCapitalLetters(capitalizedTitle).toLowerCase();
+        if (a != null) {
+            a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+id+"&type=character_maps");
+        }
+    }, () => {
+        const a = document.getElementById("map");
+        a.style.display = "none";
+    });
 }
 
 function ebooks() {

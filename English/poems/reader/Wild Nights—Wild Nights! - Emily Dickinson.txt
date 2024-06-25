@@ -1,0 +1,14 @@
+<p class="poem">Wild nights — Wild nights!</p>
+<p class="poem">Were I with thee</p>
+<p class="poem">Wild nights should be</p>
+<p class="poem">Our luxury!</p>
+<br class="poem"/>
+<p class="poem">Futile — the winds —</p>
+<p class="poem">To a Heart in port —</p>
+<p class="poem">Done with the Compass —</p>
+<p class="poem">Done with the Chart!</p>
+<br class="poem"/>
+<p class="poem">Rowing in Eden —</p>
+<p class="poem">Ah, the Sea!</p>
+<p class="poem">Might I but moor — Tonight —</p>
+<p class="poem">In thee!</p>

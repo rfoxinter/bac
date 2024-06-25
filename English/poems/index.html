@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="description" content="Bac">
@@ -13,10 +13,51 @@
     <link rel="stylesheet" type="text/css" href="../main.css">
     <link rel="stylesheet" type="text/css" href="../normalize.css">
     <link rel="stylesheet" type="text/css" href="../style.css">
-    <script type="text/javascript" src="../main.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../theme-toggle.js"></script>
     <link rel="stylesheet" type="text/css" href="../theme-toggle.css">
+    <script type="text/javascript">
+        function waitForElm(selector) {
+            return new Promise(resolve => {
+                if (document.querySelector(selector)) {
+                    return resolve(document.querySelector(selector));
+                }
+
+                const observer = new MutationObserver(mutations => {
+                    if (document.querySelector(selector)) {
+                        observer.disconnect();
+                        resolve(document.querySelector(selector));
+                    }
+                });
+
+                // If you get "parameter 1 is not of type 'Node'" error, see https://stackoverflow.com/a/77855838/492336
+                observer.observe(document.documentElement, {
+                    childList: true,
+                    subtree: true
+                });
+            });
+        }
+        async function display() {
+            await waitForElm("#title").then(() => {
+                document.getElementById("author").innerHTML = authors;
+                online_poems();
+                online();
+                ebook("pdf");
+                ebook('epub');
+                ebook('mobi');
+                ebook('azw3');
+                character_map();
+            })
+        }
+        
+        let params = new URLSearchParams(document.location.search.substring(1));
+        const authors = params.get("authors");
+        if (authors != null) {
+            display(); 
+        }
+    </script>
+
 </head>
 <body>
     <button class="theme-toggle no_print" id="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
@@ -39,30 +80,24 @@
         </svg>
     </button>
     <header class="page-header">
-        <h1 id="title"><i>Notes of a Native Son</i></h1>
-        <h1 id="author">James Baldwin</h1>
+        <h1 id="title"></h1>
+        <h1 id="author"></h1>
     </header>
     <main class="main-content">
-        <p><a onclick="online(this)" target="blank" id="online">Online book</a></p>
+        <p onclick="poems()" class="fake_a"><a>Online poems</a></p>
+        <ul style="display: none;" id="poems">
+        </ul>
+        <p><a target="blank" id="online">Online book</a></p>
         <p><a target="blank" id="pdf">PDF</a></p>
-        <p><a onclick="ebooks()" class="fake_a">Other formats</a></p>
+        <p><a id="ebooksa" onclick="ebooks()" style="display: none;" class="fake_a">Other formats</a></p>
         <ul style="display: none;" id="ebooks">
-            <li><a target="blank" id="epub">ePub (for e-Readers)</a></li>
-            <li><a target="blank" id="mobi">Mobi (for old Kindle devices)</a></li>
-            <li><a target="blank" id="azw3">AZW3 (for Kindle devices)</a></li>
+            <li id="liepub"><a target="blank" id="epub">ePub (for e-Readers)</a></li>
+            <li id="limobi"><a target="blank" id="mobi">Mobi (for old Kindle devices)</a></li>
+            <li id="liazw3"><a target="blank" id="azw3">AZW3 (for Kindle devices)</a></li>
         </ul>
     </main>
     <footer class="site-footer">
         <a href="../"><img src="../home.svg" class="home" alt="home"></a>
     </footer>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            online();
-            ebook('pdf');
-            ebook('epub');
-            ebook('mobi');
-            ebook('azw3');
-        });
-    </script>
 </body>
 </html>

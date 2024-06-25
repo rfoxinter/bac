@@ -18,15 +18,15 @@
     <link rel="manifest" href="app.webmanifest" crossorigin="use-credentials">
     <link rel="manifest" href="manifest.json">
     <script type="text/javascript" src="main.js"></script>
-	<link rel="preload" as="image" href="./covers/tiobe.webp" type="image/webp">
-    <link rel="preload" as="image" href="./covers/ia.webp" type="image/webp">
-    <link rel="preload" as="image" href="./covers/tt.webp" type="image/webp">
-    <link rel="preload" as="image" href="./covers/noans.webp" type="image/webp">
-    <link rel="preload" as="image" href="./covers/tpos.webp" type="image/webp">
-    <link rel="preload" as="image" href="./covers/tht.webp" type="image/webp">
-    <link rel="preload" as="image" href="./covers/tttc.webp" type="image/webp">
-    <link rel="preload" as="image" href="./covers/tfa.webp" type="image/webp">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<link rel="preload" as="image" href="./covers/The Importance of Being Earnest - Oscar Wilde.webp" type="image/webp">
+    <link rel="preload" as="image" href="./covers/Intimate Apparel - Lynn Nottage.webp" type="image/webp">
+    <link rel="preload" as="image" href="./covers/The Tempest - William Shakespeare.webp" type="image/webp">
+    <link rel="preload" as="image" href="./covers/Notes of a Native Son - James Baldwin.webp" type="image/webp">
+    <link rel="preload" as="image" href="./covers/The Painter of Signs - R. K. Narayan.webp" type="image/webp">
+    <link rel="preload" as="image" href="./covers/The Handmaid’s Tale - Margaret Atwood.webp" type="image/webp">
+    <link rel="preload" as="image" href="./covers/The Things They Carried - Tim O’Brien.webp" type="image/webp">
+    <link rel="preload" as="image" href="./covers/Things Fall Apart - Chinua Achebe.webp" type="image/webp">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="theme-toggle.js"></script>
     <link rel="stylesheet" type="text/css" href="theme-toggle.css">
 </head>
@@ -56,30 +56,28 @@
     <main class="main-content">
         <h1>Drama</h1>
         <p class="main">
-            <book class="tiobe"></book>
-            <book class="ia"></book>
-            <book class="tt"></book>
+            <book title="The Importance of Being Earnest" author="Oscar Wilde"></book>
+            <book title="Intimate Apparel" author="Lynn Nottage"></book>
+            <book title="The Tempest" author="William Shakespeare"></book>
         </p>
         <hr>
         <h1>Non-fiction</h1>
         <p class="main">
-            <book class="noans"></book>
+            <book title="Notes of a Native Son" author="James Baldwin"></book>
         </p>
         <hr>
         <h1>Fiction</h1>
         <p class="main">
-            <book class="tpos"></book>
-            <book class="tht"></book>
-            <book class="tttc"></book>
-            <book class="tfa"></book>
+            <book title="The Painter of Signs" author="R. K. Narayan"></book>
+            <book title="The Handmaid’s Tale" author="Margaret Atwood"></book>
+            <book title="The Things They Carried" author="Tim O’Brien"></book>
+            <book title="Things Fall Apart" author="Chinua Achebe"></book>
         </p>
         <hr>
         <h1>Poetry</h1>
-        <p style="text-align: center; margin-bottom: 10px;">
-            <a href="books/wp.html">Women poets</a>
-        </p>
-        <p style="text-align: center;">
-            <a href="books/yp.html">Young poets</a>
+        <p class="main" style="margin-top: 0px; margin-bottom: 0px;">
+            <poem authors="Women poets"></poem>
+            <poem authors="Young poets"></poem>
         </p>
         <hr>
         <h1>Previous syllabus</h1>
@@ -91,7 +89,7 @@
     </footer>
     <script type="text/javascript">
         $(document).ready(function() {
-            books();
+            books_poems();
         });
     </script>
     <script type="text/javascript" src="pwa.js"></script>

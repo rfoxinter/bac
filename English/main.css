@@ -58,7 +58,7 @@ table {
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
     }
-    *:not(a,h1,h2,a>i,h1>i), .poem {
+    *:not(a,h1,h2,a>i,h1>i), .poem, .poemtitle {
         color: #000000FF !important;
         line-height: 1.15 !important;
     }

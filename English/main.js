@@ -1,31 +1,51 @@
-function books() {
+function books_poems() {
     const b = document.getElementsByTagName("book");
     var i=0;
     while (i < b.length) {
+        var title = b[i].getAttribute("title");
+        var author = b[i].getAttribute("author");
         var a = document.createElement("a");
-        a.setAttribute("href","books/"+b[i].className+".html");
+        a.setAttribute("href","books/?title="+title+"&author="+author);
         var img = document.createElement("img");
         if (document.getElementsByTagName('html')[0].attributes['data-theme'].value=='dark') {
-            img.setAttribute("src","covers/"+b[i].className+"_dark.webp");
+            img.setAttribute("src","covers/"+title+" - "+author+"_dark.webp");
         } else {
-            img.setAttribute("src","covers/"+b[i].className+".webp");
+            img.setAttribute("src","covers/"+title+" - "+author+".webp");
         }
         img.setAttribute("class","books");
-        img.setAttribute("alt",b[i].className);
+        img.setAttribute("alt",title);
         a.appendChild(img);
         b[i].appendChild(a);
         i=i+1;
-    } 
+    }
+    const po = document.getElementsByTagName("poem");
+    var i=0;
+    while (i < po.length) {
+        var authors = po[i].getAttribute("authors");
+        var p = document.createElement("p");
+        var a = document.createElement("a");
+        a.setAttribute("href","poems/?authors="+authors);
+        a.innerHTML=authors;
+        p.appendChild(a);
+        po[i].appendChild(p);
+        if (i > 0) {
+            p.style.marginTop = "10px";
+        }
+        i=i+1;
+    }
 }
 
 function change_books() {
     const b = document.getElementsByClassName("books");
     var i=0;
     while (i < b.length) {
+        var p = b[i].parentElement.parentElement;
+        var title = p.getAttribute("title");
+        var author = p.getAttribute("author");
         if (document.getElementsByTagName('html')[0].attributes['data-theme'].value=='dark') {
-            b[i].setAttribute("src","covers/"+b[i].alt+"_dark.webp");
+            b[i].setAttribute("src","covers/"+title+" - "+author+"_dark.webp");
         } else {
-            b[i].setAttribute("src","covers/"+b[i].alt+".webp");
+            b[i].setAttribute("src","covers/"+title+" - "+author+".webp");
         }
         i=i+1;
     } 
@@ -37,67 +57,6 @@ function change_home() {
         h.src = h.src.replace("home.svg", "home_dark.svg");
     } else {
         h.src = h.src.replace("home_dark.svg", "home.svg");
-    }
-}
-
-function book_id(str) {
-    str = str.substring(0,str.length-5);
-    while (str.indexOf("/") != -1) {
-        str = str.substring(str.indexOf("/")+1,str.length);
-    }
-    return str
-}
-
-function online() {
-    const title = document.getElementById("title").textContent;
-    const author = document.getElementById("author").textContent;
-    const a = document.getElementById("online");
-    if (a != null) {
-        a.setAttribute("href","https://rfoxinter.github.io/ebooks/bibi/?book="+title+" - "+author+".epub");
-    }
-}
-
-function ebook(format) {
-    const title = document.getElementById("title").textContent;
-    const author = document.getElementById("author").textContent;
-    var folder = "";
-    if (format === "epub" ||  format === "mobi") {
-        folder = "ebooks";
-    } else if (format === "pdf") {
-        folder = "pdfs";
-    }
-    const a = document.getElementById(format);
-    if (a != null) {
-        a.setAttribute("href","../"+folder+"/"+title+" - "+author+"."+format);
-    }
-}
-
-function character_map() {
-    const title = document.getElementById("title").textContent;
-    const author = document.getElementById("author").textContent;
-    const type = "character_maps";
-    const url = book_id(window.location.href);
-    const a = document.getElementById("map");
-    if (a != null) {
-        a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+url+"&type="+type);
-    }
-}
-
-function ebooks() {
-    if (document.getElementById("ebooks").style.display === "none") {
-        document.getElementById("ebooks").style.display = "block";
-    }
-    else {
-        document.getElementById("ebooks").style.display = "none";
-    }
-}
-
-function poems() {
-    if (document.getElementById("poems").style.display === "none") {
-        document.getElementById("poems").style.display = "block";
-    }
-    else {
-        document.getElementById("poems").style.display = "none";
     }
 }
 
