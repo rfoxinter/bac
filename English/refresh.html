@@ -26,8 +26,8 @@
             });
         }
         async function main() {
-            await delete_cache();
-            await delete_sw();
+            try {await delete_cache()} catch(error) {console.log(error)};
+            try {await delete_sw()} catch(error) {console.log(error)};
             window.location.replace("./");
         }
     </script>
