@@ -134,17 +134,17 @@ html[data-theme=dark] {
     border-top-color: #7F7F7F !important;
 }
 [data-theme=dark] h1, [data-theme=dark] h2 {
-    color: #0A4C2B !important;
+    color: #159e59 !important;
 }
 [data-theme=dark] header h1 {
     color: #202020 !important;
 }
 [data-theme=dark] header {
-    background-color: #0A4C2B !important;
-    background-image: linear-gradient(120deg, #0A2B4C, #0A4C2B) !important;
+    background-color: #159e59 !important;
+    background-image: linear-gradient(120deg, #15599e, #159e59) !important; /* linear-gradient(120deg, #0A2B4C, #0A4C2B) !important; */
 }
 [data-theme=dark] a {
-    color: #133F6B !important;
+    color: #1b5998 !important; /* #133F6B !important; */
 }
 [data-theme=dark] div.no_print {
     background-color: rgba(32,32,32,0.9) !important;

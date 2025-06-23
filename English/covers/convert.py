@@ -9,7 +9,4 @@ for i in l('.'):
         
 for i in covers:
     s('magick "'+i+'" -resize 175 -define webp:lossless=true "'+sp(i)[0]+'.webp"')
-    s('magick "'+i+'" -resize 175 -define webp:lossless=true -evaluate Multiply 0.5 "'+sp(i)[0]+'_dark.webp"')
-
-#convert ia.webp -evaluate Multiply 0.5 ia2.webp
-#convert ia.webp -level 1,50% ia3.webp
+    s('magick "'+i+'" -resize 175 -define webp:lossless=true -evaluate Multiply 0.66 "'+sp(i)[0]+'_dark.webp"')
