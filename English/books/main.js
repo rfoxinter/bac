@@ -98,7 +98,7 @@ function poems() {
     }
 }
 
-document.addEventListener('readystatechange', event => {
+/* document.addEventListener('readystatechange', event => {
     if (event.target.readyState === "interactive") {
         let displayMode = 'browser';
         const mqStandAlone = '(display-mode: standalone)';
@@ -136,7 +136,7 @@ document.addEventListener('readystatechange', event => {
             }
         }
     }
-});
+}); */
 
 var t;
 var eb;
