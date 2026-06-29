@@ -72,7 +72,8 @@ function character_map() {
         const capitalizedTitle = capitalizeAll(title);
         const id = onlyCapitalLetters(capitalizedTitle).toLowerCase();
         if (a != null) {
-            a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+id+"&type=character_maps");
+            // a.setAttribute("href","../locked.html?title="+title+"&author="+author+"&id="+id+"&type=character_maps");
+            a.setAttribute("href","../character_maps/" + title + " - " + author + ".pdf");
         }
     }, () => {
         const a = document.getElementById("map");
